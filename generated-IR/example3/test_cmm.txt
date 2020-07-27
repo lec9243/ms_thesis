@@ -1,0 +1,2725 @@
+[1 of 1] Compiling Main             ( test.hs, test.o )
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . __stginit_main@main:Main" {
+     __stginit_main@main:Main:
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . __stginit_main@main:Main" {
+     __stginit_main@main:Main:
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . __stginit_main@main:Main" {
+     __stginit_main@main:Main:
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . sat_s20K_closure" {
+     sat_s20K_closure:
+         const sat_s20K_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ sat_s20C_entry() //  [R1]
+         { info_tbl: [(c219,
+                       label: sat_s20C_info
+                       rep:HeapRep { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c219:
+           _s20C::P64 = R1;
+           goto c216;
+       c216:
+           if ((old + 0) - <highSp> < SpLim) goto c21a; else goto c21b;
+       c21b:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21d; else goto c21c;
+       c21d:
+           HpAlloc = 16;
+           goto c21a;
+       c21a:
+           R1 = _s20C::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21c:
+           I64[(old + 24)] = stg_upd_frame_info;
+           P64[(old + 16)] = _s20C::P64;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c218::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[(old + 40)] = stg_ap_p_info;
+           P64[(old + 32)] = _c218::P64;
+           call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+     }
+ },
+ sat_s20G_entry() //  [R1]
+         { info_tbl: [(c21w,
+                       label: sat_s20G_info
+                       rep:HeapRep { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21w:
+           _s20G::P64 = R1;
+           goto c21t;
+       c21t:
+           if ((old + 0) - <highSp> < SpLim) goto c21x; else goto c21y;
+       c21y:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21A; else goto c21z;
+       c21A:
+           HpAlloc = 16;
+           goto c21x;
+       c21x:
+           R1 = _s20G::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21z:
+           I64[(old + 24)] = stg_upd_frame_info;
+           P64[(old + 16)] = _s20G::P64;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c21v::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[(old + 40)] = stg_ap_p_info;
+           P64[(old + 32)] = _c21v::P64;
+           call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+     }
+ },
+ sat_s20H_entry() //  [R1]
+         { info_tbl: [(c21B,
+                       label: sat_s20H_info
+                       rep:HeapRep 1 ptrs { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21B:
+           _s20H::P64 = R1;
+           goto c21p;
+       c21p:
+           if ((old + 0) - <highSp> < SpLim) goto c21C; else goto c21D;
+       c21D:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21F; else goto c21E;
+       c21F:
+           HpAlloc = 16;
+           goto c21C;
+       c21C:
+           R1 = _s20H::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21E:
+           I64[(old + 24)] = stg_upd_frame_info;
+           P64[(old + 16)] = _s20H::P64;
+           _s20v::P64 = P64[_s20H::P64 + 16];
+           I64[Hp - 8] = sat_s20G_info;
+           _c21r::P64 = Hp - 8;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[(old + 48)] = stg_ap_pp_info;
+           P64[(old + 40)] = _s20v::P64;
+           P64[(old + 32)] = _c21r::P64;
+           call GHC.Num.-_info(R2) args: 48, res: 0, upd: 24;
+     }
+ },
+ sat_s20I_entry() //  [R1]
+         { info_tbl: [(c21G,
+                       label: sat_s20I_info
+                       rep:HeapRep 2 ptrs { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21G:
+           _s20I::P64 = R1;
+           goto c21l;
+       c21l:
+           if ((old + 0) - <highSp> < SpLim) goto c21H; else goto c21I;
+       c21I:
+           Hp = Hp + 24;
+           if (Hp > HpLim) goto c21K; else goto c21J;
+       c21K:
+           HpAlloc = 24;
+           goto c21H;
+       c21H:
+           R1 = _s20I::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21J:
+           I64[(old + 24)] = stg_upd_frame_info;
+           P64[(old + 16)] = _s20I::P64;
+           _s20u::P64 = P64[_s20I::P64 + 16];
+           _s20v::P64 = P64[_s20I::P64 + 24];
+           I64[Hp - 16] = sat_s20H_info;
+           P64[Hp] = _s20v::P64;
+           _c21n::P64 = Hp - 16;
+           R2 = _c21n::P64;
+           R1 = _s20u::P64;
+           call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ },
+ f_s20u_entry() //  [R2, R1]
+         { info_tbl: [(c21P,
+                       label: f_s20u_info
+                       rep:HeapRep 1 nonptrs { Fun {arity: 1 fun_type: ArgSpec 5} })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21P:
+           _s20v::P64 = R2;
+           _s20u::P64 = R1;
+           goto c212;
+       c212:
+           if ((old + 0) - <highSp> < SpLim) goto c21Q; else goto c21R;
+       c21R:
+           goto c211;
+       c211:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21T; else goto c21S;
+       c21T:
+           HpAlloc = 16;
+           goto c21Q;
+       c21Q:
+           R2 = _s20v::P64;
+           R1 = _s20u::P64;
+           call (stg_gc_fun)(R2, R1) args: 8, res: 0, upd: 8;
+       c21S:
+           I64[Hp - 8] = sat_s20C_info;
+           _c214::P64 = Hp - 8;
+           I64[(young<c21e> + 8)] = c21e;
+           R2 = GHC.Integer.Type.$fOrdInteger_closure;
+           I64[(young<c21e> + 32)] = stg_ap_pp_info;
+           P64[(young<c21e> + 24)] = _s20v::P64;
+           P64[(young<c21e> + 16)] = _c214::P64;
+           call GHC.Classes.>_info(R2) returns to c21e, args: 32, res: 8, upd: 8;
+       c21e:
+           _s20D::P64 = R1;
+           _c21O::P64 = _s20D::P64 & 7;
+           switch [1 .. 2] _c21O::P64 {
+               case 1 : goto c21M;
+               case 2 : goto c21N;
+           }
+       c21N:
+           Hp = Hp + 32;
+           if (Hp > HpLim) goto c220; else goto c21Z;
+       c220:
+           HpAlloc = 32;
+           goto c21Y;
+       c21Y:
+           R1 = _s20D::P64;
+           call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+       c21Z:
+           I64[Hp - 24] = sat_s20I_info;
+           P64[Hp - 8] = _s20u::P64;
+           P64[Hp] = _s20v::P64;
+           _c21j::P64 = Hp - 24;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[(old + 32)] = stg_ap_pp_info;
+           P64[(old + 24)] = _s20v::P64;
+           P64[(old + 16)] = _c21j::P64;
+           call GHC.Num.+_info(R2) args: 32, res: 0, upd: 8;
+       c21M:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21X; else goto c21W;
+       c21X:
+           HpAlloc = 16;
+           goto c21V;
+       c21V:
+           R1 = _s20D::P64;
+           call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+       c21W:
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c221::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[(old + 24)] = stg_ap_p_info;
+           P64[(old + 16)] = _c221::P64;
+           call GHC.Num.fromInteger_info(R2) args: 24, res: 0, upd: 8;
+     }
+ },
+ sat_s20K_entry() //  [R1]
+         { info_tbl: [(c223,
+                       label: sat_s20K_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c223:
+           _s20K::P64 = R1;
+           goto c20U;
+       c20U:
+           if ((old + 0) - <highSp> < SpLim) goto c224; else goto c225;
+       c225:
+           Hp = Hp + 32;
+           if (Hp > HpLim) goto c227; else goto c226;
+       c227:
+           HpAlloc = 32;
+           goto c224;
+       c224:
+           R1 = _s20K::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c226:
+           (_c20W::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _s20K::P64);
+           if (_c20W::I64 == 0) goto c20Y; else goto c20X;
+       c20Y:
+           call (I64[_s20K::P64])() args: 8, res: 0, upd: 8;
+       c20X:
+           I64[(old + 24)] = stg_bh_upd_frame_info;
+           I64[(old + 16)] = _c20W::I64;
+           _c20Z::P64 = Hp - 23;
+           I64[Hp - 24] = f_s20u_info;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 3;
+           _c222::P64 = Hp - 7;
+           R2 = _c222::P64;
+           R1 = _c20Z::P64;
+           call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c219:
+      _s20C::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21a; else goto c21b;
+  c21b:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21d; else goto c21c;
+  c21d:
+      HpAlloc = 16;
+      goto c21a;
+  c21a:
+      R1 = _s20C::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21c:
+      I64[(old + 24)] = stg_upd_frame_info;
+      P64[(old + 16)] = _s20C::P64;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c218::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 40)] = stg_ap_p_info;
+      P64[(old + 32)] = _c218::P64;
+      call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c219:
+      _s20C::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21a; else goto c21b;
+  c21b:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21d; else goto c21c;
+  c21d:
+      HpAlloc = 16;
+      goto c21a;
+  c21a:
+      R1 = _s20C::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21c:
+      I64[(old + 24)] = stg_upd_frame_info;
+      P64[(old + 16)] = _s20C::P64;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c218::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 40)] = stg_ap_p_info;
+      P64[(old + 32)] = _c218::P64;
+      call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c219:
+      _s20C::P64 = R1;
+      if ((Sp + 8) - 40 < SpLim) goto c21a; else goto c21b;
+  c21b:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21d; else goto c21c;
+  c21d:
+      HpAlloc = 16;
+      goto c21a;
+  c21a:
+      R1 = _s20C::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21c:
+      I64[Sp - 16] = stg_upd_frame_info;
+      P64[Sp - 8] = _s20C::P64;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c218::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[Sp - 32] = stg_ap_p_info;
+      P64[Sp - 24] = _c218::P64;
+      Sp = Sp - 32;
+      call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c219, {GHC.Num.$fNumInteger_closure}), (c21a, {}),
+ (c21b, {GHC.Num.$fNumInteger_closure}),
+ (c21c, {GHC.Num.$fNumInteger_closure}), (c21d, {})]
+
+
+
+==================== after setInfoTableStackMap ====================
+sat_s20C_entry() //  [R1]
+        { info_tbl: [(c219,
+                      label: sat_s20C_info
+                      rep:HeapRep { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c219:
+          _s20C::P64 = R1;
+          if ((Sp + 8) - 40 < SpLim) goto c21a; else goto c21b;
+      c21b:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21d; else goto c21c;
+      c21d:
+          HpAlloc = 16;
+          goto c21a;
+      c21a:
+          R1 = _s20C::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c21c:
+          I64[Sp - 16] = stg_upd_frame_info;
+          P64[Sp - 8] = _s20C::P64;
+          I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+          I64[Hp] = 1;
+          _c218::P64 = Hp - 7;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp - 32] = stg_ap_p_info;
+          P64[Sp - 24] = _c218::P64;
+          Sp = Sp - 32;
+          call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+sat_s20C_entry() //  [R1]
+        { info_tbl: [(c219,
+                      label: sat_s20C_info
+                      rep:HeapRep { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c219:
+          _s20C::P64 = R1;
+          if ((Sp + 8) - 40 < SpLim) goto c21a; else goto c21b;
+      c21b:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21d; else goto c21c;
+      c21d:
+          HpAlloc = 16;
+          goto c21a;
+      c21a:
+          R1 = _s20C::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c21c:
+          I64[Sp - 16] = stg_upd_frame_info;
+          P64[Sp - 8] = _s20C::P64;
+          I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+          I64[Hp] = 1;
+          _c218::P64 = Hp - 7;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp - 32] = stg_ap_p_info;
+          P64[Sp - 24] = _c218::P64;
+          Sp = Sp - 32;
+          call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c21w:
+      _s20G::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21x; else goto c21y;
+  c21y:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21A; else goto c21z;
+  c21A:
+      HpAlloc = 16;
+      goto c21x;
+  c21x:
+      R1 = _s20G::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21z:
+      I64[(old + 24)] = stg_upd_frame_info;
+      P64[(old + 16)] = _s20G::P64;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c21v::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 40)] = stg_ap_p_info;
+      P64[(old + 32)] = _c21v::P64;
+      call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c21w:
+      _s20G::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21x; else goto c21y;
+  c21y:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21A; else goto c21z;
+  c21A:
+      HpAlloc = 16;
+      goto c21x;
+  c21x:
+      R1 = _s20G::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21z:
+      I64[(old + 24)] = stg_upd_frame_info;
+      P64[(old + 16)] = _s20G::P64;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c21v::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 40)] = stg_ap_p_info;
+      P64[(old + 32)] = _c21v::P64;
+      call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c21w:
+      _s20G::P64 = R1;
+      if ((Sp + 8) - 40 < SpLim) goto c21x; else goto c21y;
+  c21y:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21A; else goto c21z;
+  c21A:
+      HpAlloc = 16;
+      goto c21x;
+  c21x:
+      R1 = _s20G::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21z:
+      I64[Sp - 16] = stg_upd_frame_info;
+      P64[Sp - 8] = _s20G::P64;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c21v::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[Sp - 32] = stg_ap_p_info;
+      P64[Sp - 24] = _c21v::P64;
+      Sp = Sp - 32;
+      call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c21w, {GHC.Num.$fNumInteger_closure}), (c21x, {}),
+ (c21y, {GHC.Num.$fNumInteger_closure}),
+ (c21z, {GHC.Num.$fNumInteger_closure}), (c21A, {})]
+
+
+
+==================== after setInfoTableStackMap ====================
+sat_s20G_entry() //  [R1]
+        { info_tbl: [(c21w,
+                      label: sat_s20G_info
+                      rep:HeapRep { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c21w:
+          _s20G::P64 = R1;
+          if ((Sp + 8) - 40 < SpLim) goto c21x; else goto c21y;
+      c21y:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21A; else goto c21z;
+      c21A:
+          HpAlloc = 16;
+          goto c21x;
+      c21x:
+          R1 = _s20G::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c21z:
+          I64[Sp - 16] = stg_upd_frame_info;
+          P64[Sp - 8] = _s20G::P64;
+          I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+          I64[Hp] = 1;
+          _c21v::P64 = Hp - 7;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp - 32] = stg_ap_p_info;
+          P64[Sp - 24] = _c21v::P64;
+          Sp = Sp - 32;
+          call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+sat_s20G_entry() //  [R1]
+        { info_tbl: [(c21w,
+                      label: sat_s20G_info
+                      rep:HeapRep { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c21w:
+          _s20G::P64 = R1;
+          if ((Sp + 8) - 40 < SpLim) goto c21x; else goto c21y;
+      c21y:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21A; else goto c21z;
+      c21A:
+          HpAlloc = 16;
+          goto c21x;
+      c21x:
+          R1 = _s20G::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c21z:
+          I64[Sp - 16] = stg_upd_frame_info;
+          P64[Sp - 8] = _s20G::P64;
+          I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+          I64[Hp] = 1;
+          _c21v::P64 = Hp - 7;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp - 32] = stg_ap_p_info;
+          P64[Sp - 24] = _c21v::P64;
+          Sp = Sp - 32;
+          call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c21B:
+      _s20H::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21C; else goto c21D;
+  c21D:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21F; else goto c21E;
+  c21F:
+      HpAlloc = 16;
+      goto c21C;
+  c21C:
+      R1 = _s20H::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21E:
+      I64[(old + 24)] = stg_upd_frame_info;
+      P64[(old + 16)] = _s20H::P64;
+      _s20v::P64 = P64[_s20H::P64 + 16];
+      I64[Hp - 8] = sat_s20G_info;
+      _c21r::P64 = Hp - 8;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 48)] = stg_ap_pp_info;
+      P64[(old + 40)] = _s20v::P64;
+      P64[(old + 32)] = _c21r::P64;
+      call GHC.Num.-_info(R2) args: 48, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c21B:
+      _s20H::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21C; else goto c21D;
+  c21D:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21F; else goto c21E;
+  c21F:
+      HpAlloc = 16;
+      goto c21C;
+  c21C:
+      R1 = _s20H::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21E:
+      I64[(old + 24)] = stg_upd_frame_info;
+      P64[(old + 16)] = _s20H::P64;
+      _s20v::P64 = P64[_s20H::P64 + 16];
+      I64[Hp - 8] = sat_s20G_info;
+      _c21r::P64 = Hp - 8;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 48)] = stg_ap_pp_info;
+      P64[(old + 40)] = _s20v::P64;
+      P64[(old + 32)] = _c21r::P64;
+      call GHC.Num.-_info(R2) args: 48, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c21B:
+      _s20H::P64 = R1;
+      if ((Sp + 8) - 48 < SpLim) goto c21C; else goto c21D;
+  c21D:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21F; else goto c21E;
+  c21F:
+      HpAlloc = 16;
+      goto c21C;
+  c21C:
+      R1 = _s20H::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21E:
+      I64[Sp - 16] = stg_upd_frame_info;
+      P64[Sp - 8] = _s20H::P64;
+      _s20v::P64 = P64[_s20H::P64 + 16];
+      I64[Hp - 8] = sat_s20G_info;
+      _c21r::P64 = Hp - 8;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[Sp - 40] = stg_ap_pp_info;
+      P64[Sp - 32] = _s20v::P64;
+      P64[Sp - 24] = _c21r::P64;
+      Sp = Sp - 40;
+      call GHC.Num.-_info(R2) args: 48, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c21B, {GHC.Num.$fNumInteger_closure, sat_s20G_closure}),
+ (c21C, {}),
+ (c21D, {GHC.Num.$fNumInteger_closure, sat_s20G_closure}),
+ (c21E, {GHC.Num.$fNumInteger_closure, sat_s20G_closure}),
+ (c21F, {})]
+
+
+
+==================== after setInfoTableStackMap ====================
+sat_s20H_entry() //  [R1]
+        { info_tbl: [(c21B,
+                      label: sat_s20H_info
+                      rep:HeapRep 1 ptrs { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c21B:
+          _s20H::P64 = R1;
+          if ((Sp + 8) - 48 < SpLim) goto c21C; else goto c21D;
+      c21D:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21F; else goto c21E;
+      c21F:
+          HpAlloc = 16;
+          goto c21C;
+      c21C:
+          R1 = _s20H::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c21E:
+          I64[Sp - 16] = stg_upd_frame_info;
+          P64[Sp - 8] = _s20H::P64;
+          _s20v::P64 = P64[_s20H::P64 + 16];
+          I64[Hp - 8] = sat_s20G_info;
+          _c21r::P64 = Hp - 8;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp - 40] = stg_ap_pp_info;
+          P64[Sp - 32] = _s20v::P64;
+          P64[Sp - 24] = _c21r::P64;
+          Sp = Sp - 40;
+          call GHC.Num.-_info(R2) args: 48, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+sat_s20H_entry() //  [R1]
+        { info_tbl: [(c21B,
+                      label: sat_s20H_info
+                      rep:HeapRep 1 ptrs { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c21B:
+          _s20H::P64 = R1;
+          if ((Sp + 8) - 48 < SpLim) goto c21C; else goto c21D;
+      c21D:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21F; else goto c21E;
+      c21F:
+          HpAlloc = 16;
+          goto c21C;
+      c21C:
+          R1 = _s20H::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c21E:
+          I64[Sp - 16] = stg_upd_frame_info;
+          P64[Sp - 8] = _s20H::P64;
+          _s20v::P64 = P64[_s20H::P64 + 16];
+          I64[Hp - 8] = sat_s20G_info;
+          _c21r::P64 = Hp - 8;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp - 40] = stg_ap_pp_info;
+          P64[Sp - 32] = _s20v::P64;
+          P64[Sp - 24] = _c21r::P64;
+          Sp = Sp - 40;
+          call GHC.Num.-_info(R2) args: 48, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c21G:
+      _s20I::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21H; else goto c21I;
+  c21I:
+      Hp = Hp + 24;
+      if (Hp > HpLim) goto c21K; else goto c21J;
+  c21K:
+      HpAlloc = 24;
+      goto c21H;
+  c21H:
+      R1 = _s20I::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21J:
+      I64[(old + 24)] = stg_upd_frame_info;
+      P64[(old + 16)] = _s20I::P64;
+      _s20u::P64 = P64[_s20I::P64 + 16];
+      _s20v::P64 = P64[_s20I::P64 + 24];
+      I64[Hp - 16] = sat_s20H_info;
+      P64[Hp] = _s20v::P64;
+      _c21n::P64 = Hp - 16;
+      R2 = _c21n::P64;
+      R1 = _s20u::P64;
+      call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c21G:
+      _s20I::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21H; else goto c21I;
+  c21I:
+      Hp = Hp + 24;
+      if (Hp > HpLim) goto c21K; else goto c21J;
+  c21K:
+      HpAlloc = 24;
+      goto c21H;
+  c21H:
+      R1 = _s20I::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21J:
+      I64[(old + 24)] = stg_upd_frame_info;
+      P64[(old + 16)] = _s20I::P64;
+      _s20u::P64 = P64[_s20I::P64 + 16];
+      _s20v::P64 = P64[_s20I::P64 + 24];
+      I64[Hp - 16] = sat_s20H_info;
+      P64[Hp] = _s20v::P64;
+      _c21n::P64 = Hp - 16;
+      R2 = _c21n::P64;
+      R1 = _s20u::P64;
+      call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c21G:
+      _s20I::P64 = R1;
+      if ((Sp + 8) - 24 < SpLim) goto c21H; else goto c21I;
+  c21I:
+      Hp = Hp + 24;
+      if (Hp > HpLim) goto c21K; else goto c21J;
+  c21K:
+      HpAlloc = 24;
+      goto c21H;
+  c21H:
+      R1 = _s20I::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c21J:
+      I64[Sp - 16] = stg_upd_frame_info;
+      P64[Sp - 8] = _s20I::P64;
+      _s20u::P64 = P64[_s20I::P64 + 16];
+      _s20v::P64 = P64[_s20I::P64 + 24];
+      I64[Hp - 16] = sat_s20H_info;
+      P64[Hp] = _s20v::P64;
+      _c21n::P64 = Hp - 16;
+      R2 = _c21n::P64;
+      R1 = _s20u::P64;
+      Sp = Sp - 16;
+      call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c21G, {f_s20u_closure, sat_s20H_closure}), (c21H, {}),
+ (c21I, {f_s20u_closure, sat_s20H_closure}),
+ (c21J, {f_s20u_closure, sat_s20H_closure}), (c21K, {})]
+
+
+
+==================== after setInfoTableStackMap ====================
+sat_s20I_entry() //  [R1]
+        { info_tbl: [(c21G,
+                      label: sat_s20I_info
+                      rep:HeapRep 2 ptrs { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c21G:
+          _s20I::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c21H; else goto c21I;
+      c21I:
+          Hp = Hp + 24;
+          if (Hp > HpLim) goto c21K; else goto c21J;
+      c21K:
+          HpAlloc = 24;
+          goto c21H;
+      c21H:
+          R1 = _s20I::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c21J:
+          I64[Sp - 16] = stg_upd_frame_info;
+          P64[Sp - 8] = _s20I::P64;
+          _s20u::P64 = P64[_s20I::P64 + 16];
+          _s20v::P64 = P64[_s20I::P64 + 24];
+          I64[Hp - 16] = sat_s20H_info;
+          P64[Hp] = _s20v::P64;
+          _c21n::P64 = Hp - 16;
+          R2 = _c21n::P64;
+          R1 = _s20u::P64;
+          Sp = Sp - 16;
+          call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+sat_s20I_entry() //  [R1]
+        { info_tbl: [(c21G,
+                      label: sat_s20I_info
+                      rep:HeapRep 2 ptrs { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c21G:
+          _s20I::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c21H; else goto c21I;
+      c21I:
+          Hp = Hp + 24;
+          if (Hp > HpLim) goto c21K; else goto c21J;
+      c21K:
+          HpAlloc = 24;
+          goto c21H;
+      c21H:
+          R1 = _s20I::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c21J:
+          I64[Sp - 16] = stg_upd_frame_info;
+          P64[Sp - 8] = _s20I::P64;
+          _s20u::P64 = P64[_s20I::P64 + 16];
+          _s20v::P64 = P64[_s20I::P64 + 24];
+          I64[Hp - 16] = sat_s20H_info;
+          P64[Hp] = _s20v::P64;
+          _c21n::P64 = Hp - 16;
+          R2 = _c21n::P64;
+          R1 = _s20u::P64;
+          Sp = Sp - 16;
+          call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c21P:
+      _s20v::P64 = R2;
+      _s20u::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21Q; else goto c21R;
+  c21R:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21T; else goto c21S;
+  c21T:
+      HpAlloc = 16;
+      goto c21Q;
+  c21Q:
+      R2 = _s20v::P64;
+      R1 = _s20u::P64;
+      call (stg_gc_fun)(R2, R1) args: 8, res: 0, upd: 8;
+  c21S:
+      I64[Hp - 8] = sat_s20C_info;
+      _c214::P64 = Hp - 8;
+      I64[(young<c21e> + 8)] = c21e;
+      R2 = GHC.Integer.Type.$fOrdInteger_closure;
+      I64[(young<c21e> + 32)] = stg_ap_pp_info;
+      P64[(young<c21e> + 24)] = _s20v::P64;
+      P64[(young<c21e> + 16)] = _c214::P64;
+      call GHC.Classes.>_info(R2) returns to c21e, args: 32, res: 8, upd: 8;
+  c21e:
+      _s20D::P64 = R1;
+      _c21O::P64 = _s20D::P64 & 7;
+      switch [1 .. 2] _c21O::P64 {
+          case 1 : goto c21M;
+          case 2 : goto c21N;
+      }
+  c21N:
+      Hp = Hp + 32;
+      if (Hp > HpLim) goto c220; else goto c21Z;
+  c220:
+      HpAlloc = 32;
+      R1 = _s20D::P64;
+      call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+  c21Z:
+      I64[Hp - 24] = sat_s20I_info;
+      P64[Hp - 8] = _s20u::P64;
+      P64[Hp] = _s20v::P64;
+      _c21j::P64 = Hp - 24;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 32)] = stg_ap_pp_info;
+      P64[(old + 24)] = _s20v::P64;
+      P64[(old + 16)] = _c21j::P64;
+      call GHC.Num.+_info(R2) args: 32, res: 0, upd: 8;
+  c21M:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21X; else goto c21W;
+  c21X:
+      HpAlloc = 16;
+      R1 = _s20D::P64;
+      call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+  c21W:
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c221::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 24)] = stg_ap_p_info;
+      P64[(old + 16)] = _c221::P64;
+      call GHC.Num.fromInteger_info(R2) args: 24, res: 0, upd: 8;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c21P:
+      _s20v::P64 = R2;
+      _s20u::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c21Q; else goto c21R;
+  c21R:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21T; else goto c21S;
+  c21T:
+      HpAlloc = 16;
+      goto c21Q;
+  c21Q:
+      R2 = _s20v::P64;
+      R1 = _s20u::P64;
+      call (stg_gc_fun)(R2, R1) args: 8, res: 0, upd: 8;
+  c21S:
+      I64[Hp - 8] = sat_s20C_info;
+      _c214::P64 = Hp - 8;
+      I64[(young<c21e> + 8)] = c21e;
+      R2 = GHC.Integer.Type.$fOrdInteger_closure;
+      I64[(young<c21e> + 32)] = stg_ap_pp_info;
+      P64[(young<c21e> + 24)] = _s20v::P64;
+      P64[(young<c21e> + 16)] = _c214::P64;
+      call GHC.Classes.>_info(R2) returns to c21e, args: 32, res: 8, upd: 8;
+  c21e:
+      _s20D::P64 = R1;
+      _c21O::P64 = _s20D::P64 & 7;
+      if (_c21O::P64 != 1) goto c21N; else goto c21M;
+  c21N:
+      Hp = Hp + 32;
+      if (Hp > HpLim) goto c220; else goto c21Z;
+  c220:
+      HpAlloc = 32;
+      R1 = _s20D::P64;
+      call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+  c21Z:
+      I64[Hp - 24] = sat_s20I_info;
+      P64[Hp - 8] = _s20u::P64;
+      P64[Hp] = _s20v::P64;
+      _c21j::P64 = Hp - 24;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 32)] = stg_ap_pp_info;
+      P64[(old + 24)] = _s20v::P64;
+      P64[(old + 16)] = _c21j::P64;
+      call GHC.Num.+_info(R2) args: 32, res: 0, upd: 8;
+  c21M:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21X; else goto c21W;
+  c21X:
+      HpAlloc = 16;
+      R1 = _s20D::P64;
+      call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+  c21W:
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c221::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[(old + 24)] = stg_ap_p_info;
+      P64[(old + 16)] = _c221::P64;
+      call GHC.Num.fromInteger_info(R2) args: 24, res: 0, upd: 8;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c21P:
+      _s20v::P64 = R2;
+      _s20u::P64 = R1;
+      if ((Sp + 8) - 56 < SpLim) goto c21Q; else goto c21R;
+  c21R:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21T; else goto c21S;
+  c21T:
+      HpAlloc = 16;
+      goto c21Q;
+  c21Q:
+      R2 = _s20v::P64;
+      R1 = _s20u::P64;
+      call (stg_gc_fun)(R2, R1) args: 8, res: 0, upd: 8;
+  c21S:
+      I64[Hp - 8] = sat_s20C_info;
+      _c214::P64 = Hp - 8;
+      I64[Sp - 24] = c21e;
+      R2 = GHC.Integer.Type.$fOrdInteger_closure;
+      I64[Sp - 48] = stg_ap_pp_info;
+      P64[Sp - 40] = _s20v::P64;
+      P64[Sp - 32] = _c214::P64;
+      P64[Sp - 16] = _s20u::P64;
+      P64[Sp - 8] = _s20v::P64;
+      Sp = Sp - 48;
+      call GHC.Classes.>_info(R2) returns to c21e, args: 32, res: 8, upd: 8;
+  c21e:
+      _s20u::P64 = P64[Sp + 8];
+      _s20v::P64 = P64[Sp + 16];
+      _s20D::P64 = R1;
+      _c21O::P64 = _s20D::P64 & 7;
+      if (_c21O::P64 != 1) goto c21N; else goto c21M;
+  c21N:
+      Hp = Hp + 32;
+      if (Hp > HpLim) goto c220; else goto c21Z;
+  c220:
+      HpAlloc = 32;
+      R1 = _s20D::P64;
+      call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+  c21Z:
+      I64[Hp - 24] = sat_s20I_info;
+      P64[Hp - 8] = _s20u::P64;
+      P64[Hp] = _s20v::P64;
+      _c21j::P64 = Hp - 24;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[Sp] = stg_ap_pp_info;
+      P64[Sp + 8] = _s20v::P64;
+      P64[Sp + 16] = _c21j::P64;
+      call GHC.Num.+_info(R2) args: 32, res: 0, upd: 8;
+  c21M:
+      Hp = Hp + 16;
+      if (Hp > HpLim) goto c21X; else goto c21W;
+  c21X:
+      HpAlloc = 16;
+      R1 = _s20D::P64;
+      call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+  c21W:
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 1;
+      _c221::P64 = Hp - 7;
+      R2 = GHC.Num.$fNumInteger_closure;
+      I64[Sp + 8] = stg_ap_p_info;
+      P64[Sp + 16] = _c221::P64;
+      Sp = Sp + 8;
+      call GHC.Num.fromInteger_info(R2) args: 24, res: 0, upd: 8;
+}
+
+
+
+==================== CAFEnv ====================
+[(c21e, {GHC.Num.$fNumInteger_closure, sat_s20I_closure}),
+ (c21M, {GHC.Num.$fNumInteger_closure, sat_s20I_closure}),
+ (c21N, {GHC.Num.$fNumInteger_closure, sat_s20I_closure}),
+ (c21P,
+  {GHC.Num.$fNumInteger_closure,
+   GHC.Integer.Type.$fOrdInteger_closure, sat_s20C_closure,
+   sat_s20I_closure}),
+ (c21Q, {}),
+ (c21R,
+  {GHC.Num.$fNumInteger_closure,
+   GHC.Integer.Type.$fOrdInteger_closure, sat_s20C_closure,
+   sat_s20I_closure}),
+ (c21S,
+  {GHC.Num.$fNumInteger_closure,
+   GHC.Integer.Type.$fOrdInteger_closure, sat_s20C_closure,
+   sat_s20I_closure}),
+ (c21T, {}), (c21W, {GHC.Num.$fNumInteger_closure}),
+ (c21X, {GHC.Num.$fNumInteger_closure, sat_s20I_closure}),
+ (c21Z, {GHC.Num.$fNumInteger_closure, sat_s20I_closure}),
+ (c220, {GHC.Num.$fNumInteger_closure, sat_s20I_closure})]
+
+
+
+==================== after setInfoTableStackMap ====================
+f_s20u_entry() //  [R2, R1]
+        { info_tbl: [(c21e,
+                      label: block_c21e_info
+                      rep:StackRep [False, False]),
+                     (c21P,
+                      label: f_s20u_info
+                      rep:HeapRep 1 nonptrs { Fun {arity: 1 fun_type: ArgSpec 5} })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c21P:
+          _s20v::P64 = R2;
+          _s20u::P64 = R1;
+          if ((Sp + 8) - 56 < SpLim) goto c21Q; else goto c21R;
+      c21R:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21T; else goto c21S;
+      c21T:
+          HpAlloc = 16;
+          goto c21Q;
+      c21Q:
+          R2 = _s20v::P64;
+          R1 = _s20u::P64;
+          call (stg_gc_fun)(R2, R1) args: 8, res: 0, upd: 8;
+      c21S:
+          I64[Hp - 8] = sat_s20C_info;
+          _c214::P64 = Hp - 8;
+          I64[Sp - 24] = c21e;
+          R2 = GHC.Integer.Type.$fOrdInteger_closure;
+          I64[Sp - 48] = stg_ap_pp_info;
+          P64[Sp - 40] = _s20v::P64;
+          P64[Sp - 32] = _c214::P64;
+          P64[Sp - 16] = _s20u::P64;
+          P64[Sp - 8] = _s20v::P64;
+          Sp = Sp - 48;
+          call GHC.Classes.>_info(R2) returns to c21e, args: 32, res: 8, upd: 8;
+      c21e:
+          _s20u::P64 = P64[Sp + 8];
+          _s20v::P64 = P64[Sp + 16];
+          _s20D::P64 = R1;
+          _c21O::P64 = _s20D::P64 & 7;
+          if (_c21O::P64 != 1) goto c21N; else goto c21M;
+      c21N:
+          Hp = Hp + 32;
+          if (Hp > HpLim) goto c220; else goto c21Z;
+      c220:
+          HpAlloc = 32;
+          R1 = _s20D::P64;
+          call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+      c21Z:
+          I64[Hp - 24] = sat_s20I_info;
+          P64[Hp - 8] = _s20u::P64;
+          P64[Hp] = _s20v::P64;
+          _c21j::P64 = Hp - 24;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp] = stg_ap_pp_info;
+          P64[Sp + 8] = _s20v::P64;
+          P64[Sp + 16] = _c21j::P64;
+          call GHC.Num.+_info(R2) args: 32, res: 0, upd: 8;
+      c21M:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21X; else goto c21W;
+      c21X:
+          HpAlloc = 16;
+          R1 = _s20D::P64;
+          call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+      c21W:
+          I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+          I64[Hp] = 1;
+          _c221::P64 = Hp - 7;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp + 8] = stg_ap_p_info;
+          P64[Sp + 16] = _c221::P64;
+          Sp = Sp + 8;
+          call GHC.Num.fromInteger_info(R2) args: 24, res: 0, upd: 8;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+f_s20u_entry() //  [R2, R1]
+        { info_tbl: [(c21e,
+                      label: block_c21e_info
+                      rep:StackRep [False, False]),
+                     (c21P,
+                      label: f_s20u_info
+                      rep:HeapRep 1 nonptrs { Fun {arity: 1 fun_type: ArgSpec 5} })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c21P:
+          _s20v::P64 = R2;
+          _s20u::P64 = R1;
+          if ((Sp + 8) - 56 < SpLim) goto c21Q; else goto c21R;
+      c21R:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21T; else goto c21S;
+      c21T:
+          HpAlloc = 16;
+          goto c21Q;
+      c21Q:
+          R2 = _s20v::P64;
+          R1 = _s20u::P64;
+          call (stg_gc_fun)(R2, R1) args: 8, res: 0, upd: 8;
+      c21S:
+          I64[Hp - 8] = sat_s20C_info;
+          _c214::P64 = Hp - 8;
+          I64[Sp - 24] = c21e;
+          R2 = GHC.Integer.Type.$fOrdInteger_closure;
+          I64[Sp - 48] = stg_ap_pp_info;
+          P64[Sp - 40] = _s20v::P64;
+          P64[Sp - 32] = _c214::P64;
+          P64[Sp - 16] = _s20u::P64;
+          P64[Sp - 8] = _s20v::P64;
+          Sp = Sp - 48;
+          call GHC.Classes.>_info(R2) returns to c21e, args: 32, res: 8, upd: 8;
+      c21e:
+          _s20u::P64 = P64[Sp + 8];
+          _s20v::P64 = P64[Sp + 16];
+          _s20D::P64 = R1;
+          _c21O::P64 = _s20D::P64 & 7;
+          if (_c21O::P64 != 1) goto c21N; else goto c21M;
+      c21N:
+          Hp = Hp + 32;
+          if (Hp > HpLim) goto c220; else goto c21Z;
+      c220:
+          HpAlloc = 32;
+          R1 = _s20D::P64;
+          call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+      c21Z:
+          I64[Hp - 24] = sat_s20I_info;
+          P64[Hp - 8] = _s20u::P64;
+          P64[Hp] = _s20v::P64;
+          _c21j::P64 = Hp - 24;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp] = stg_ap_pp_info;
+          P64[Sp + 8] = _s20v::P64;
+          P64[Sp + 16] = _c21j::P64;
+          call GHC.Num.+_info(R2) args: 32, res: 0, upd: 8;
+      c21M:
+          Hp = Hp + 16;
+          if (Hp > HpLim) goto c21X; else goto c21W;
+      c21X:
+          HpAlloc = 16;
+          R1 = _s20D::P64;
+          call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+      c21W:
+          I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+          I64[Hp] = 1;
+          _c221::P64 = Hp - 7;
+          R2 = GHC.Num.$fNumInteger_closure;
+          I64[Sp + 8] = stg_ap_p_info;
+          P64[Sp + 16] = _c221::P64;
+          Sp = Sp + 8;
+          call GHC.Num.fromInteger_info(R2) args: 24, res: 0, upd: 8;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c223:
+      _s20K::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c224; else goto c225;
+  c225:
+      Hp = Hp + 32;
+      if (Hp > HpLim) goto c227; else goto c226;
+  c227:
+      HpAlloc = 32;
+      goto c224;
+  c224:
+      R1 = _s20K::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c226:
+      (_c20W::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _s20K::P64);
+      if (_c20W::I64 == 0) goto c20Y; else goto c20X;
+  c20Y:
+      call (I64[_s20K::P64])() args: 8, res: 0, upd: 8;
+  c20X:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c20W::I64;
+      _c20Z::P64 = Hp - 23;
+      I64[Hp - 24] = f_s20u_info;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 3;
+      _c222::P64 = Hp - 7;
+      R2 = _c222::P64;
+      R1 = _c20Z::P64;
+      call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c223:
+      _s20K::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c224; else goto c225;
+  c225:
+      Hp = Hp + 32;
+      if (Hp > HpLim) goto c227; else goto c226;
+  c227:
+      HpAlloc = 32;
+      goto c224;
+  c224:
+      R1 = _s20K::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c226:
+      (_c20W::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _s20K::P64);
+      if (_c20W::I64 == 0) goto c20Y; else goto c20X;
+  c20Y:
+      call (I64[_s20K::P64])() args: 8, res: 0, upd: 8;
+  c20X:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c20W::I64;
+      _c20Z::P64 = Hp - 23;
+      I64[Hp - 24] = f_s20u_info;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 3;
+      _c222::P64 = Hp - 7;
+      R2 = _c222::P64;
+      R1 = _c20Z::P64;
+      call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c223:
+      _s20K::P64 = R1;
+      if ((Sp + 8) - 24 < SpLim) goto c224; else goto c225;
+  c225:
+      Hp = Hp + 32;
+      if (Hp > HpLim) goto c227; else goto c226;
+  c227:
+      HpAlloc = 32;
+      goto c224;
+  c224:
+      R1 = _s20K::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c226:
+      (_c20W::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _s20K::P64);
+      if (_c20W::I64 == 0) goto c20Y; else goto c20X;
+  c20Y:
+      call (I64[_s20K::P64])() args: 8, res: 0, upd: 8;
+  c20X:
+      I64[Sp - 16] = stg_bh_upd_frame_info;
+      I64[Sp - 8] = _c20W::I64;
+      _c20Z::P64 = Hp - 23;
+      I64[Hp - 24] = f_s20u_info;
+      I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+      I64[Hp] = 3;
+      _c222::P64 = Hp - 7;
+      R2 = _c222::P64;
+      R1 = _c20Z::P64;
+      Sp = Sp - 16;
+      call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c20X, {f_s20u_closure}), (c20Y, {}), (c223, {f_s20u_closure}),
+ (c224, {}), (c225, {f_s20u_closure}), (c226, {f_s20u_closure}),
+ (c227, {})]
+
+
+
+==================== after setInfoTableStackMap ====================
+sat_s20K_entry() //  [R1]
+        { info_tbl: [(c223,
+                      label: sat_s20K_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c223:
+          _s20K::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c224; else goto c225;
+      c225:
+          Hp = Hp + 32;
+          if (Hp > HpLim) goto c227; else goto c226;
+      c227:
+          HpAlloc = 32;
+          goto c224;
+      c224:
+          R1 = _s20K::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c226:
+          (_c20W::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _s20K::P64);
+          if (_c20W::I64 == 0) goto c20Y; else goto c20X;
+      c20Y:
+          call (I64[_s20K::P64])() args: 8, res: 0, upd: 8;
+      c20X:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c20W::I64;
+          _c20Z::P64 = Hp - 23;
+          I64[Hp - 24] = f_s20u_info;
+          I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+          I64[Hp] = 3;
+          _c222::P64 = Hp - 7;
+          R2 = _c222::P64;
+          R1 = _c20Z::P64;
+          Sp = Sp - 16;
+          call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+sat_s20K_entry() //  [R1]
+        { info_tbl: [(c223,
+                      label: sat_s20K_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c223:
+          _s20K::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c224; else goto c225;
+      c225:
+          Hp = Hp + 32;
+          if (Hp > HpLim) goto c227; else goto c226;
+      c227:
+          HpAlloc = 32;
+          goto c224;
+      c224:
+          R1 = _s20K::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c226:
+          (_c20W::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _s20K::P64);
+          if (_c20W::I64 == 0) goto c20Y; else goto c20X;
+      c20Y:
+          call (I64[_s20K::P64])() args: 8, res: 0, upd: 8;
+      c20X:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c20W::I64;
+          _c20Z::P64 = Hp - 23;
+          I64[Hp - 24] = f_s20u_info;
+          I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+          I64[Hp] = 3;
+          _c222::P64 = Hp - 7;
+          R2 = _c222::P64;
+          R1 = _c20Z::P64;
+          Sp = Sp - 16;
+          call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . sat_s20K_closure" {
+     sat_s20K_closure:
+         const sat_s20K_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ sat_s20C_entry() //  [R1]
+         { info_tbl: [(c219,
+                       label: sat_s20C_info
+                       rep:HeapRep { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c219:
+           _s20C::P64 = R1;
+           if ((Sp + 8) - 40 < SpLim) goto c21a; else goto c21b;
+       c21b:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21d; else goto c21c;
+       c21d:
+           HpAlloc = 16;
+           goto c21a;
+       c21a:
+           R1 = _s20C::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21c:
+           I64[Sp - 16] = stg_upd_frame_info;
+           P64[Sp - 8] = _s20C::P64;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c218::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp - 32] = stg_ap_p_info;
+           P64[Sp - 24] = _c218::P64;
+           Sp = Sp - 32;
+           call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+     }
+ },
+ sat_s20G_entry() //  [R1]
+         { info_tbl: [(c21w,
+                       label: sat_s20G_info
+                       rep:HeapRep { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21w:
+           _s20G::P64 = R1;
+           if ((Sp + 8) - 40 < SpLim) goto c21x; else goto c21y;
+       c21y:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21A; else goto c21z;
+       c21A:
+           HpAlloc = 16;
+           goto c21x;
+       c21x:
+           R1 = _s20G::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21z:
+           I64[Sp - 16] = stg_upd_frame_info;
+           P64[Sp - 8] = _s20G::P64;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c21v::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp - 32] = stg_ap_p_info;
+           P64[Sp - 24] = _c21v::P64;
+           Sp = Sp - 32;
+           call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+     }
+ },
+ sat_s20H_entry() //  [R1]
+         { info_tbl: [(c21B,
+                       label: sat_s20H_info
+                       rep:HeapRep 1 ptrs { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21B:
+           _s20H::P64 = R1;
+           if ((Sp + 8) - 48 < SpLim) goto c21C; else goto c21D;
+       c21D:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21F; else goto c21E;
+       c21F:
+           HpAlloc = 16;
+           goto c21C;
+       c21C:
+           R1 = _s20H::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21E:
+           I64[Sp - 16] = stg_upd_frame_info;
+           P64[Sp - 8] = _s20H::P64;
+           _s20v::P64 = P64[_s20H::P64 + 16];
+           I64[Hp - 8] = sat_s20G_info;
+           _c21r::P64 = Hp - 8;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp - 40] = stg_ap_pp_info;
+           P64[Sp - 32] = _s20v::P64;
+           P64[Sp - 24] = _c21r::P64;
+           Sp = Sp - 40;
+           call GHC.Num.-_info(R2) args: 48, res: 0, upd: 24;
+     }
+ },
+ sat_s20I_entry() //  [R1]
+         { info_tbl: [(c21G,
+                       label: sat_s20I_info
+                       rep:HeapRep 2 ptrs { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21G:
+           _s20I::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c21H; else goto c21I;
+       c21I:
+           Hp = Hp + 24;
+           if (Hp > HpLim) goto c21K; else goto c21J;
+       c21K:
+           HpAlloc = 24;
+           goto c21H;
+       c21H:
+           R1 = _s20I::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21J:
+           I64[Sp - 16] = stg_upd_frame_info;
+           P64[Sp - 8] = _s20I::P64;
+           _s20u::P64 = P64[_s20I::P64 + 16];
+           _s20v::P64 = P64[_s20I::P64 + 24];
+           I64[Hp - 16] = sat_s20H_info;
+           P64[Hp] = _s20v::P64;
+           _c21n::P64 = Hp - 16;
+           R2 = _c21n::P64;
+           R1 = _s20u::P64;
+           Sp = Sp - 16;
+           call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ },
+ f_s20u_entry() //  [R2, R1]
+         { info_tbl: [(c21e,
+                       label: block_c21e_info
+                       rep:StackRep [False, False]),
+                      (c21P,
+                       label: f_s20u_info
+                       rep:HeapRep 1 nonptrs { Fun {arity: 1 fun_type: ArgSpec 5} })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21P:
+           _s20v::P64 = R2;
+           _s20u::P64 = R1;
+           if ((Sp + 8) - 56 < SpLim) goto c21Q; else goto c21R;
+       c21R:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21T; else goto c21S;
+       c21T:
+           HpAlloc = 16;
+           goto c21Q;
+       c21Q:
+           R2 = _s20v::P64;
+           R1 = _s20u::P64;
+           call (stg_gc_fun)(R2, R1) args: 8, res: 0, upd: 8;
+       c21S:
+           I64[Hp - 8] = sat_s20C_info;
+           _c214::P64 = Hp - 8;
+           I64[Sp - 24] = c21e;
+           R2 = GHC.Integer.Type.$fOrdInteger_closure;
+           I64[Sp - 48] = stg_ap_pp_info;
+           P64[Sp - 40] = _s20v::P64;
+           P64[Sp - 32] = _c214::P64;
+           P64[Sp - 16] = _s20u::P64;
+           P64[Sp - 8] = _s20v::P64;
+           Sp = Sp - 48;
+           call GHC.Classes.>_info(R2) returns to c21e, args: 32, res: 8, upd: 8;
+       c21e:
+           _s20u::P64 = P64[Sp + 8];
+           _s20v::P64 = P64[Sp + 16];
+           _s20D::P64 = R1;
+           _c21O::P64 = _s20D::P64 & 7;
+           if (_c21O::P64 != 1) goto c21N; else goto c21M;
+       c21N:
+           Hp = Hp + 32;
+           if (Hp > HpLim) goto c220; else goto c21Z;
+       c220:
+           HpAlloc = 32;
+           R1 = _s20D::P64;
+           call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+       c21Z:
+           I64[Hp - 24] = sat_s20I_info;
+           P64[Hp - 8] = _s20u::P64;
+           P64[Hp] = _s20v::P64;
+           _c21j::P64 = Hp - 24;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp] = stg_ap_pp_info;
+           P64[Sp + 8] = _s20v::P64;
+           P64[Sp + 16] = _c21j::P64;
+           call GHC.Num.+_info(R2) args: 32, res: 0, upd: 8;
+       c21M:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21X; else goto c21W;
+       c21X:
+           HpAlloc = 16;
+           R1 = _s20D::P64;
+           call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+       c21W:
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c221::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp + 8] = stg_ap_p_info;
+           P64[Sp + 16] = _c221::P64;
+           Sp = Sp + 8;
+           call GHC.Num.fromInteger_info(R2) args: 24, res: 0, upd: 8;
+     }
+ },
+ sat_s20K_entry() //  [R1]
+         { info_tbl: [(c223,
+                       label: sat_s20K_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c223:
+           _s20K::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c224; else goto c225;
+       c225:
+           Hp = Hp + 32;
+           if (Hp > HpLim) goto c227; else goto c226;
+       c227:
+           HpAlloc = 32;
+           goto c224;
+       c224:
+           R1 = _s20K::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c226:
+           (_c20W::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _s20K::P64);
+           if (_c20W::I64 == 0) goto c20Y; else goto c20X;
+       c20Y:
+           call (I64[_s20K::P64])() args: 8, res: 0, upd: 8;
+       c20X:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c20W::I64;
+           _c20Z::P64 = Hp - 23;
+           I64[Hp - 24] = f_s20u_info;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 3;
+           _c222::P64 = Hp - 7;
+           R2 = _c222::P64;
+           R1 = _c20Z::P64;
+           Sp = Sp - 16;
+           call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . sat_s20K_closure" {
+     sat_s20K_closure:
+         const sat_s20K_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ sat_s20C_entry() //  [R1]
+         { info_tbl: [(c219,
+                       label: sat_s20C_info
+                       rep:HeapRep { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c219:
+           _s20C::P64 = R1;
+           if ((Sp + 8) - 40 < SpLim) goto c21a; else goto c21b;
+       c21b:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21d; else goto c21c;
+       c21d:
+           HpAlloc = 16;
+           goto c21a;
+       c21a:
+           R1 = _s20C::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21c:
+           I64[Sp - 16] = stg_upd_frame_info;
+           P64[Sp - 8] = _s20C::P64;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c218::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp - 32] = stg_ap_p_info;
+           P64[Sp - 24] = _c218::P64;
+           Sp = Sp - 32;
+           call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+     }
+ },
+ sat_s20G_entry() //  [R1]
+         { info_tbl: [(c21w,
+                       label: sat_s20G_info
+                       rep:HeapRep { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21w:
+           _s20G::P64 = R1;
+           if ((Sp + 8) - 40 < SpLim) goto c21x; else goto c21y;
+       c21y:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21A; else goto c21z;
+       c21A:
+           HpAlloc = 16;
+           goto c21x;
+       c21x:
+           R1 = _s20G::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21z:
+           I64[Sp - 16] = stg_upd_frame_info;
+           P64[Sp - 8] = _s20G::P64;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c21v::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp - 32] = stg_ap_p_info;
+           P64[Sp - 24] = _c21v::P64;
+           Sp = Sp - 32;
+           call GHC.Num.fromInteger_info(R2) args: 40, res: 0, upd: 24;
+     }
+ },
+ sat_s20H_entry() //  [R1]
+         { info_tbl: [(c21B,
+                       label: sat_s20H_info
+                       rep:HeapRep 1 ptrs { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21B:
+           _s20H::P64 = R1;
+           if ((Sp + 8) - 48 < SpLim) goto c21C; else goto c21D;
+       c21D:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21F; else goto c21E;
+       c21F:
+           HpAlloc = 16;
+           goto c21C;
+       c21C:
+           R1 = _s20H::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21E:
+           I64[Sp - 16] = stg_upd_frame_info;
+           P64[Sp - 8] = _s20H::P64;
+           _s20v::P64 = P64[_s20H::P64 + 16];
+           I64[Hp - 8] = sat_s20G_info;
+           _c21r::P64 = Hp - 8;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp - 40] = stg_ap_pp_info;
+           P64[Sp - 32] = _s20v::P64;
+           P64[Sp - 24] = _c21r::P64;
+           Sp = Sp - 40;
+           call GHC.Num.-_info(R2) args: 48, res: 0, upd: 24;
+     }
+ },
+ sat_s20I_entry() //  [R1]
+         { info_tbl: [(c21G,
+                       label: sat_s20I_info
+                       rep:HeapRep 2 ptrs { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21G:
+           _s20I::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c21H; else goto c21I;
+       c21I:
+           Hp = Hp + 24;
+           if (Hp > HpLim) goto c21K; else goto c21J;
+       c21K:
+           HpAlloc = 24;
+           goto c21H;
+       c21H:
+           R1 = _s20I::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c21J:
+           I64[Sp - 16] = stg_upd_frame_info;
+           P64[Sp - 8] = _s20I::P64;
+           _s20u::P64 = P64[_s20I::P64 + 16];
+           _s20v::P64 = P64[_s20I::P64 + 24];
+           I64[Hp - 16] = sat_s20H_info;
+           P64[Hp] = _s20v::P64;
+           _c21n::P64 = Hp - 16;
+           R2 = _c21n::P64;
+           R1 = _s20u::P64;
+           Sp = Sp - 16;
+           call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ },
+ f_s20u_entry() //  [R2, R1]
+         { info_tbl: [(c21e,
+                       label: block_c21e_info
+                       rep:StackRep [False, False]),
+                      (c21P,
+                       label: f_s20u_info
+                       rep:HeapRep 1 nonptrs { Fun {arity: 1 fun_type: ArgSpec 5} })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c21P:
+           _s20v::P64 = R2;
+           _s20u::P64 = R1;
+           if ((Sp + 8) - 56 < SpLim) goto c21Q; else goto c21R;
+       c21R:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21T; else goto c21S;
+       c21T:
+           HpAlloc = 16;
+           goto c21Q;
+       c21Q:
+           R2 = _s20v::P64;
+           R1 = _s20u::P64;
+           call (stg_gc_fun)(R2, R1) args: 8, res: 0, upd: 8;
+       c21S:
+           I64[Hp - 8] = sat_s20C_info;
+           _c214::P64 = Hp - 8;
+           I64[Sp - 24] = c21e;
+           R2 = GHC.Integer.Type.$fOrdInteger_closure;
+           I64[Sp - 48] = stg_ap_pp_info;
+           P64[Sp - 40] = _s20v::P64;
+           P64[Sp - 32] = _c214::P64;
+           P64[Sp - 16] = _s20u::P64;
+           P64[Sp - 8] = _s20v::P64;
+           Sp = Sp - 48;
+           call GHC.Classes.>_info(R2) returns to c21e, args: 32, res: 8, upd: 8;
+       c21e:
+           _s20u::P64 = P64[Sp + 8];
+           _s20v::P64 = P64[Sp + 16];
+           _s20D::P64 = R1;
+           _c21O::P64 = _s20D::P64 & 7;
+           if (_c21O::P64 != 1) goto c21N; else goto c21M;
+       c21N:
+           Hp = Hp + 32;
+           if (Hp > HpLim) goto c220; else goto c21Z;
+       c220:
+           HpAlloc = 32;
+           R1 = _s20D::P64;
+           call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+       c21Z:
+           I64[Hp - 24] = sat_s20I_info;
+           P64[Hp - 8] = _s20u::P64;
+           P64[Hp] = _s20v::P64;
+           _c21j::P64 = Hp - 24;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp] = stg_ap_pp_info;
+           P64[Sp + 8] = _s20v::P64;
+           P64[Sp + 16] = _c21j::P64;
+           call GHC.Num.+_info(R2) args: 32, res: 0, upd: 8;
+       c21M:
+           Hp = Hp + 16;
+           if (Hp > HpLim) goto c21X; else goto c21W;
+       c21X:
+           HpAlloc = 16;
+           R1 = _s20D::P64;
+           call stg_gc_unpt_r1(R1) returns to c21e, args: 8, res: 8, upd: 8;
+       c21W:
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 1;
+           _c221::P64 = Hp - 7;
+           R2 = GHC.Num.$fNumInteger_closure;
+           I64[Sp + 8] = stg_ap_p_info;
+           P64[Sp + 16] = _c221::P64;
+           Sp = Sp + 8;
+           call GHC.Num.fromInteger_info(R2) args: 24, res: 0, upd: 8;
+     }
+ },
+ sat_s20K_entry() //  [R1]
+         { info_tbl: [(c223,
+                       label: sat_s20K_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c223:
+           _s20K::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c224; else goto c225;
+       c225:
+           Hp = Hp + 32;
+           if (Hp > HpLim) goto c227; else goto c226;
+       c227:
+           HpAlloc = 32;
+           goto c224;
+       c224:
+           R1 = _s20K::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c226:
+           (_c20W::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _s20K::P64);
+           if (_c20W::I64 == 0) goto c20Y; else goto c20X;
+       c20Y:
+           call (I64[_s20K::P64])() args: 8, res: 0, upd: 8;
+       c20X:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c20W::I64;
+           _c20Z::P64 = Hp - 23;
+           I64[Hp - 24] = f_s20u_info;
+           I64[Hp - 8] = GHC.Integer.Type.S#_con_info;
+           I64[Hp] = 3;
+           _c222::P64 = Hp - 7;
+           R2 = _c222::P64;
+           R1 = _c20Z::P64;
+           Sp = Sp - 16;
+           call f_s20u_info(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . Main.main_closure" {
+     Main.main_closure:
+         const Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ Main.main_entry() //  [R1]
+         { info_tbl: [(c22B,
+                       label: Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c22B:
+           _roW::P64 = R1;
+           goto c22w;
+       c22w:
+           if ((old + 0) - <highSp> < SpLim) goto c22C; else goto c22D;
+       c22C:
+           R1 = _roW::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c22D:
+           (_c22y::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _roW::P64);
+           if (_c22y::I64 == 0) goto c22A; else goto c22z;
+       c22A:
+           call (I64[_roW::P64])() args: 8, res: 0, upd: 8;
+       c22z:
+           I64[(old + 24)] = stg_bh_upd_frame_info;
+           I64[(old + 16)] = _c22y::I64;
+           R3 = sat_s20K_closure;
+           R2 = GHC.Show.$fShowInteger_closure;
+           R1 = System.IO.print_closure;
+           call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c22B:
+      _roW::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c22C; else goto c22D;
+  c22C:
+      R1 = _roW::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c22D:
+      (_c22y::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _roW::P64);
+      if (_c22y::I64 == 0) goto c22A; else goto c22z;
+  c22A:
+      call (I64[_roW::P64])() args: 8, res: 0, upd: 8;
+  c22z:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c22y::I64;
+      R3 = sat_s20K_closure;
+      R2 = GHC.Show.$fShowInteger_closure;
+      R1 = System.IO.print_closure;
+      call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c22B:
+      _roW::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c22C; else goto c22D;
+  c22C:
+      R1 = _roW::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c22D:
+      (_c22y::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _roW::P64);
+      if (_c22y::I64 == 0) goto c22A; else goto c22z;
+  c22A:
+      call (I64[_roW::P64])() args: 8, res: 0, upd: 8;
+  c22z:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c22y::I64;
+      R3 = sat_s20K_closure;
+      R2 = GHC.Show.$fShowInteger_closure;
+      R1 = System.IO.print_closure;
+      call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c22B:
+      _roW::P64 = R1;
+      if ((Sp + 8) - 24 < SpLim) goto c22C; else goto c22D;
+  c22C:
+      R1 = _roW::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c22D:
+      (_c22y::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _roW::P64);
+      if (_c22y::I64 == 0) goto c22A; else goto c22z;
+  c22A:
+      call (I64[_roW::P64])() args: 8, res: 0, upd: 8;
+  c22z:
+      I64[Sp - 16] = stg_bh_upd_frame_info;
+      I64[Sp - 8] = _c22y::I64;
+      R3 = sat_s20K_closure;
+      R2 = GHC.Show.$fShowInteger_closure;
+      R1 = System.IO.print_closure;
+      Sp = Sp - 16;
+      call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c22z,
+  {System.IO.print_closure, GHC.Show.$fShowInteger_closure,
+   sat_s20K_closure}),
+ (c22A, {}),
+ (c22B,
+  {System.IO.print_closure, GHC.Show.$fShowInteger_closure,
+   sat_s20K_closure}),
+ (c22C, {}),
+ (c22D,
+  {System.IO.print_closure, GHC.Show.$fShowInteger_closure,
+   sat_s20K_closure})]
+
+
+
+==================== after setInfoTableStackMap ====================
+Main.main_entry() //  [R1]
+        { info_tbl: [(c22B,
+                      label: Main.main_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c22B:
+          _roW::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c22C; else goto c22D;
+      c22C:
+          R1 = _roW::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c22D:
+          (_c22y::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _roW::P64);
+          if (_c22y::I64 == 0) goto c22A; else goto c22z;
+      c22A:
+          call (I64[_roW::P64])() args: 8, res: 0, upd: 8;
+      c22z:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c22y::I64;
+          R3 = sat_s20K_closure;
+          R2 = GHC.Show.$fShowInteger_closure;
+          R1 = System.IO.print_closure;
+          Sp = Sp - 16;
+          call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+Main.main_entry() //  [R1]
+        { info_tbl: [(c22B,
+                      label: Main.main_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c22B:
+          _roW::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c22C; else goto c22D;
+      c22C:
+          R1 = _roW::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c22D:
+          (_c22y::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _roW::P64);
+          if (_c22y::I64 == 0) goto c22A; else goto c22z;
+      c22A:
+          call (I64[_roW::P64])() args: 8, res: 0, upd: 8;
+      c22z:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c22y::I64;
+          R3 = sat_s20K_closure;
+          R2 = GHC.Show.$fShowInteger_closure;
+          R1 = System.IO.print_closure;
+          Sp = Sp - 16;
+          call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . Main.main_closure" {
+     Main.main_closure:
+         const Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ Main.main_entry() //  [R1]
+         { info_tbl: [(c22B,
+                       label: Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c22B:
+           _roW::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c22C; else goto c22D;
+       c22C:
+           R1 = _roW::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c22D:
+           (_c22y::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _roW::P64);
+           if (_c22y::I64 == 0) goto c22A; else goto c22z;
+       c22A:
+           call (I64[_roW::P64])() args: 8, res: 0, upd: 8;
+       c22z:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c22y::I64;
+           R3 = sat_s20K_closure;
+           R2 = GHC.Show.$fShowInteger_closure;
+           R1 = System.IO.print_closure;
+           Sp = Sp - 16;
+           call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . Main.main_closure" {
+     Main.main_closure:
+         const Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ Main.main_entry() //  [R1]
+         { info_tbl: [(c22B,
+                       label: Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c22B:
+           _roW::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c22C; else goto c22D;
+       c22C:
+           R1 = _roW::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c22D:
+           (_c22y::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _roW::P64);
+           if (_c22y::I64 == 0) goto c22A; else goto c22z;
+       c22A:
+           call (I64[_roW::P64])() args: 8, res: 0, upd: 8;
+       c22z:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c22y::I64;
+           R3 = sat_s20K_closure;
+           R2 = GHC.Show.$fShowInteger_closure;
+           R1 = System.IO.print_closure;
+           Sp = Sp - 16;
+           call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . :Main.main_closure" {
+     :Main.main_closure:
+         const :Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ :Main.main_entry() //  [R1]
+         { info_tbl: [(c22Q,
+                       label: :Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c22Q:
+           _01D::P64 = R1;
+           goto c22L;
+       c22L:
+           if ((old + 0) - <highSp> < SpLim) goto c22R; else goto c22S;
+       c22R:
+           R1 = _01D::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c22S:
+           (_c22N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+           if (_c22N::I64 == 0) goto c22P; else goto c22O;
+       c22P:
+           call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+       c22O:
+           I64[(old + 24)] = stg_bh_upd_frame_info;
+           I64[(old + 16)] = _c22N::I64;
+           R2 = Main.main_closure;
+           R1 = GHC.TopHandler.runMainIO_closure;
+           call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c22Q:
+      _01D::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c22R; else goto c22S;
+  c22R:
+      R1 = _01D::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c22S:
+      (_c22N::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+      if (_c22N::I64 == 0) goto c22P; else goto c22O;
+  c22P:
+      call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+  c22O:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c22N::I64;
+      R2 = Main.main_closure;
+      R1 = GHC.TopHandler.runMainIO_closure;
+      call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c22Q:
+      _01D::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c22R; else goto c22S;
+  c22R:
+      R1 = _01D::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c22S:
+      (_c22N::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+      if (_c22N::I64 == 0) goto c22P; else goto c22O;
+  c22P:
+      call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+  c22O:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c22N::I64;
+      R2 = Main.main_closure;
+      R1 = GHC.TopHandler.runMainIO_closure;
+      call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c22Q:
+      _01D::P64 = R1;
+      if ((Sp + 8) - 24 < SpLim) goto c22R; else goto c22S;
+  c22R:
+      R1 = _01D::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c22S:
+      (_c22N::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+      if (_c22N::I64 == 0) goto c22P; else goto c22O;
+  c22P:
+      call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+  c22O:
+      I64[Sp - 16] = stg_bh_upd_frame_info;
+      I64[Sp - 8] = _c22N::I64;
+      R2 = Main.main_closure;
+      R1 = GHC.TopHandler.runMainIO_closure;
+      Sp = Sp - 16;
+      call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c22O, {GHC.TopHandler.runMainIO_closure, Main.main_closure}),
+ (c22P, {}),
+ (c22Q, {GHC.TopHandler.runMainIO_closure, Main.main_closure}),
+ (c22R, {}),
+ (c22S, {GHC.TopHandler.runMainIO_closure, Main.main_closure})]
+
+
+
+==================== after setInfoTableStackMap ====================
+:Main.main_entry() //  [R1]
+        { info_tbl: [(c22Q,
+                      label: :Main.main_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c22Q:
+          _01D::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c22R; else goto c22S;
+      c22R:
+          R1 = _01D::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c22S:
+          (_c22N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+          if (_c22N::I64 == 0) goto c22P; else goto c22O;
+      c22P:
+          call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+      c22O:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c22N::I64;
+          R2 = Main.main_closure;
+          R1 = GHC.TopHandler.runMainIO_closure;
+          Sp = Sp - 16;
+          call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+:Main.main_entry() //  [R1]
+        { info_tbl: [(c22Q,
+                      label: :Main.main_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c22Q:
+          _01D::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c22R; else goto c22S;
+      c22R:
+          R1 = _01D::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c22S:
+          (_c22N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+          if (_c22N::I64 == 0) goto c22P; else goto c22O;
+      c22P:
+          call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+      c22O:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c22N::I64;
+          R2 = Main.main_closure;
+          R1 = GHC.TopHandler.runMainIO_closure;
+          Sp = Sp - 16;
+          call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . :Main.main_closure" {
+     :Main.main_closure:
+         const :Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ :Main.main_entry() //  [R1]
+         { info_tbl: [(c22Q,
+                       label: :Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c22Q:
+           _01D::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c22R; else goto c22S;
+       c22R:
+           R1 = _01D::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c22S:
+           (_c22N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+           if (_c22N::I64 == 0) goto c22P; else goto c22O;
+       c22P:
+           call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+       c22O:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c22N::I64;
+           R2 = Main.main_closure;
+           R1 = GHC.TopHandler.runMainIO_closure;
+           Sp = Sp - 16;
+           call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . :Main.main_closure" {
+     :Main.main_closure:
+         const :Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ :Main.main_entry() //  [R1]
+         { info_tbl: [(c22Q,
+                       label: :Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c22Q:
+           _01D::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c22R; else goto c22S;
+       c22R:
+           R1 = _01D::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c22S:
+           (_c22N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+           if (_c22N::I64 == 0) goto c22P; else goto c22O;
+       c22P:
+           call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+       c22O:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c22N::I64;
+           R2 = Main.main_closure;
+           R1 = GHC.TopHandler.runMainIO_closure;
+           Sp = Sp - 16;
+           call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""readonly" . c22Z_str" {
+     c22Z_str:
+         I8[] [109,97,105,110]
+ },
+ section ""data" . $trModule1_r207_closure" {
+     $trModule1_r207_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c22Z_str;
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""readonly" . c22Z_str" {
+     c22Z_str:
+         I8[] [109,97,105,110]
+ },
+ section ""data" . $trModule1_r207_closure" {
+     $trModule1_r207_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c22Z_str;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""readonly" . c22Z_str" {
+     c22Z_str:
+         I8[] [109,97,105,110]
+ },
+ section ""data" . $trModule1_r207_closure" {
+     $trModule1_r207_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c22Z_str;
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""readonly" . c233_str" {
+     c233_str:
+         I8[] [77,97,105,110]
+ },
+ section ""data" . $trModule2_r20p_closure" {
+     $trModule2_r20p_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c233_str;
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""readonly" . c233_str" {
+     c233_str:
+         I8[] [77,97,105,110]
+ },
+ section ""data" . $trModule2_r20p_closure" {
+     $trModule2_r20p_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c233_str;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""readonly" . c233_str" {
+     c233_str:
+         I8[] [77,97,105,110]
+ },
+ section ""data" . $trModule2_r20p_closure" {
+     $trModule2_r20p_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c233_str;
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . Main.$trModule_closure" {
+     Main.$trModule_closure:
+         const GHC.Types.Module_static_info;
+         const $trModule1_r207_closure+1;
+         const $trModule2_r20p_closure+1;
+         const 3;
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . Main.$trModule_closure" {
+     Main.$trModule_closure:
+         const GHC.Types.Module_static_info;
+         const $trModule1_r207_closure+1;
+         const $trModule2_r20p_closure+1;
+         const 3;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . Main.$trModule_closure" {
+     Main.$trModule_closure:
+         const GHC.Types.Module_static_info;
+         const $trModule1_r207_closure+1;
+         const $trModule2_r20p_closure+1;
+         const 3;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""relreadonly" . S228_srt" {
+     S228_srt:
+         const GHC.Num.$fNumInteger_closure;
+         const GHC.Integer.Type.$fOrdInteger_closure;
+         const System.IO.print_closure;
+         const GHC.Show.$fShowInteger_closure;
+         const sat_s20K_closure;
+         const GHC.TopHandler.runMainIO_closure;
+         const Main.main_closure;
+ }]
+
+
+Linking test ...
