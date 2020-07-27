@@ -1,0 +1,17 @@
+ghc -v5 test.hs > test.txt  
+###Make a debugging dump after pass <pass> (may be common enough to need a short form…). You can get all of these at once (lots of output) by using -v5, or most of them with -v4
+###Can get codes from all stages
+
+ghc -fllvm -keep-llvm-files test.hs
+###One way to get the llvm code
+
+ghc -ddump-llvm test.hs > test.txt
+###Another way to get llvm code
+
+ghc -dverbose-core2core test.hs > test_core.txt
+###Get all stages core code
+
+ghc -ddump-cmm test.hs > test.cmm
+###Get all stages cmm code write in .cmm file
+
+

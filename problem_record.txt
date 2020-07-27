@@ -1,0 +1,9 @@
+## llvm version should be 3.7.1, to make the -fllvm flag work, it has be >=3.7.1
+
+## can't use cabel to install llvm-hs/llvm-general package, usin stack install can solve this problem, but not all of them
+
+## can't figure out how to write a plugin for gch to get its generated llvm AST, from https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/extending_ghc.html#compiler-plugins, it might not be possible to do it through this way
+
+## Try llvm-data-interop, add it to stack dependency
+
+## generated llvm code are very long, tried -O0, doesn't make any change. May be compare core to cmm could be another direction, because cmm code is shorter and easier to read and understand, but also can be compiled by more compiler?
