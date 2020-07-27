@@ -1,0 +1,169 @@
+[1 of 1] Compiling Main             ( test.hs, test.o )
+
+==================== Desugar (after optimization) ====================
+Result size of Desugar (after optimization)
+  = {terms: 20, types: 9, coercions: 0}
+
+-- RHS size: {terms: 5, types: 0, coercions: 0}
+Main.$trModule :: GHC.Types.Module
+[LclIdX, Str=DmdType]
+Main.$trModule =
+  GHC.Types.Module
+    (GHC.Types.TrNameS "main"#) (GHC.Types.TrNameS "Main"#)
+
+-- RHS size: {terms: 10, types: 3, coercions: 0}
+main :: IO ()
+[LclIdX, Str=DmdType]
+main =
+  print
+    @ Int
+    GHC.Show.$fShowInt
+    ((\ (x_aw5 :: Int) ->
+        + @ Int GHC.Num.$fNumInt x_aw5 (GHC.Types.I# 1#))
+       (GHC.Types.I# 1#))
+
+-- RHS size: {terms: 2, types: 1, coercions: 0}
+:Main.main :: IO ()
+[LclIdX, Str=DmdType]
+:Main.main = GHC.TopHandler.runMainIO @ () main
+
+
+
+
+==================== Simplifier ====================
+  Max iterations = 4
+  SimplMode {Phase = 0 [Non-opt simplification],
+             inline,
+             no rules,
+             eta-expand,
+             case-of-case}
+Result size of Simplifier = {terms: 22, types: 10, coercions: 0}
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule_sWS :: GHC.Types.TrName
+[LclId,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 30 20}]
+$trModule_sWS = GHC.Types.TrNameS "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule_sWT :: GHC.Types.TrName
+[LclId,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 30 20}]
+$trModule_sWT = GHC.Types.TrNameS "Main"#
+
+-- RHS size: {terms: 3, types: 0, coercions: 0}
+Main.$trModule :: GHC.Types.Module
+[LclIdX,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 10 30}]
+Main.$trModule = GHC.Types.Module $trModule_sWS $trModule_sWT
+
+-- RHS size: {terms: 8, types: 2, coercions: 0}
+main :: IO ()
+[LclIdX,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=False, ConLike=False,
+         WorkFree=False, Expandable=False, Guidance=IF_ARGS [] 90 0}]
+main =
+  print
+    @ Int
+    GHC.Show.$fShowInt
+    (+ @ Int GHC.Num.$fNumInt (GHC.Types.I# 1#) (GHC.Types.I# 1#))
+
+-- RHS size: {terms: 2, types: 1, coercions: 0}
+:Main.main :: IO ()
+[LclIdX,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=False, ConLike=False,
+         WorkFree=False, Expandable=False, Guidance=IF_ARGS [] 20 0}]
+:Main.main = GHC.TopHandler.runMainIO @ () main
+
+
+
+
+==================== Tidy Core ====================
+Result size of Tidy Core = {terms: 22, types: 10, coercions: 0}
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule1_rWK :: GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Str=DmdType]
+$trModule1_rWK = GHC.Types.TrNameS "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule2_rWU :: GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Str=DmdType]
+$trModule2_rWU = GHC.Types.TrNameS "Main"#
+
+-- RHS size: {terms: 3, types: 0, coercions: 0}
+Main.$trModule :: GHC.Types.Module
+[GblId, Caf=NoCafRefs, Str=DmdType]
+Main.$trModule = GHC.Types.Module $trModule1_rWK $trModule2_rWU
+
+-- RHS size: {terms: 8, types: 2, coercions: 0}
+main :: IO ()
+[GblId, Str=DmdType]
+main =
+  print
+    @ Int
+    GHC.Show.$fShowInt
+    (+ @ Int GHC.Num.$fNumInt (GHC.Types.I# 1#) (GHC.Types.I# 1#))
+
+-- RHS size: {terms: 2, types: 1, coercions: 0}
+:Main.main :: IO ()
+[GblId, Str=DmdType]
+:Main.main = GHC.TopHandler.runMainIO @ () main
+
+
+
+
+==================== CorePrep ====================
+Result size of CorePrep = {terms: 28, types: 13, coercions: 0}
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule1_rWK :: GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Str=DmdType, Unf=OtherCon []]
+$trModule1_rWK = GHC.Types.TrNameS "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule2_rWU :: GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Str=DmdType, Unf=OtherCon []]
+$trModule2_rWU = GHC.Types.TrNameS "Main"#
+
+-- RHS size: {terms: 3, types: 0, coercions: 0}
+Main.$trModule :: GHC.Types.Module
+[GblId, Caf=NoCafRefs, Str=DmdType, Unf=OtherCon []]
+Main.$trModule = GHC.Types.Module $trModule1_rWK $trModule2_rWU
+
+-- RHS size: {terms: 10, types: 3, coercions: 0}
+sat_sWY :: GHC.Types.Int
+[LclId, Str=DmdType]
+sat_sWY =
+  let {
+    sat_sWX [Occ=Once] :: GHC.Types.Int
+    [LclId, Str=DmdType]
+    sat_sWX = GHC.Types.I# 1# } in
+  let {
+    sat_sWW [Occ=Once] :: GHC.Types.Int
+    [LclId, Str=DmdType]
+    sat_sWW = GHC.Types.I# 1# } in
+  GHC.Num.+ @ GHC.Types.Int GHC.Num.$fNumInt sat_sWW sat_sWX
+
+-- RHS size: {terms: 3, types: 1, coercions: 0}
+Main.main :: GHC.Types.IO ()
+[GblId, Str=DmdType]
+Main.main =
+  System.IO.print @ GHC.Types.Int GHC.Show.$fShowInt sat_sWY
+
+-- RHS size: {terms: 2, types: 1, coercions: 0}
+:Main.main :: GHC.Types.IO ()
+[GblId, Str=DmdType]
+:Main.main = GHC.TopHandler.runMainIO @ () Main.main
+
+
+
+Linking test ...

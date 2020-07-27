@@ -1,0 +1,147 @@
+[1 of 1] Compiling Main             ( test.hs, test.o )
+
+==================== Desugar (after optimization) ====================
+Result size of Desugar (after optimization)
+  = {terms: 13, types: 7, coercions: 0}
+
+-- RHS size: {terms: 3, types: 1, coercions: 0}
+main :: IO ()
+[LclIdX, Str=DmdType]
+main = print @ Integer GHC.Show.$fShowInteger 1
+
+-- RHS size: {terms: 2, types: 1, coercions: 0}
+:Main.main :: IO ()
+[LclIdX, Str=DmdType]
+:Main.main = GHC.TopHandler.runMainIO @ () main
+
+-- RHS size: {terms: 5, types: 0, coercions: 0}
+Main.$trModule :: GHC.Types.Module
+[LclIdX, Str=DmdType]
+Main.$trModule =
+  GHC.Types.Module
+    (GHC.Types.TrNameS "main"#) (GHC.Types.TrNameS "Main"#)
+
+
+
+
+==================== Simplifier ====================
+  Max iterations = 4
+  SimplMode {Phase = 0 [Non-opt simplification],
+             inline,
+             no rules,
+             eta-expand,
+             case-of-case}
+Result size of Simplifier = {terms: 17, types: 9, coercions: 0}
+
+-- RHS size: {terms: 3, types: 1, coercions: 0}
+main :: IO ()
+[LclIdX,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=False, ConLike=False,
+         WorkFree=False, Expandable=False, Guidance=IF_ARGS [] 130 0}]
+main = print @ Integer GHC.Show.$fShowInteger 1
+
+-- RHS size: {terms: 2, types: 1, coercions: 0}
+:Main.main :: IO ()
+[LclIdX,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=False, ConLike=False,
+         WorkFree=False, Expandable=False, Guidance=IF_ARGS [] 20 0}]
+:Main.main = GHC.TopHandler.runMainIO @ () main
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule_s10c :: GHC.Types.TrName
+[LclId,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 30 20}]
+$trModule_s10c = GHC.Types.TrNameS "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule_s10d :: GHC.Types.TrName
+[LclId,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 30 20}]
+$trModule_s10d = GHC.Types.TrNameS "Main"#
+
+-- RHS size: {terms: 3, types: 0, coercions: 0}
+Main.$trModule :: GHC.Types.Module
+[LclIdX,
+ Str=DmdType,
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 10 30}]
+Main.$trModule = GHC.Types.Module $trModule_s10c $trModule_s10d
+
+
+
+
+==================== Tidy Core ====================
+Result size of Tidy Core = {terms: 17, types: 9, coercions: 0}
+
+-- RHS size: {terms: 3, types: 1, coercions: 0}
+main :: IO ()
+[GblId, Str=DmdType]
+main = print @ Integer GHC.Show.$fShowInteger 1
+
+-- RHS size: {terms: 2, types: 1, coercions: 0}
+:Main.main :: IO ()
+[GblId, Str=DmdType]
+:Main.main = GHC.TopHandler.runMainIO @ () main
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule1_r103 :: GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Str=DmdType]
+$trModule1_r103 = GHC.Types.TrNameS "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule2_r10e :: GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Str=DmdType]
+$trModule2_r10e = GHC.Types.TrNameS "Main"#
+
+-- RHS size: {terms: 3, types: 0, coercions: 0}
+Main.$trModule :: GHC.Types.Module
+[GblId, Caf=NoCafRefs, Str=DmdType]
+Main.$trModule = GHC.Types.Module $trModule1_r103 $trModule2_r10e
+
+
+
+
+==================== CorePrep ====================
+Result size of CorePrep = {terms: 20, types: 10, coercions: 0}
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+sat_s10o :: GHC.Integer.Type.Integer
+[LclId, Str=DmdType]
+sat_s10o = GHC.Integer.Type.S# 1#
+
+-- RHS size: {terms: 3, types: 1, coercions: 0}
+Main.main :: GHC.Types.IO ()
+[GblId, Str=DmdType]
+Main.main =
+  System.IO.print
+    @ GHC.Integer.Type.Integer GHC.Show.$fShowInteger sat_s10o
+
+-- RHS size: {terms: 2, types: 1, coercions: 0}
+:Main.main :: GHC.Types.IO ()
+[GblId, Str=DmdType]
+:Main.main = GHC.TopHandler.runMainIO @ () Main.main
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule1_r103 :: GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Str=DmdType, Unf=OtherCon []]
+$trModule1_r103 = GHC.Types.TrNameS "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule2_r10e :: GHC.Types.TrName
+[GblId, Caf=NoCafRefs, Str=DmdType, Unf=OtherCon []]
+$trModule2_r10e = GHC.Types.TrNameS "Main"#
+
+-- RHS size: {terms: 3, types: 0, coercions: 0}
+Main.$trModule :: GHC.Types.Module
+[GblId, Caf=NoCafRefs, Str=DmdType, Unf=OtherCon []]
+Main.$trModule = GHC.Types.Module $trModule1_r103 $trModule2_r10e
+
+
+
+Linking test ...

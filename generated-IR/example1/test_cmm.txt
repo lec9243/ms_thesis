@@ -1,0 +1,715 @@
+[1 of 1] Compiling Main             ( test.hs, test.o )
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . __stginit_main@main:Main" {
+     __stginit_main@main:Main:
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . __stginit_main@main:Main" {
+     __stginit_main@main:Main:
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . __stginit_main@main:Main" {
+     __stginit_main@main:Main:
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . sat_s10r_closure" {
+     sat_s10r_closure:
+         const GHC.Integer.Type.S#_static_info;
+         const 1;
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . sat_s10r_closure" {
+     sat_s10r_closure:
+         const GHC.Integer.Type.S#_static_info;
+         const 1;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . sat_s10r_closure" {
+     sat_s10r_closure:
+         const GHC.Integer.Type.S#_static_info;
+         const 1;
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . Main.main_closure" {
+     Main.main_closure:
+         const Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ Main.main_entry() //  [R1]
+         { info_tbl: [(c10A,
+                       label: Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c10A:
+           _rn5::P64 = R1;
+           goto c10v;
+       c10v:
+           if ((old + 0) - <highSp> < SpLim) goto c10B; else goto c10C;
+       c10B:
+           R1 = _rn5::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c10C:
+           (_c10x::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _rn5::P64);
+           if (_c10x::I64 == 0) goto c10z; else goto c10y;
+       c10z:
+           call (I64[_rn5::P64])() args: 8, res: 0, upd: 8;
+       c10y:
+           I64[(old + 24)] = stg_bh_upd_frame_info;
+           I64[(old + 16)] = _c10x::I64;
+           R3 = sat_s10r_closure+1;
+           R2 = GHC.Show.$fShowInteger_closure;
+           R1 = System.IO.print_closure;
+           call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c10A:
+      _rn5::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c10B; else goto c10C;
+  c10B:
+      R1 = _rn5::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c10C:
+      (_c10x::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _rn5::P64);
+      if (_c10x::I64 == 0) goto c10z; else goto c10y;
+  c10z:
+      call (I64[_rn5::P64])() args: 8, res: 0, upd: 8;
+  c10y:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c10x::I64;
+      R3 = sat_s10r_closure+1;
+      R2 = GHC.Show.$fShowInteger_closure;
+      R1 = System.IO.print_closure;
+      call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c10A:
+      _rn5::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c10B; else goto c10C;
+  c10B:
+      R1 = _rn5::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c10C:
+      (_c10x::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _rn5::P64);
+      if (_c10x::I64 == 0) goto c10z; else goto c10y;
+  c10z:
+      call (I64[_rn5::P64])() args: 8, res: 0, upd: 8;
+  c10y:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c10x::I64;
+      R3 = sat_s10r_closure+1;
+      R2 = GHC.Show.$fShowInteger_closure;
+      R1 = System.IO.print_closure;
+      call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c10A:
+      _rn5::P64 = R1;
+      if ((Sp + 8) - 24 < SpLim) goto c10B; else goto c10C;
+  c10B:
+      R1 = _rn5::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c10C:
+      (_c10x::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _rn5::P64);
+      if (_c10x::I64 == 0) goto c10z; else goto c10y;
+  c10z:
+      call (I64[_rn5::P64])() args: 8, res: 0, upd: 8;
+  c10y:
+      I64[Sp - 16] = stg_bh_upd_frame_info;
+      I64[Sp - 8] = _c10x::I64;
+      R3 = sat_s10r_closure+1;
+      R2 = GHC.Show.$fShowInteger_closure;
+      R1 = System.IO.print_closure;
+      Sp = Sp - 16;
+      call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c10y,
+  {System.IO.print_closure, GHC.Show.$fShowInteger_closure,
+   sat_s10r_closure}),
+ (c10z, {}),
+ (c10A,
+  {System.IO.print_closure, GHC.Show.$fShowInteger_closure,
+   sat_s10r_closure}),
+ (c10B, {}),
+ (c10C,
+  {System.IO.print_closure, GHC.Show.$fShowInteger_closure,
+   sat_s10r_closure})]
+
+
+
+==================== after setInfoTableStackMap ====================
+Main.main_entry() //  [R1]
+        { info_tbl: [(c10A,
+                      label: Main.main_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c10A:
+          _rn5::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c10B; else goto c10C;
+      c10B:
+          R1 = _rn5::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c10C:
+          (_c10x::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _rn5::P64);
+          if (_c10x::I64 == 0) goto c10z; else goto c10y;
+      c10z:
+          call (I64[_rn5::P64])() args: 8, res: 0, upd: 8;
+      c10y:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c10x::I64;
+          R3 = sat_s10r_closure+1;
+          R2 = GHC.Show.$fShowInteger_closure;
+          R1 = System.IO.print_closure;
+          Sp = Sp - 16;
+          call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+Main.main_entry() //  [R1]
+        { info_tbl: [(c10A,
+                      label: Main.main_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c10A:
+          _rn5::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c10B; else goto c10C;
+      c10B:
+          R1 = _rn5::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c10C:
+          (_c10x::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _rn5::P64);
+          if (_c10x::I64 == 0) goto c10z; else goto c10y;
+      c10z:
+          call (I64[_rn5::P64])() args: 8, res: 0, upd: 8;
+      c10y:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c10x::I64;
+          R3 = sat_s10r_closure+1;
+          R2 = GHC.Show.$fShowInteger_closure;
+          R1 = System.IO.print_closure;
+          Sp = Sp - 16;
+          call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . Main.main_closure" {
+     Main.main_closure:
+         const Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ Main.main_entry() //  [R1]
+         { info_tbl: [(c10A,
+                       label: Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c10A:
+           _rn5::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c10B; else goto c10C;
+       c10B:
+           R1 = _rn5::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c10C:
+           (_c10x::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _rn5::P64);
+           if (_c10x::I64 == 0) goto c10z; else goto c10y;
+       c10z:
+           call (I64[_rn5::P64])() args: 8, res: 0, upd: 8;
+       c10y:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c10x::I64;
+           R3 = sat_s10r_closure+1;
+           R2 = GHC.Show.$fShowInteger_closure;
+           R1 = System.IO.print_closure;
+           Sp = Sp - 16;
+           call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . Main.main_closure" {
+     Main.main_closure:
+         const Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ Main.main_entry() //  [R1]
+         { info_tbl: [(c10A,
+                       label: Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c10A:
+           _rn5::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c10B; else goto c10C;
+       c10B:
+           R1 = _rn5::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c10C:
+           (_c10x::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _rn5::P64);
+           if (_c10x::I64 == 0) goto c10z; else goto c10y;
+       c10z:
+           call (I64[_rn5::P64])() args: 8, res: 0, upd: 8;
+       c10y:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c10x::I64;
+           R3 = sat_s10r_closure+1;
+           R2 = GHC.Show.$fShowInteger_closure;
+           R1 = System.IO.print_closure;
+           Sp = Sp - 16;
+           call stg_ap_pp_fast(R3, R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . :Main.main_closure" {
+     :Main.main_closure:
+         const :Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ :Main.main_entry() //  [R1]
+         { info_tbl: [(c10Q,
+                       label: :Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c10Q:
+           _01D::P64 = R1;
+           goto c10L;
+       c10L:
+           if ((old + 0) - <highSp> < SpLim) goto c10R; else goto c10S;
+       c10R:
+           R1 = _01D::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c10S:
+           (_c10N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+           if (_c10N::I64 == 0) goto c10P; else goto c10O;
+       c10P:
+           call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+       c10O:
+           I64[(old + 24)] = stg_bh_upd_frame_info;
+           I64[(old + 16)] = _c10N::I64;
+           R2 = Main.main_closure;
+           R1 = GHC.TopHandler.runMainIO_closure;
+           call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Post control-flow optimisations ====================
+{offset
+  c10Q:
+      _01D::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c10R; else goto c10S;
+  c10R:
+      R1 = _01D::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c10S:
+      (_c10N::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+      if (_c10N::I64 == 0) goto c10P; else goto c10O;
+  c10P:
+      call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+  c10O:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c10N::I64;
+      R2 = Main.main_closure;
+      R1 = GHC.TopHandler.runMainIO_closure;
+      call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Post switch plan ====================
+{offset
+  c10Q:
+      _01D::P64 = R1;
+      if ((old + 0) - <highSp> < SpLim) goto c10R; else goto c10S;
+  c10R:
+      R1 = _01D::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c10S:
+      (_c10N::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+      if (_c10N::I64 == 0) goto c10P; else goto c10O;
+  c10P:
+      call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+  c10O:
+      I64[(old + 24)] = stg_bh_upd_frame_info;
+      I64[(old + 16)] = _c10N::I64;
+      R2 = Main.main_closure;
+      R1 = GHC.TopHandler.runMainIO_closure;
+      call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== Layout Stack ====================
+{offset
+  c10Q:
+      _01D::P64 = R1;
+      if ((Sp + 8) - 24 < SpLim) goto c10R; else goto c10S;
+  c10R:
+      R1 = _01D::P64;
+      call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+  c10S:
+      (_c10N::I64) = call "ccall" arg hints:  [PtrHint,
+                                               PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+      if (_c10N::I64 == 0) goto c10P; else goto c10O;
+  c10P:
+      call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+  c10O:
+      I64[Sp - 16] = stg_bh_upd_frame_info;
+      I64[Sp - 8] = _c10N::I64;
+      R2 = Main.main_closure;
+      R1 = GHC.TopHandler.runMainIO_closure;
+      Sp = Sp - 16;
+      call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+}
+
+
+
+==================== CAFEnv ====================
+[(c10O, {GHC.TopHandler.runMainIO_closure, Main.main_closure}),
+ (c10P, {}),
+ (c10Q, {GHC.TopHandler.runMainIO_closure, Main.main_closure}),
+ (c10R, {}),
+ (c10S, {GHC.TopHandler.runMainIO_closure, Main.main_closure})]
+
+
+
+==================== after setInfoTableStackMap ====================
+:Main.main_entry() //  [R1]
+        { info_tbl: [(c10Q,
+                      label: :Main.main_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c10Q:
+          _01D::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c10R; else goto c10S;
+      c10R:
+          R1 = _01D::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c10S:
+          (_c10N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+          if (_c10N::I64 == 0) goto c10P; else goto c10O;
+      c10P:
+          call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+      c10O:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c10N::I64;
+          R2 = Main.main_closure;
+          R1 = GHC.TopHandler.runMainIO_closure;
+          Sp = Sp - 16;
+          call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post control-flow optimisations ====================
+:Main.main_entry() //  [R1]
+        { info_tbl: [(c10Q,
+                      label: :Main.main_info
+                      rep:HeapRep static { Thunk })]
+          stack_info: arg_space: 8 updfr_space: Just 8
+        }
+    {offset
+      c10Q:
+          _01D::P64 = R1;
+          if ((Sp + 8) - 24 < SpLim) goto c10R; else goto c10S;
+      c10R:
+          R1 = _01D::P64;
+          call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+      c10S:
+          (_c10N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                   PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+          if (_c10N::I64 == 0) goto c10P; else goto c10O;
+      c10P:
+          call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+      c10O:
+          I64[Sp - 16] = stg_bh_upd_frame_info;
+          I64[Sp - 8] = _c10N::I64;
+          R2 = Main.main_closure;
+          R1 = GHC.TopHandler.runMainIO_closure;
+          Sp = Sp - 16;
+          call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+    }
+}
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . :Main.main_closure" {
+     :Main.main_closure:
+         const :Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ :Main.main_entry() //  [R1]
+         { info_tbl: [(c10Q,
+                       label: :Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c10Q:
+           _01D::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c10R; else goto c10S;
+       c10R:
+           R1 = _01D::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c10S:
+           (_c10N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+           if (_c10N::I64 == 0) goto c10P; else goto c10O;
+       c10P:
+           call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+       c10O:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c10N::I64;
+           R2 = Main.main_closure;
+           R1 = GHC.TopHandler.runMainIO_closure;
+           Sp = Sp - 16;
+           call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . :Main.main_closure" {
+     :Main.main_closure:
+         const :Main.main_info;
+         const 0;
+         const 0;
+         const 0;
+ },
+ :Main.main_entry() //  [R1]
+         { info_tbl: [(c10Q,
+                       label: :Main.main_info
+                       rep:HeapRep static { Thunk })]
+           stack_info: arg_space: 8 updfr_space: Just 8
+         }
+     {offset
+       c10Q:
+           _01D::P64 = R1;
+           if ((Sp + 8) - 24 < SpLim) goto c10R; else goto c10S;
+       c10R:
+           R1 = _01D::P64;
+           call (stg_gc_enter_1)(R1) args: 8, res: 0, upd: 8;
+       c10S:
+           (_c10N::I64) = call "ccall" arg hints:  [PtrHint,
+                                                    PtrHint]  result hints:  [PtrHint] newCAF(BaseReg, _01D::P64);
+           if (_c10N::I64 == 0) goto c10P; else goto c10O;
+       c10P:
+           call (I64[_01D::P64])() args: 8, res: 0, upd: 8;
+       c10O:
+           I64[Sp - 16] = stg_bh_upd_frame_info;
+           I64[Sp - 8] = _c10N::I64;
+           R2 = Main.main_closure;
+           R1 = GHC.TopHandler.runMainIO_closure;
+           Sp = Sp - 16;
+           call stg_ap_p_fast(R2, R1) args: 24, res: 0, upd: 24;
+     }
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""readonly" . c10Z_str" {
+     c10Z_str:
+         I8[] [109,97,105,110]
+ },
+ section ""data" . $trModule1_r103_closure" {
+     $trModule1_r103_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c10Z_str;
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""readonly" . c10Z_str" {
+     c10Z_str:
+         I8[] [109,97,105,110]
+ },
+ section ""data" . $trModule1_r103_closure" {
+     $trModule1_r103_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c10Z_str;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""readonly" . c10Z_str" {
+     c10Z_str:
+         I8[] [109,97,105,110]
+ },
+ section ""data" . $trModule1_r103_closure" {
+     $trModule1_r103_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c10Z_str;
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""readonly" . c113_str" {
+     c113_str:
+         I8[] [77,97,105,110]
+ },
+ section ""data" . $trModule2_r10e_closure" {
+     $trModule2_r10e_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c113_str;
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""readonly" . c113_str" {
+     c113_str:
+         I8[] [77,97,105,110]
+ },
+ section ""data" . $trModule2_r10e_closure" {
+     $trModule2_r10e_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c113_str;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""readonly" . c113_str" {
+     c113_str:
+         I8[] [77,97,105,110]
+ },
+ section ""data" . $trModule2_r10e_closure" {
+     $trModule2_r10e_closure:
+         const GHC.Types.TrNameS_static_info;
+         const c113_str;
+ }]
+
+
+
+==================== Cmm produced by new codegen ====================
+[section ""data" . Main.$trModule_closure" {
+     Main.$trModule_closure:
+         const GHC.Types.Module_static_info;
+         const $trModule1_r103_closure+1;
+         const $trModule2_r10e_closure+1;
+         const 3;
+ }]
+
+
+
+==================== Post CPS Cmm ====================
+[section ""data" . Main.$trModule_closure" {
+     Main.$trModule_closure:
+         const GHC.Types.Module_static_info;
+         const $trModule1_r103_closure+1;
+         const $trModule2_r10e_closure+1;
+         const 3;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""data" . Main.$trModule_closure" {
+     Main.$trModule_closure:
+         const GHC.Types.Module_static_info;
+         const $trModule1_r103_closure+1;
+         const $trModule2_r10e_closure+1;
+         const 3;
+ }]
+
+
+
+==================== Output Cmm ====================
+[section ""relreadonly" . S10D_srt" {
+     S10D_srt:
+         const System.IO.print_closure;
+         const GHC.Show.$fShowInteger_closure;
+         const sat_s10r_closure;
+         const GHC.TopHandler.runMainIO_closure;
+         const Main.main_closure;
+ }]
+
+
+Linking test ...
