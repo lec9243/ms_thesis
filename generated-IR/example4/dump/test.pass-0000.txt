@@ -1,0 +1,47 @@
+{- desugar -}
+module Main where
+
+main :: IO ()
+
+{- Core Size{terms=17 types=9 cos=0 vbinds=0 jbinds=0} -}
+main =
+  GHC.Base.>>
+    @IO
+    GHC.Base.$fMonadIO
+    @()
+    @()
+    (System.IO.putStrLn
+       (GHC.CString.unpackCString#
+          "Hello, what's your name?"#))
+    (GHC.Base.>>=
+       @IO
+       GHC.Base.$fMonadIO
+       @String
+       @()
+       System.IO.getLine
+       (λ name →
+          System.IO.putStrLn
+            (GHC.Base.++
+               @Char
+               (GHC.CString.unpackCString#
+                  "Hey "#)
+               (GHC.Base.++
+                  @Char
+                  name
+                  (GHC.CString.unpackCString#
+                     ", you rock!"#)))))
+
+main :: IO ()
+
+{- Core Size{terms=2 types=1 cos=0 vbinds=0 jbinds=0} -}
+main =
+  GHC.TopHandler.runMainIO
+    @() Main.main
+
+$trModule :: Module
+
+{- Core Size{terms=5 types=0 cos=0 vbinds=0 jbinds=0} -}
+$trModule =
+  GHC.Types.Module
+    (GHC.Types.TrNameS "main"#)
+    (GHC.Types.TrNameS "Main"#)

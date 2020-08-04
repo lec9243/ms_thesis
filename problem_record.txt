@@ -1,4 +1,4 @@
-## llvm version should be 3.7.1, to make the -fllvm flag work, it has be >=3.7.1
+## llvm version should be 3.7.1, to make the -fllvm flag work, it has be =3.7.1
 
 ## can't use cabel to install llvm-hs/llvm-general package, usin stack install can solve this problem, but not all of them
 
@@ -7,3 +7,21 @@
 ## Try llvm-data-interop, add it to stack dependency
 
 ## generated llvm code are very long, tried -O0, doesn't make any change. May be compare core to cmm could be another direction, because cmm code is shorter and easier to read and understand, but also can be compiled by more compiler?
+
+## Using IC is difficult, because it requires unregistered GHC to generate the .hc file, which needs to change the configuration of GCH
+
+## LLVM version problem, right now ghc only support llvm-3.7. The generated code cannot be compiled through clang, the error message is shown like this (tried with llvm-9.0):
+```
+You are using an unsupported version of LLVM!
+Currently only 3.7 is supported.
+We will try though...
+opt-3.7: test.ll:15:29: error: expected comma after alias or ifunc's type
+@__stginit_Main = alias i8* bitcast (%__stginit_Main_struct* @__stginit_Main$def to i8*)
+                            ^
+`opt-3.7' failed in phase `LLVM Optimiser'. (Exit code: 1)
+```
+However, with llvm-3.7, it can't use haskell llvm library.
+
+## Find a haskell package to generate the core2core AST, ghc-dump
+
+

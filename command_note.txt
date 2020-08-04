@@ -3,7 +3,7 @@ ghc -v5 test.hs > test.txt
 ###Can get codes from all stages
 
 ghc -fllvm -keep-llvm-files test.hs
-###One way to get the llvm code
+###One way to get the llvm code, use -c to stop 
 
 ghc -ddump-llvm test.hs > test.txt
 ###Another way to get llvm code
@@ -13,5 +13,8 @@ ghc -dverbose-core2core test.hs > test_core.txt
 
 ghc -ddump-cmm test.hs > test.cmm
 ###Get all stages cmm code write in .cmm file
+
+ghc -fplugin GhcDump.Plugin -dumpdir=dump -O Test.hs
+###Get core2core AST, see link: https://github.com/bgamari/ghc-dump
 
 
