@@ -1,0 +1,790 @@
+Module 
+				{moduleName = "<string>" ,
+						 moduleSourceFileName = "main_module" ,
+						 moduleDataLayout = Just (DataLayout 
+						{endianness = LittleEndian ,
+								 mangling = Just MachOMangling ,
+								 stackAlignment = Just 128 ,
+								 pointerLayouts = fromList [(AddrSpace 0 ,
+								(64 ,
+								AlignmentInfo 
+								{abiAlignment = 64 ,
+										 preferredAlignment = 64
+										}))] ,
+								 typeLayouts = fromList [((IntegerAlign ,
+								1) ,
+								AlignmentInfo 
+								{abiAlignment = 8 ,
+										 preferredAlignment = 8
+										}) ,
+								((IntegerAlign ,
+								8) ,
+								AlignmentInfo 
+								{abiAlignment = 8 ,
+										 preferredAlignment = 8
+										}) ,
+								((IntegerAlign ,
+								16) ,
+								AlignmentInfo 
+								{abiAlignment = 16 ,
+										 preferredAlignment = 16
+										}) ,
+								((IntegerAlign ,
+								32) ,
+								AlignmentInfo 
+								{abiAlignment = 32 ,
+										 preferredAlignment = 32
+										}) ,
+								((IntegerAlign ,
+								64) ,
+								AlignmentInfo 
+								{abiAlignment = 64 ,
+										 preferredAlignment = 64
+										}) ,
+								((VectorAlign ,
+								64) ,
+								AlignmentInfo 
+								{abiAlignment = 64 ,
+										 preferredAlignment = 64
+										}) ,
+								((VectorAlign ,
+								128) ,
+								AlignmentInfo 
+								{abiAlignment = 128 ,
+										 preferredAlignment = 128
+										}) ,
+								((FloatAlign ,
+								16) ,
+								AlignmentInfo 
+								{abiAlignment = 16 ,
+										 preferredAlignment = 16
+										}) ,
+								((FloatAlign ,
+								32) ,
+								AlignmentInfo 
+								{abiAlignment = 32 ,
+										 preferredAlignment = 32
+										}) ,
+								((FloatAlign ,
+								64) ,
+								AlignmentInfo 
+								{abiAlignment = 64 ,
+										 preferredAlignment = 64
+										}) ,
+								((FloatAlign ,
+								80) ,
+								AlignmentInfo 
+								{abiAlignment = 128 ,
+										 preferredAlignment = 128
+										}) ,
+								((FloatAlign ,
+								128) ,
+								AlignmentInfo 
+								{abiAlignment = 128 ,
+										 preferredAlignment = 128
+										})] ,
+								 aggregateLayout = AlignmentInfo 
+								{abiAlignment = 0 ,
+										 preferredAlignment = 64
+										} ,
+								 nativeSizes = Just (fromList [8 ,
+								16 ,
+								32 ,
+								64])
+								}) ,
+						 moduleTargetTriple = Just "x86_64-apple-macosx" ,
+						 moduleDefinitions = [TypeDefinition (Name "(Int32 | Nil)") (Just (StructureType 
+						{isPacked = False ,
+								 elementTypes = [IntegerType 
+								{typeBits = 32
+										} ,
+								ArrayType 
+								{nArrayElements = 1 ,
+										 elementType = IntegerType 
+										{typeBits = 64
+												}
+										}]
+								})) ,
+						GlobalDefinition (GlobalVariable 
+						{name = Name "ARGC_UNSAFE" ,
+								 linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 threadLocalMode = Nothing ,
+								 unnamedAddr = Nothing ,
+								 isConstant = False ,
+								 type' = IntegerType 
+								{typeBits = 32
+										} ,
+								 addrSpace = AddrSpace 0 ,
+								 initializer = Just (Int 
+								{integerBits = 32 ,
+										 integerValue = 0
+										}) ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (GlobalVariable 
+						{name = Name "ARGV_UNSAFE" ,
+								 linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 threadLocalMode = Nothing ,
+								 unnamedAddr = Nothing ,
+								 isConstant = False ,
+								 type' = PointerType 
+								{pointerReferent = PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 8
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												} ,
+										 pointerAddrSpace = AddrSpace 0
+										} ,
+								 addrSpace = AddrSpace 0 ,
+								 initializer = Just (Null 
+								{constantType = PointerType 
+										{pointerReferent = PointerType 
+												{pointerReferent = IntegerType 
+														{typeBits = 8
+																} ,
+														 pointerAddrSpace = AddrSpace 0
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}
+										}) ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (Function 
+						{linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 callingConvention = C ,
+								 returnAttributes = [] ,
+								 returnType = NamedTypeReference (Name "(Int32 | Nil)") ,
+								 name = Name "__crystal_main" ,
+								 parameters = ([Parameter (IntegerType 
+								{typeBits = 32
+										}) (Name "argc") [] ,
+								Parameter (PointerType 
+								{pointerReferent = PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 8
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												} ,
+										 pointerAddrSpace = AddrSpace 0
+										}) (Name "argv") []] ,
+								False) ,
+								 functionAttributes = [] ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 garbageCollectorName = Nothing ,
+								 prefix = Nothing ,
+								 basicBlocks = [BasicBlock (Name "alloca") [Name "four" := Alloca 
+								{allocatedType = IntegerType 
+										{typeBits = 32
+												} ,
+										 numElements = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										} ,
+								Name "six" := Alloca 
+								{allocatedType = NamedTypeReference (Name "(Int32 | Nil)") ,
+										 numElements = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										} ,
+								UnName 0 := GetElementPtr 
+								{inBounds = True ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "six") ,
+										 indices = [ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 0
+												}) ,
+										ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 0
+												})] ,
+										 metadata = []
+										} ,
+								Do (Store 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 32
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (UnName 0) ,
+										 value = ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 0
+												}) ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}) ,
+								UnName 1 := GetElementPtr 
+								{inBounds = True ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "six") ,
+										 indices = [ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 0
+												}) ,
+										ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 1
+												})] ,
+										 metadata = []
+										} ,
+								Do (Store 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = ArrayType 
+												{nArrayElements = 1 ,
+														 elementType = IntegerType 
+														{typeBits = 64
+																}
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (UnName 1) ,
+										 value = ConstantOperand (AggregateZero 
+										{constantType = ArrayType 
+												{nArrayElements = 1 ,
+														 elementType = IntegerType 
+														{typeBits = 64
+																}
+														}
+												}) ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}) ,
+								UnName 2 := Alloca 
+								{allocatedType = NamedTypeReference (Name "(Int32 | Nil)") ,
+										 numElements = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}] (Do (Br 
+								{dest = Name "entry" ,
+										 metadata' = []
+										})) ,
+								BasicBlock (Name "entry") [Do (Store 
+								{volatile = False ,
+										 address = ConstantOperand (GlobalReference (PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 32
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "ARGC_UNSAFE")) ,
+										 value = LocalReference (IntegerType 
+										{typeBits = 32
+												}) (Name "argc") ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}) ,
+								Do (Store 
+								{volatile = False ,
+										 address = ConstantOperand (GlobalReference (PointerType 
+										{pointerReferent = PointerType 
+												{pointerReferent = PointerType 
+														{pointerReferent = IntegerType 
+																{typeBits = 8
+																		} ,
+																 pointerAddrSpace = AddrSpace 0
+																} ,
+														 pointerAddrSpace = AddrSpace 0
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "ARGV_UNSAFE")) ,
+										 value = LocalReference (PointerType 
+										{pointerReferent = PointerType 
+												{pointerReferent = IntegerType 
+														{typeBits = 8
+																} ,
+														 pointerAddrSpace = AddrSpace 0
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "argv") ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}) ,
+								Do (Store 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 32
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "four") ,
+										 value = ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 4
+												}) ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}) ,
+								UnName 3 := Load 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 32
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "four") ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										} ,
+								UnName 4 := ICmp 
+								{iPredicate = SGT ,
+										 operand0 = LocalReference (IntegerType 
+										{typeBits = 32
+												}) (UnName 3) ,
+										 operand1 = ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 2
+												}) ,
+										 metadata = []
+										}] (Do (CondBr 
+								{condition = LocalReference (IntegerType 
+										{typeBits = 1
+												}) (UnName 4) ,
+										 trueDest = Name "then" ,
+										 falseDest = Name "else" ,
+										 metadata' = []
+										})) ,
+								BasicBlock (Name "then") [UnName 5 := Load 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 32
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "four") ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										} ,
+								UnName 6 := Call 
+								{tailCallKind = Nothing ,
+										 callingConvention = C ,
+										 returnAttributes = [] ,
+										 function = Right (ConstantOperand (GlobalReference (PointerType 
+										{pointerReferent = FunctionType 
+												{resultType = IntegerType 
+														{typeBits = 32
+																} ,
+														 argumentTypes = [IntegerType 
+														{typeBits = 32
+																}] ,
+														 isVarArg = False
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "*add_2<Int32>:Int32"))) ,
+										 arguments = [(LocalReference (IntegerType 
+										{typeBits = 32
+												}) (UnName 5) ,
+										[])] ,
+										 functionAttributes = [] ,
+										 metadata = []
+										} ,
+								UnName 7 := GetElementPtr 
+								{inBounds = True ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "six") ,
+										 indices = [ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 0
+												}) ,
+										ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 0
+												})] ,
+										 metadata = []
+										} ,
+								Do (Store 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 32
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (UnName 7) ,
+										 value = ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 11
+												}) ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}) ,
+								UnName 8 := GetElementPtr 
+								{inBounds = True ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "six") ,
+										 indices = [ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 0
+												}) ,
+										ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 1
+												})] ,
+										 metadata = []
+										} ,
+								UnName 9 := BitCast 
+								{operand0 = LocalReference (PointerType 
+										{pointerReferent = ArrayType 
+												{nArrayElements = 1 ,
+														 elementType = IntegerType 
+														{typeBits = 64
+																}
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (UnName 8) ,
+										 type' = PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 32
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												} ,
+										 metadata = []
+										} ,
+								Do (Store 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 32
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (UnName 9) ,
+										 value = LocalReference (IntegerType 
+										{typeBits = 32
+												}) (UnName 6) ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										})] (Do (Br 
+								{dest = Name "exit" ,
+										 metadata' = []
+										})) ,
+								BasicBlock (Name "else") [] (Do (Br 
+								{dest = Name "exit" ,
+										 metadata' = []
+										})) ,
+								BasicBlock (Name "exit") [UnName 10 := Load 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "six") ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										} ,
+								UnName 11 := Call 
+								{tailCallKind = Nothing ,
+										 callingConvention = C ,
+										 returnAttributes = [] ,
+										 function = Right (ConstantOperand (GlobalReference (PointerType 
+										{pointerReferent = FunctionType 
+												{resultType = NamedTypeReference (Name "(Int32 | Nil)") ,
+														 argumentTypes = [NamedTypeReference (Name "(Int32 | Nil)")] ,
+														 isVarArg = False
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "*puts<(Int32 | Nil)>:(Int32 | Nil)"))) ,
+										 arguments = [(LocalReference (NamedTypeReference (Name "(Int32 | Nil)")) (UnName 10) ,
+										[])] ,
+										 functionAttributes = [] ,
+										 metadata = []
+										} ,
+								Do (Store 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (UnName 2) ,
+										 value = LocalReference (NamedTypeReference (Name "(Int32 | Nil)")) (UnName 11) ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}) ,
+								UnName 12 := Load 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (UnName 2) ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}] (Do (Ret 
+								{returnOperand = Just (LocalReference (NamedTypeReference (Name "(Int32 | Nil)")) (UnName 12)) ,
+										 metadata' = []
+										}))] ,
+								 personalityFunction = Nothing ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (Function 
+						{linkage = External ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 callingConvention = C ,
+								 returnAttributes = [] ,
+								 returnType = IntegerType 
+								{typeBits = 32
+										} ,
+								 name = Name "printf" ,
+								 parameters = ([Parameter (PointerType 
+								{pointerReferent = IntegerType 
+										{typeBits = 8
+												} ,
+										 pointerAddrSpace = AddrSpace 0
+										}) (UnName 0) []] ,
+								True) ,
+								 functionAttributes = [] ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 garbageCollectorName = Nothing ,
+								 prefix = Nothing ,
+								 basicBlocks = [] ,
+								 personalityFunction = Nothing ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (Function 
+						{linkage = External ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 callingConvention = C ,
+								 returnAttributes = [] ,
+								 returnType = IntegerType 
+								{typeBits = 32
+										} ,
+								 name = Name "main" ,
+								 parameters = ([Parameter (IntegerType 
+								{typeBits = 32
+										}) (Name "argc") [] ,
+								Parameter (PointerType 
+								{pointerReferent = PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 8
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												} ,
+										 pointerAddrSpace = AddrSpace 0
+										}) (Name "argv") []] ,
+								False) ,
+								 functionAttributes = [Left (GroupID 0)] ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 garbageCollectorName = Nothing ,
+								 prefix = Nothing ,
+								 basicBlocks = [BasicBlock (Name "entry") [UnName 0 := Call 
+								{tailCallKind = Nothing ,
+										 callingConvention = C ,
+										 returnAttributes = [] ,
+										 function = Right (ConstantOperand (GlobalReference (PointerType 
+										{pointerReferent = FunctionType 
+												{resultType = NamedTypeReference (Name "(Int32 | Nil)") ,
+														 argumentTypes = [IntegerType 
+														{typeBits = 32
+																} ,
+														PointerType 
+														{pointerReferent = PointerType 
+																{pointerReferent = IntegerType 
+																		{typeBits = 8
+																				} ,
+																		 pointerAddrSpace = AddrSpace 0
+																		} ,
+																 pointerAddrSpace = AddrSpace 0
+																}] ,
+														 isVarArg = False
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "__crystal_main"))) ,
+										 arguments = [(LocalReference (IntegerType 
+										{typeBits = 32
+												}) (Name "argc") ,
+										[]) ,
+										(LocalReference (PointerType 
+										{pointerReferent = PointerType 
+												{pointerReferent = IntegerType 
+														{typeBits = 8
+																} ,
+														 pointerAddrSpace = AddrSpace 0
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "argv") ,
+										[])] ,
+										 functionAttributes = [] ,
+										 metadata = []
+										}] (Do (Ret 
+								{returnOperand = Just (ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 0
+												})) ,
+										 metadata' = []
+										}))] ,
+								 personalityFunction = Nothing ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (Function 
+						{linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 callingConvention = C ,
+								 returnAttributes = [] ,
+								 returnType = IntegerType 
+								{typeBits = 32
+										} ,
+								 name = Name "*add_2<Int32>:Int32" ,
+								 parameters = ([Parameter (IntegerType 
+								{typeBits = 32
+										}) (Name "num") []] ,
+								False) ,
+								 functionAttributes = [Left (GroupID 0)] ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 garbageCollectorName = Nothing ,
+								 prefix = Nothing ,
+								 basicBlocks = [BasicBlock (Name "entry") [UnName 0 := Add 
+								{nsw = False ,
+										 nuw = False ,
+										 operand0 = LocalReference (IntegerType 
+										{typeBits = 32
+												}) (Name "num") ,
+										 operand1 = ConstantOperand (Int 
+										{integerBits = 32 ,
+												 integerValue = 2
+												}) ,
+										 metadata = []
+										}] (Do (Ret 
+								{returnOperand = Just (LocalReference (IntegerType 
+										{typeBits = 32
+												}) (UnName 0)) ,
+										 metadata' = []
+										}))] ,
+								 personalityFunction = Nothing ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (Function 
+						{linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 callingConvention = C ,
+								 returnAttributes = [] ,
+								 returnType = NamedTypeReference (Name "(Int32 | Nil)") ,
+								 name = Name "*puts<(Int32 | Nil)>:(Int32 | Nil)" ,
+								 parameters = ([Parameter (NamedTypeReference (Name "(Int32 | Nil)")) (Name "item") []] ,
+								False) ,
+								 functionAttributes = [Left (GroupID 0)] ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 garbageCollectorName = Nothing ,
+								 prefix = Nothing ,
+								 basicBlocks = [BasicBlock (Name "alloca") [Name "item1" := Alloca 
+								{allocatedType = NamedTypeReference (Name "(Int32 | Nil)") ,
+										 numElements = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}] (Do (Br 
+								{dest = Name "entry" ,
+										 metadata' = []
+										})) ,
+								BasicBlock (Name "entry") [Do (Store 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "item1") ,
+										 value = LocalReference (NamedTypeReference (Name "(Int32 | Nil)")) (Name "item") ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}) ,
+								UnName 0 := Load 
+								{volatile = False ,
+										 address = LocalReference (PointerType 
+										{pointerReferent = NamedTypeReference (Name "(Int32 | Nil)") ,
+												 pointerAddrSpace = AddrSpace 0
+												}) (Name "item1") ,
+										 maybeAtomicity = Nothing ,
+										 alignment = 0 ,
+										 metadata = []
+										}] (Do (Ret 
+								{returnOperand = Just (LocalReference (NamedTypeReference (Name "(Int32 | Nil)")) (UnName 0)) ,
+										 metadata' = []
+										}))] ,
+								 personalityFunction = Nothing ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (Function 
+						{linkage = External ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 callingConvention = C ,
+								 returnAttributes = [] ,
+								 returnType = VoidType ,
+								 name = Name "llvm.stackprotector" ,
+								 parameters = ([Parameter (PointerType 
+								{pointerReferent = IntegerType 
+										{typeBits = 8
+												} ,
+										 pointerAddrSpace = AddrSpace 0
+										}) (UnName 0) [] ,
+								Parameter (PointerType 
+								{pointerReferent = PointerType 
+										{pointerReferent = IntegerType 
+												{typeBits = 8
+														} ,
+												 pointerAddrSpace = AddrSpace 0
+												} ,
+										 pointerAddrSpace = AddrSpace 0
+										}) (UnName 1) []] ,
+								False) ,
+								 functionAttributes = [Left (GroupID 1)] ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 garbageCollectorName = Nothing ,
+								 prefix = Nothing ,
+								 basicBlocks = [] ,
+								 personalityFunction = Nothing ,
+								 metadata = []
+								}) ,
+						FunctionAttributes (GroupID 1) [NoUnwind] ,
+						FunctionAttributes (GroupID 0) [UWTable ,
+						StringAttribute 
+						{stringAttributeKind = "no-frame-pointer-elim" ,
+								 stringAttributeValue = "true"
+								} ,
+						StringAttribute 
+						{stringAttributeKind = "no-frame-pointer-elim-non-leaf" ,
+								 stringAttributeValue = "true"
+								}]]
+						}

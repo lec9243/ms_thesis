@@ -1,0 +1,516 @@
+Module
+				{moduleName = "<string>" ,
+						 moduleSourceFileName = "<string>" ,
+						 moduleDataLayout = Just (DataLayout
+						{endianness = LittleEndian ,
+								 mangling = Just ELFMangling ,
+								 stackAlignment = Just 128 ,
+								 pointerLayouts = fromList [(AddrSpace 0 ,
+								(64 ,
+								AlignmentInfo
+								{abiAlignment = 64 ,
+										 preferredAlignment = 64
+										}))] ,
+								 typeLayouts = fromList [((IntegerAlign ,
+								1) ,
+								AlignmentInfo
+								{abiAlignment = 8 ,
+										 preferredAlignment = 8
+										}) ,
+								((IntegerAlign ,
+								8) ,
+								AlignmentInfo
+								{abiAlignment = 8 ,
+										 preferredAlignment = 8
+										}) ,
+								((IntegerAlign ,
+								16) ,
+								AlignmentInfo
+								{abiAlignment = 16 ,
+										 preferredAlignment = 16
+										}) ,
+								((IntegerAlign ,
+								32) ,
+								AlignmentInfo
+								{abiAlignment = 32 ,
+										 preferredAlignment = 32
+										}) ,
+								((IntegerAlign ,
+								64) ,
+								AlignmentInfo
+								{abiAlignment = 64 ,
+										 preferredAlignment = 64
+										}) ,
+								((VectorAlign ,
+								64) ,
+								AlignmentInfo
+								{abiAlignment = 64 ,
+										 preferredAlignment = 64
+										}) ,
+								((VectorAlign ,
+								128) ,
+								AlignmentInfo
+								{abiAlignment = 128 ,
+										 preferredAlignment = 128
+										}) ,
+								((FloatAlign ,
+								16) ,
+								AlignmentInfo
+								{abiAlignment = 16 ,
+										 preferredAlignment = 16
+										}) ,
+								((FloatAlign ,
+								32) ,
+								AlignmentInfo
+								{abiAlignment = 32 ,
+										 preferredAlignment = 32
+										}) ,
+								((FloatAlign ,
+								64) ,
+								AlignmentInfo
+								{abiAlignment = 64 ,
+										 preferredAlignment = 64
+										}) ,
+								((FloatAlign ,
+								80) ,
+								AlignmentInfo
+								{abiAlignment = 128 ,
+										 preferredAlignment = 128
+										}) ,
+								((FloatAlign ,
+								128) ,
+								AlignmentInfo
+								{abiAlignment = 128 ,
+										 preferredAlignment = 128
+										})] ,
+								 aggregateLayout = AlignmentInfo
+								{abiAlignment = 0 ,
+										 preferredAlignment = 64
+										} ,
+								 nativeSizes = Just (fromList [8 ,
+								16 ,
+								32 ,
+								64])
+								}) ,
+						 moduleTargetTriple = Just "x86_64-unknown-linux" ,
+						 moduleDefinitions = [TypeDefinition (Name "rEw_bytes_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [ArrayType
+								{nArrayElements = 5 ,
+										 elementType = IntegerType
+										{typeBits = 8
+												}
+										}]
+								})) ,
+						TypeDefinition (Name "rEC_closure_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "rED_bytes_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [ArrayType
+								{nArrayElements = 5 ,
+										 elementType = IntegerType
+										{typeBits = 8
+												}
+										}]
+								})) ,
+						TypeDefinition (Name "rEE_closure_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "Main_zdtrModule_closure_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "_uLP_srt_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "_uLQ_srt_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "_uLR_srt_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "cLj_str_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [ArrayType
+								{nArrayElements = 12 ,
+										 elementType = IntegerType
+										{typeBits = 8
+												}
+										}]
+								})) ,
+						TypeDefinition (Name "cLw_str_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [ArrayType
+								{nArrayElements = 5 ,
+										 elementType = IntegerType
+										{typeBits = 8
+												}
+										}]
+								})) ,
+						TypeDefinition (Name "sKV_closure_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "_uR2_srt_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "cQT_str_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [ArrayType
+								{nArrayElements = 25 ,
+										 elementType = IntegerType
+										{typeBits = 8
+												}
+										}]
+								})) ,
+						TypeDefinition (Name "sKO_closure_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "_uSM_srt_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "Main_main_closure_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "_uTO_srt_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}]
+								})) ,
+						TypeDefinition (Name "ZCMain_main_closure_struct") (Just (StructureType
+						{isPacked = True ,
+								 elementTypes = [IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										} ,
+								IntegerType
+								{typeBits = 64
+										}
+                                                                                             ,
+								IntegerType 
+								{typeBits = 64
+										}]
+								})) ,
+						GlobalDefinition (GlobalVariable 
+						{name = Name "rEw_bytes$def" ,
+								 linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 threadLocalMode = Nothing ,
+								 unnamedAddr = Nothing ,
+								 isConstant = True ,
+								 type' = NamedTypeReference (Name "rEw_bytes_struct") ,
+								 addrSpace = AddrSpace 0 ,
+								 initializer = Just (Struct 
+								{structName = Just (Name "rEw_bytes_struct") ,
+										 isPacked = True ,
+										 memberValues = [Array 
+										{memberType = IntegerType 
+												{typeBits = 8
+														} ,
+												 memberValues = [Int 
+												{integerBits = 8 ,
+														 integerValue = 109
+														} ,
+												Int 
+												{integerBits = 8 ,
+														 integerValue = 97
+														} ,
+												Int 
+												{integerBits = 8 ,
+														 integerValue = 105
+														} ,
+												Int 
+												{integerBits = 8 ,
+														 integerValue = 110
+														} ,
+												Int 
+												{integerBits = 8 ,
+														 integerValue = 0
+														}]
+												}]
+										}) ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 1 ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (GlobalVariable 
+						{name = Name "rEC_closure$def" ,
+								 linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 threadLocalMode = Nothing ,
+								 unnamedAddr = Nothing ,
+								 isConstant = False ,
+								 type' = NamedTypeReference (Name "rEC_closure_struct") ,
+								 addrSpace = AddrSpace 0 ,
+								 initializer = Just (Struct 
+								{structName = Just (Name "rEC_closure_struct") ,
+										 isPacked = True ,
+										 memberValues = [PtrToInt 
+										{operand0 = GlobalReference (PointerType 
+												{pointerReferent = IntegerType 
+														{typeBits = 8
+																} ,
+														 pointerAddrSpace = AddrSpace 0
+														}) (Name "ghczmprim_GHCziTypes_TrNameS_con_info") ,
+												 type' = IntegerType 
+												{typeBits = 64
+														}
+												} ,
+										PtrToInt 
+										{operand0 = GlobalReference (PointerType 
+												{pointerReferent = NamedTypeReference (Name "rEw_bytes_struct") ,
+														 pointerAddrSpace = AddrSpace 0
+														}) (Name "rEw_bytes$def") ,
+												 type' = IntegerType 
+												{typeBits = 64
+														}
+												}]
+										}) ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (GlobalVariable 
+						{name = Name "rED_bytes$def" ,
+								 linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 threadLocalMode = Nothing ,
+								 unnamedAddr = Nothing ,
+								 isConstant = True ,
+								 type' = NamedTypeReference (Name "rED_bytes_struct") ,
+								 addrSpace = AddrSpace 0 ,
+								 initializer = Just (Struct 
+								{structName = Just (Name "rED_bytes_struct") ,
+										 isPacked = True ,
+										 memberValues = [Array 
+										{memberType = IntegerType 
+												{typeBits = 8
+														} ,
+												 memberValues = [Int 
+												{integerBits = 8 ,
+														 integerValue = 77
+														} ,
+												Int 
+												{integerBits = 8 ,
+														 integerValue = 97
+														} ,
+												Int 
+												{integerBits = 8 ,
+														 integerValue = 105
+														} ,
+												Int 
+												{integerBits = 8 ,
+														 integerValue = 110
+														} ,
+												Int 
+												{integerBits = 8 ,
+														 integerValue = 0
+														}]
+												}]
+										}) ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 1 ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (GlobalVariable 
+						{name = Name "rEE_closure$def" ,
+								 linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 threadLocalMode = Nothing ,
+								 unnamedAddr = Nothing ,
+								 isConstant = False ,
+								 type' = NamedTypeReference (Name "rEE_closure_struct") ,
+								 addrSpace = AddrSpace 0 ,
+								 initializer = Just (Struct 
+								{structName = Just (Name "rEE_closure_struct") ,
+										 isPacked = True ,
+										 memberValues = [PtrToInt 
+										{operand0 = GlobalReference (PointerType 
+												{pointerReferent = IntegerType 
+														{typeBits = 8
+																} ,
+														 pointerAddrSpace = AddrSpace 0
+														}) (Name "ghczmprim_GHCziTypes_TrNameS_con_info") ,
+												 type' = IntegerType 
+												{typeBits = 64
+														}
+												} ,
+										PtrToInt 
+										{operand0 = GlobalReference (PointerType 
+												{pointerReferent = NamedTypeReference (Name "rED_bytes_struct") ,
+														 pointerAddrSpace = AddrSpace 0
+														}) (Name "rED_bytes$def") ,
+												 type' = IntegerType 
+												{typeBits = 64
+														}
+												}]
+										}) ,
+								 section = Nothing ,
+								 comdat = Nothing ,
+								 alignment = 0 ,
+								 metadata = []
+								}) ,
+						GlobalDefinition (GlobalVariable 
+						{name = Name "Main_zdtrModule_closure$def" ,
+								 linkage = Internal ,
+								 visibility = Default ,
+								 dllStorageClass = Nothing ,
+								 threadLocalMode = Nothing ,
+								 unnamedAddr = Nothing ,
+								 isConstant = False ,
+								 type' = NamedTypeReference (Name "Main_zdtrModule_closure_struct") ,
+								 addrSpace = AddrSpace 0 ,
+								 initializer = Just (Struct 
+								{structName = Just (Name "Main_zdtrModule_closure_struct") ,
+										 isPacked = True ,
+										 memberValues = [PtrToInt 
+										{operand0 = GlobalReference (PointerType 
+												{pointerReferent = IntegerType 
+														{typeBits = 8
+																} ,
+														 pointerAddrSpace = AddrSpace 0
+														}) (Name "ghczmprim_GHCziTypes_Module_con_
