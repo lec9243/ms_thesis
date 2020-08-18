@@ -28,11 +28,13 @@ However, with llvm-3.7, it can't use haskell llvm library.
 
 ## To do: count the node by my own code of core AST (Not finished yet)
 
-## Generated AST data type is a little bit hard to understand, need more time to learn it.
+## Can't upgrade ghc version, using stack to force it compile with ghc 8.10 for llvm. (Solved, method from: https://www.haskell.org/downloads/linux/)
 
-## Can't upgrade ghc version, using stack to force it compile with ghc 8.10 for llvm. 
+## Problem with the ghc version. Package ghc-dump-core can generate the core AST but it can only supports ghc version < 8.8, llvm-hs can easily parse llvm and generate the llvm AST, but it only support llvm-9.0, which requires ghc version >= 8.10. GHC 8.8 only supports llvm 6.0, which the syntax is a little bit different, and llvm-hs package could not parse it. Haven't found another way to generate Haskell core language AST yet. (Solved)
+ ** from https://gitlab.haskell.org/ghc/ghc/-/wikis/commentary/compiler/backends/llvm/installing
 
-## Problem with the ghc version. Package ghc-dump-core can generate the core AST but it can only supports ghc version < 8.8, llvm-hs can easily parse llvm and generate the llvm AST, but it only support llvm-9.0, which requires ghc version >= 8.10. GHC 8.8 only supports llvm 6.0, which the syntax is a little bit different, and llvm-hs package could not parse it. Haven't found another way to generate Haskell core language AST yet. 
+## Another problem, generated AST is too large that it is hard for it to be pretty printed. Using Data.Text instead of String fixed the problem. 
 
-## Another problem, generated AST is too large that it is hard for it to be pretty printed.  
+## Modified ghc-dump source code, can pretty print the core AST now.
 
+## Using cabal to install packages from sources. Method is in the link: https://stackoverflow.com/questions/58272366/haskell-cabal-v2-and-sandbox

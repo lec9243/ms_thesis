@@ -1,0 +1,379 @@
+Module 
+		{moduleName = ModuleName 
+			{getModuleName = "Main"
+				} ,
+			 modulePhase = "desugar" ,
+			 moduleTopBindings = [NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "main" ,
+					 binderId = BinderId rjZ ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EApp (EApp (EApp (EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Base"
+									} ,
+								 externalName = ">>" ,
+								 externalUnique = 02M
+								})) (EType (TyConApp (TyCon "IO" 31Q) []))) (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Base"
+									} ,
+								 externalName = "$fMonadIO" ,
+								 externalUnique = rgq
+								}))) (EType (TyConApp (TyCon "()" 40) []))) (EType (TyConApp (TyCon "()" 40) []))) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "System.IO"
+									} ,
+								 externalName = "putStrLn" ,
+								 externalUnique = r5c
+								})) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.CString"
+									} ,
+								 externalName = "unpackCString#" ,
+								 externalUnique = 0k
+								})) (ELit (MachStr "Hello ,
+							 what's your name?"))))) (EApp (EApp (EApp (EApp (EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Base"
+									} ,
+								 externalName = ">>=" ,
+								 externalUnique = 02L
+								})) (EType (TyConApp (TyCon "IO" 31Q) []))) (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Base"
+									} ,
+								 externalName = "$fMonadIO" ,
+								 externalUnique = rgq
+								}))) (EType (TyConApp (TyCon "String" ry) []))) (EType (TyConApp (TyCon "()" 40) []))) (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "System.IO"
+									} ,
+								 externalName = "getLine" ,
+								 externalUnique = r58
+								}))) (ELam (Bndr 
+							{unBndr = Binder 
+								{binderName = "name" ,
+									 binderId = BinderId ana ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = NoUnfolding ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccOneOcc ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "String" ry) []
+									}
+								}) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "System.IO"
+									} ,
+								 externalName = "putStrLn" ,
+								 externalUnique = r5c
+								})) (EApp (EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Base"
+									} ,
+								 externalName = "++" ,
+								 externalUnique = 03
+								})) (EType (TyConApp (TyCon "Char" 3g) []))) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.CString"
+									} ,
+								 externalName = "unpackCString#" ,
+								 externalUnique = 0k
+								})) (ELit (MachStr "Hey ")))) (EApp (EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Base"
+									} ,
+								 externalName = "++" ,
+								 externalUnique = 03
+								})) (EType (TyConApp (TyCon "Char" 3g) []))) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "name" ,
+									 binderId = BinderId ana ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = NoUnfolding ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccOneOcc ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "String" ry) []
+									}
+								}))) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.CString"
+									} ,
+								 externalName = "unpackCString#" ,
+								 externalUnique = 0k
+								})) (ELit (MachStr " ,
+							 you rock!")))))))) ,
+							 unfIsValue = False ,
+							 unfIsConLike = False ,
+							 unfIsWorkFree = False ,
+							 unfGuidance = "IF_ARGS [] 380 0"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "IO" 31Q) [TyConApp (TyCon "()" 40) []]
+					}
+				}) (CoreStats 
+			{csTerms = 17 ,
+				 csTypes = 9 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EApp (EApp (EApp (EApp (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Base"
+					} ,
+				 externalName = ">>" ,
+				 externalUnique = 02M
+				})) (EType (TyConApp (TyCon "IO" 31Q) []))) (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Base"
+					} ,
+				 externalName = "$fMonadIO" ,
+				 externalUnique = rgq
+				}))) (EType (TyConApp (TyCon "()" 40) []))) (EType (TyConApp (TyCon "()" 40) []))) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "System.IO"
+					} ,
+				 externalName = "putStrLn" ,
+				 externalUnique = r5c
+				})) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.CString"
+					} ,
+				 externalName = "unpackCString#" ,
+				 externalUnique = 0k
+				})) (ELit (MachStr "Hello ,
+			 what's your name?"))))) (EApp (EApp (EApp (EApp (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Base"
+					} ,
+				 externalName = ">>=" ,
+				 externalUnique = 02L
+				})) (EType (TyConApp (TyCon "IO" 31Q) []))) (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Base"
+					} ,
+				 externalName = "$fMonadIO" ,
+				 externalUnique = rgq
+				}))) (EType (TyConApp (TyCon "String" ry) []))) (EType (TyConApp (TyCon "()" 40) []))) (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "System.IO"
+					} ,
+				 externalName = "getLine" ,
+				 externalUnique = r58
+				}))) (ELam (Bndr 
+			{unBndr = Binder 
+				{binderName = "name" ,
+					 binderId = BinderId ana ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = NoUnfolding ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "String" ry) []
+					}
+				}) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "System.IO"
+					} ,
+				 externalName = "putStrLn" ,
+				 externalUnique = r5c
+				})) (EApp (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Base"
+					} ,
+				 externalName = "++" ,
+				 externalUnique = 03
+				})) (EType (TyConApp (TyCon "Char" 3g) []))) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.CString"
+					} ,
+				 externalName = "unpackCString#" ,
+				 externalUnique = 0k
+				})) (ELit (MachStr "Hey ")))) (EApp (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Base"
+					} ,
+				 externalName = "++" ,
+				 externalUnique = 03
+				})) (EType (TyConApp (TyCon "Char" 3g) []))) (EVar (Bndr 
+			{unBndr = Binder 
+				{binderName = "name" ,
+					 binderId = BinderId ana ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = NoUnfolding ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "String" ry) []
+					}
+				}))) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.CString"
+					} ,
+				 externalName = "unpackCString#" ,
+				 externalUnique = 0k
+				})) (ELit (MachStr " ,
+			 you rock!"))))))))) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "main" ,
+					 binderId = BinderId 01D ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.TopHandler"
+									} ,
+								 externalName = "runMainIO" ,
+								 externalUnique = 01E
+								})) (EType (TyConApp (TyCon "()" 40) []))) (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "Main"
+									} ,
+								 externalName = "main" ,
+								 externalUnique = rjZ
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 20 60"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "IO" 31Q) [TyConApp (TyCon "()" 40) []]
+					}
+				}) (CoreStats 
+			{csTerms = 2 ,
+				 csTypes = 1 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.TopHandler"
+					} ,
+				 externalName = "runMainIO" ,
+				 externalUnique = 01E
+				})) (EType (TyConApp (TyCon "()" 40) []))) (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "Main"
+					} ,
+				 externalName = "main" ,
+				 externalUnique = rjZ
+				}))) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId rBO ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "Module" ,
+								 externalUnique = r6
+								})) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "TrNameS" ,
+								 externalUnique = r9
+								})) (ELit (MachStr "main")))) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "TrNameS" ,
+								 externalUnique = r9
+								})) (ELit (MachStr "Main"))) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 70 30"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "Module" 622) []
+					}
+				}) (CoreStats 
+			{csTerms = 5 ,
+				 csTypes = 0 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Types"
+					} ,
+				 externalName = "Module" ,
+				 externalUnique = r6
+				})) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Types"
+					} ,
+				 externalName = "TrNameS" ,
+				 externalUnique = r9
+				})) (ELit (MachStr "main")))) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Types"
+					} ,
+				 externalName = "TrNameS" ,
+				 externalUnique = r9
+				})) (ELit (MachStr "Main"))))]
+			}

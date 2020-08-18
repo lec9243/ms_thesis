@@ -14,7 +14,19 @@ ghc -dverbose-core2core test.hs > test_core.txt
 ghc -ddump-cmm test.hs > test.cmm
 ###Get all stages cmm code write in .cmm file
 
-ghc -fplugin GhcDump.Plugin -dumpdir=dump -O Test.hs
+ghc -fplugin GhcDump.Plugin -dumpdir=dump -O test.hs (not work anymore)
+ghc -c -fplugin GhcDump.Plugin -dumpdir=dump -O test.hs -package ghc-dump-core (new one that works, need to add -package flag)
 ###Get core2core AST, see link: https://github.com/bgamari/ghc-dump
+
+ghc-dump showAST test.pass-00xx.cbor
+###Write Core AST to a .txt file
+
+cabal v2-install ghc-dump --overwrite-policy=always
+###Install ghc-dump exe
+
+cabal v2-install --lib ghc-dump containers --overwrite-policy=always
+###Install lib from source
+
+
 
 
