@@ -1,0 +1,1439 @@
+Module 
+		{moduleName = ModuleName 
+			{getModuleName = "Main"
+				} ,
+			 modulePhase = "Demand analysis:" ,
+			 moduleTopBindings = [NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "lvl" ,
+					 binderId = BinderId s1J4 ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = ELit (LitInteger 1) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 100 0"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "Integer" 3M) []
+					}
+				}) (CoreStats 
+			{csTerms = 1 ,
+				 csTypes = 0 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (ELit (LitInteger 1)) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "main" ,
+					 binderId = BinderId s14i ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = ECase (EApp (EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Show"
+									} ,
+								 externalName = "$w$cshowsPrec4" ,
+								 externalUnique = rpq
+								})) (ELit (MachInt 0))) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "lvl" ,
+									 binderId = BinderId s1J4 ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = ELit (LitInteger 1) ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "IF_ARGS [] 100 0"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "Integer" 3M) []
+									}
+								}))) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "[]" ,
+								 externalUnique = 6y
+								})) (EType (TyConApp (TyCon "Char" 3g) [])))) (Bndr 
+							{unBndr = Binder 
+								{binderName = "ww2" ,
+									 binderId = BinderId a14d ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = OtherCon [] ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccDead ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "(# ,
+									#)" 54) [TyConApp (TyCon "LiftedRep" 63A) [] ,
+									TyConApp (TyCon "LiftedRep" 63A) [] ,
+									TyConApp (TyCon "Char" 3g) [] ,
+									TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]]
+									}
+								}) [Alt 
+							{altCon = AltDataCon "(# ,
+								#)" ,
+								 altBinders = [Bndr 
+								{unBndr = Binder 
+									{binderName = "ww3" ,
+										 binderId = BinderId a14e ,
+										 binderIdInfo = IdInfo 
+										{idiArity = 0 ,
+											 idiIsOneShot = False ,
+											 idiUnfolding = NoUnfolding ,
+											 idiInlinePragma = "" ,
+											 idiOccInfo = OccOneOcc ,
+											 idiStrictnessSig = "" ,
+											 idiDemandSig = "<L ,
+											U>" ,
+											 idiCallArity = 0
+											} ,
+										 binderIdDetails = VanillaId ,
+										 binderType = TyConApp (TyCon "Char" 3g) []
+										}
+									} ,
+								Bndr 
+								{unBndr = Binder 
+									{binderName = "ww4" ,
+										 binderId = BinderId a14f ,
+										 binderIdInfo = IdInfo 
+										{idiArity = 0 ,
+											 idiIsOneShot = False ,
+											 idiUnfolding = NoUnfolding ,
+											 idiInlinePragma = "" ,
+											 idiOccInfo = OccOneOcc ,
+											 idiStrictnessSig = "" ,
+											 idiDemandSig = "<L ,
+											U>" ,
+											 idiCallArity = 0
+											} ,
+										 binderIdDetails = VanillaId ,
+										 binderType = TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]
+										}
+									}] ,
+								 altRHS = EApp (EApp (EApp (EVarGlobal (ExternalName 
+								{externalModuleName = ModuleName 
+									{getModuleName = "GHC.Types"
+										} ,
+									 externalName = ":" ,
+									 externalUnique = 67
+									})) (EType (TyConApp (TyCon "Char" 3g) []))) (EVar (Bndr 
+								{unBndr = Binder 
+									{binderName = "ww3" ,
+										 binderId = BinderId a14e ,
+										 binderIdInfo = IdInfo 
+										{idiArity = 0 ,
+											 idiIsOneShot = False ,
+											 idiUnfolding = NoUnfolding ,
+											 idiInlinePragma = "" ,
+											 idiOccInfo = OccOneOcc ,
+											 idiStrictnessSig = "" ,
+											 idiDemandSig = "<L ,
+											U>" ,
+											 idiCallArity = 0
+											} ,
+										 binderIdDetails = VanillaId ,
+										 binderType = TyConApp (TyCon "Char" 3g) []
+										}
+									}))) (EVar (Bndr 
+								{unBndr = Binder 
+									{binderName = "ww4" ,
+										 binderId = BinderId a14f ,
+										 binderIdInfo = IdInfo 
+										{idiArity = 0 ,
+											 idiIsOneShot = False ,
+											 idiUnfolding = NoUnfolding ,
+											 idiInlinePragma = "" ,
+											 idiOccInfo = OccOneOcc ,
+											 idiStrictnessSig = "" ,
+											 idiDemandSig = "<L ,
+											U>" ,
+											 idiCallArity = 0
+											} ,
+										 binderIdDetails = VanillaId ,
+										 binderType = TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]
+										}
+									}))
+								}] ,
+							 unfIsValue = False ,
+							 unfIsConLike = False ,
+							 unfIsWorkFree = False ,
+							 unfGuidance = "IF_ARGS [] 60 30"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "String" ry) []
+					}
+				}) (CoreStats 
+			{csTerms = 9 ,
+				 csTypes = 11 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (ECase (EApp (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Show"
+					} ,
+				 externalName = "$w$cshowsPrec4" ,
+				 externalUnique = rpq
+				})) (ELit (MachInt 0))) (EVar (Bndr 
+			{unBndr = Binder 
+				{binderName = "lvl" ,
+					 binderId = BinderId s1J4 ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = ELit (LitInteger 1) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 100 0"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "Integer" 3M) []
+					}
+				}))) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Types"
+					} ,
+				 externalName = "[]" ,
+				 externalUnique = 6y
+				})) (EType (TyConApp (TyCon "Char" 3g) [])))) (Bndr 
+			{unBndr = Binder 
+				{binderName = "ww2" ,
+					 binderId = BinderId a14d ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = OtherCon [] ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccDead ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						A>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "(# ,
+					#)" 54) [TyConApp (TyCon "LiftedRep" 63A) [] ,
+					TyConApp (TyCon "LiftedRep" 63A) [] ,
+					TyConApp (TyCon "Char" 3g) [] ,
+					TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]]
+					}
+				}) [Alt 
+			{altCon = AltDataCon "(# ,
+				#)" ,
+				 altBinders = [Bndr 
+				{unBndr = Binder 
+					{binderName = "ww3" ,
+						 binderId = BinderId a14e ,
+						 binderIdInfo = IdInfo 
+						{idiArity = 0 ,
+							 idiIsOneShot = False ,
+							 idiUnfolding = NoUnfolding ,
+							 idiInlinePragma = "" ,
+							 idiOccInfo = OccManyOccs ,
+							 idiStrictnessSig = "" ,
+							 idiDemandSig = "<L ,
+							U>" ,
+							 idiCallArity = 0
+							} ,
+						 binderIdDetails = VanillaId ,
+						 binderType = TyConApp (TyCon "Char" 3g) []
+						}
+					} ,
+				Bndr 
+				{unBndr = Binder 
+					{binderName = "ww4" ,
+						 binderId = BinderId a14f ,
+						 binderIdInfo = IdInfo 
+						{idiArity = 0 ,
+							 idiIsOneShot = False ,
+							 idiUnfolding = NoUnfolding ,
+							 idiInlinePragma = "" ,
+							 idiOccInfo = OccManyOccs ,
+							 idiStrictnessSig = "" ,
+							 idiDemandSig = "<L ,
+							U>" ,
+							 idiCallArity = 0
+							} ,
+						 binderIdDetails = VanillaId ,
+						 binderType = TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]
+						}
+					}] ,
+				 altRHS = EApp (EApp (EApp (EVarGlobal (ExternalName 
+				{externalModuleName = ModuleName 
+					{getModuleName = "GHC.Types"
+						} ,
+					 externalName = ":" ,
+					 externalUnique = 67
+					})) (EType (TyConApp (TyCon "Char" 3g) []))) (EVar (Bndr 
+				{unBndr = Binder 
+					{binderName = "ww3" ,
+						 binderId = BinderId a14e ,
+						 binderIdInfo = IdInfo 
+						{idiArity = 0 ,
+							 idiIsOneShot = False ,
+							 idiUnfolding = NoUnfolding ,
+							 idiInlinePragma = "" ,
+							 idiOccInfo = OccManyOccs ,
+							 idiStrictnessSig = "" ,
+							 idiDemandSig = "<L ,
+							U>" ,
+							 idiCallArity = 0
+							} ,
+						 binderIdDetails = VanillaId ,
+						 binderType = TyConApp (TyCon "Char" 3g) []
+						}
+					}))) (EVar (Bndr 
+				{unBndr = Binder 
+					{binderName = "ww4" ,
+						 binderId = BinderId a14f ,
+						 binderIdInfo = IdInfo 
+						{idiArity = 0 ,
+							 idiIsOneShot = False ,
+							 idiUnfolding = NoUnfolding ,
+							 idiInlinePragma = "" ,
+							 idiOccInfo = OccManyOccs ,
+							 idiStrictnessSig = "" ,
+							 idiDemandSig = "<L ,
+							U>" ,
+							 idiCallArity = 0
+							} ,
+						 binderIdDetails = VanillaId ,
+						 binderType = TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]
+						}
+					}))
+				}]) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "main" ,
+					 binderId = BinderId rjZ ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 1 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.IO.Handle.Text"
+									} ,
+								 externalName = "hPutStr'" ,
+								 externalUnique = rm1
+								})) (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.IO.Handle.FD"
+									} ,
+								 externalName = "stdout" ,
+								 externalUnique = rkF
+								}))) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "main" ,
+									 binderId = BinderId s14i ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = ECase (EApp (EApp (EApp (EVarGlobal (ExternalName 
+											{externalModuleName = ModuleName 
+												{getModuleName = "GHC.Show"
+													} ,
+												 externalName = "$w$cshowsPrec4" ,
+												 externalUnique = rpq
+												})) (ELit (MachInt 0))) (EVar (Bndr 
+											{unBndr = Binder 
+												{binderName = "lvl" ,
+													 binderId = BinderId s1J4 ,
+													 binderIdInfo = IdInfo 
+													{idiArity = 0 ,
+														 idiIsOneShot = False ,
+														 idiUnfolding = CoreUnfolding 
+														{unfTemplate = ELit (LitInteger 1) ,
+															 unfIsValue = True ,
+															 unfIsConLike = True ,
+															 unfIsWorkFree = True ,
+															 unfGuidance = "IF_ARGS [] 100 0"
+															} ,
+														 idiInlinePragma = "" ,
+														 idiOccInfo = OccManyOccs ,
+														 idiStrictnessSig = "" ,
+														 idiDemandSig = "<L ,
+														U>" ,
+														 idiCallArity = 0
+														} ,
+													 binderIdDetails = VanillaId ,
+													 binderType = TyConApp (TyCon "Integer" 3M) []
+													}
+												}))) (EApp (EVarGlobal (ExternalName 
+											{externalModuleName = ModuleName 
+												{getModuleName = "GHC.Types"
+													} ,
+												 externalName = "[]" ,
+												 externalUnique = 6y
+												})) (EType (TyConApp (TyCon "Char" 3g) [])))) (Bndr 
+											{unBndr = Binder 
+												{binderName = "ww2" ,
+													 binderId = BinderId a14d ,
+													 binderIdInfo = IdInfo 
+													{idiArity = 0 ,
+														 idiIsOneShot = False ,
+														 idiUnfolding = OtherCon [] ,
+														 idiInlinePragma = "" ,
+														 idiOccInfo = OccDead ,
+														 idiStrictnessSig = "" ,
+														 idiDemandSig = "<L ,
+														U>" ,
+														 idiCallArity = 0
+														} ,
+													 binderIdDetails = VanillaId ,
+													 binderType = TyConApp (TyCon "(# ,
+													#)" 54) [TyConApp (TyCon "LiftedRep" 63A) [] ,
+													TyConApp (TyCon "LiftedRep" 63A) [] ,
+													TyConApp (TyCon "Char" 3g) [] ,
+													TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]]
+													}
+												}) [Alt 
+											{altCon = AltDataCon "(# ,
+												#)" ,
+												 altBinders = [Bndr 
+												{unBndr = Binder 
+													{binderName = "ww3" ,
+														 binderId = BinderId a14e ,
+														 binderIdInfo = IdInfo 
+														{idiArity = 0 ,
+															 idiIsOneShot = False ,
+															 idiUnfolding = NoUnfolding ,
+															 idiInlinePragma = "" ,
+															 idiOccInfo = OccOneOcc ,
+															 idiStrictnessSig = "" ,
+															 idiDemandSig = "<L ,
+															U>" ,
+															 idiCallArity = 0
+															} ,
+														 binderIdDetails = VanillaId ,
+														 binderType = TyConApp (TyCon "Char" 3g) []
+														}
+													} ,
+												Bndr 
+												{unBndr = Binder 
+													{binderName = "ww4" ,
+														 binderId = BinderId a14f ,
+														 binderIdInfo = IdInfo 
+														{idiArity = 0 ,
+															 idiIsOneShot = False ,
+															 idiUnfolding = NoUnfolding ,
+															 idiInlinePragma = "" ,
+															 idiOccInfo = OccOneOcc ,
+															 idiStrictnessSig = "" ,
+															 idiDemandSig = "<L ,
+															U>" ,
+															 idiCallArity = 0
+															} ,
+														 binderIdDetails = VanillaId ,
+														 binderType = TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]
+														}
+													}] ,
+												 altRHS = EApp (EApp (EApp (EVarGlobal (ExternalName 
+												{externalModuleName = ModuleName 
+													{getModuleName = "GHC.Types"
+														} ,
+													 externalName = ":" ,
+													 externalUnique = 67
+													})) (EType (TyConApp (TyCon "Char" 3g) []))) (EVar (Bndr 
+												{unBndr = Binder 
+													{binderName = "ww3" ,
+														 binderId = BinderId a14e ,
+														 binderIdInfo = IdInfo 
+														{idiArity = 0 ,
+															 idiIsOneShot = False ,
+															 idiUnfolding = NoUnfolding ,
+															 idiInlinePragma = "" ,
+															 idiOccInfo = OccOneOcc ,
+															 idiStrictnessSig = "" ,
+															 idiDemandSig = "<L ,
+															U>" ,
+															 idiCallArity = 0
+															} ,
+														 binderIdDetails = VanillaId ,
+														 binderType = TyConApp (TyCon "Char" 3g) []
+														}
+													}))) (EVar (Bndr 
+												{unBndr = Binder 
+													{binderName = "ww4" ,
+														 binderId = BinderId a14f ,
+														 binderIdInfo = IdInfo 
+														{idiArity = 0 ,
+															 idiIsOneShot = False ,
+															 idiUnfolding = NoUnfolding ,
+															 idiInlinePragma = "" ,
+															 idiOccInfo = OccOneOcc ,
+															 idiStrictnessSig = "" ,
+															 idiDemandSig = "<L ,
+															U>" ,
+															 idiCallArity = 0
+															} ,
+														 binderIdDetails = VanillaId ,
+														 binderType = TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]
+														}
+													}))
+												}] ,
+											 unfIsValue = False ,
+											 unfIsConLike = False ,
+											 unfIsWorkFree = False ,
+											 unfGuidance = "IF_ARGS [] 60 30"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "String" ry) []
+									}
+								}))) (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "True" ,
+								 externalUnique = 6K
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "ALWAYS_IF(arity=0 ,
+							unsat_ok=True ,
+							boring_ok=False)"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "<L ,
+						U>" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "IO" 31Q) [TyConApp (TyCon "()" 40) []]
+					}
+				}) (CoreStats 
+			{csTerms = 4 ,
+				 csTypes = 0 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EApp (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.IO.Handle.Text"
+					} ,
+				 externalName = "hPutStr'" ,
+				 externalUnique = rm1
+				})) (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.IO.Handle.FD"
+					} ,
+				 externalName = "stdout" ,
+				 externalUnique = rkF
+				}))) (EVar (Bndr 
+			{unBndr = Binder 
+				{binderName = "main" ,
+					 binderId = BinderId s14i ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = ECase (EApp (EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Show"
+									} ,
+								 externalName = "$w$cshowsPrec4" ,
+								 externalUnique = rpq
+								})) (ELit (MachInt 0))) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "lvl" ,
+									 binderId = BinderId s1J4 ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = ELit (LitInteger 1) ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "IF_ARGS [] 100 0"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "Integer" 3M) []
+									}
+								}))) (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "[]" ,
+								 externalUnique = 6y
+								})) (EType (TyConApp (TyCon "Char" 3g) [])))) (Bndr 
+							{unBndr = Binder 
+								{binderName = "ww2" ,
+									 binderId = BinderId a14d ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = OtherCon [] ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccDead ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "(# ,
+									#)" 54) [TyConApp (TyCon "LiftedRep" 63A) [] ,
+									TyConApp (TyCon "LiftedRep" 63A) [] ,
+									TyConApp (TyCon "Char" 3g) [] ,
+									TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]]
+									}
+								}) [Alt 
+							{altCon = AltDataCon "(# ,
+								#)" ,
+								 altBinders = [Bndr 
+								{unBndr = Binder 
+									{binderName = "ww3" ,
+										 binderId = BinderId a14e ,
+										 binderIdInfo = IdInfo 
+										{idiArity = 0 ,
+											 idiIsOneShot = False ,
+											 idiUnfolding = NoUnfolding ,
+											 idiInlinePragma = "" ,
+											 idiOccInfo = OccOneOcc ,
+											 idiStrictnessSig = "" ,
+											 idiDemandSig = "<L ,
+											U>" ,
+											 idiCallArity = 0
+											} ,
+										 binderIdDetails = VanillaId ,
+										 binderType = TyConApp (TyCon "Char" 3g) []
+										}
+									} ,
+								Bndr 
+								{unBndr = Binder 
+									{binderName = "ww4" ,
+										 binderId = BinderId a14f ,
+										 binderIdInfo = IdInfo 
+										{idiArity = 0 ,
+											 idiIsOneShot = False ,
+											 idiUnfolding = NoUnfolding ,
+											 idiInlinePragma = "" ,
+											 idiOccInfo = OccOneOcc ,
+											 idiStrictnessSig = "" ,
+											 idiDemandSig = "<L ,
+											U>" ,
+											 idiCallArity = 0
+											} ,
+										 binderIdDetails = VanillaId ,
+										 binderType = TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]
+										}
+									}] ,
+								 altRHS = EApp (EApp (EApp (EVarGlobal (ExternalName 
+								{externalModuleName = ModuleName 
+									{getModuleName = "GHC.Types"
+										} ,
+									 externalName = ":" ,
+									 externalUnique = 67
+									})) (EType (TyConApp (TyCon "Char" 3g) []))) (EVar (Bndr 
+								{unBndr = Binder 
+									{binderName = "ww3" ,
+										 binderId = BinderId a14e ,
+										 binderIdInfo = IdInfo 
+										{idiArity = 0 ,
+											 idiIsOneShot = False ,
+											 idiUnfolding = NoUnfolding ,
+											 idiInlinePragma = "" ,
+											 idiOccInfo = OccOneOcc ,
+											 idiStrictnessSig = "" ,
+											 idiDemandSig = "<L ,
+											U>" ,
+											 idiCallArity = 0
+											} ,
+										 binderIdDetails = VanillaId ,
+										 binderType = TyConApp (TyCon "Char" 3g) []
+										}
+									}))) (EVar (Bndr 
+								{unBndr = Binder 
+									{binderName = "ww4" ,
+										 binderId = BinderId a14f ,
+										 binderIdInfo = IdInfo 
+										{idiArity = 0 ,
+											 idiIsOneShot = False ,
+											 idiUnfolding = NoUnfolding ,
+											 idiInlinePragma = "" ,
+											 idiOccInfo = OccOneOcc ,
+											 idiStrictnessSig = "" ,
+											 idiDemandSig = "<L ,
+											U>" ,
+											 idiCallArity = 0
+											} ,
+										 binderIdDetails = VanillaId ,
+										 binderType = TyConApp (TyCon "[]" 3Q) [TyConApp (TyCon "Char" 3g) []]
+										}
+									}))
+								}] ,
+							 unfIsValue = False ,
+							 unfIsConLike = False ,
+							 unfIsWorkFree = False ,
+							 unfGuidance = "IF_ARGS [] 60 30"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "String" ry) []
+					}
+				}))) (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Types"
+					} ,
+				 externalName = "True" ,
+				 externalUnique = 6K
+				}))) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "main" ,
+					 binderId = BinderId s1ID ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 1 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.TopHandler"
+									} ,
+								 externalName = "runMainIO1" ,
+								 externalUnique = rWj
+								})) (EType (TyConApp (TyCon "()" 40) []))) (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "Main"
+									} ,
+								 externalName = "main" ,
+								 externalUnique = rjZ
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "ALWAYS_IF(arity=0 ,
+							unsat_ok=True ,
+							boring_ok=False)"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "<L ,
+						U>" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = FunTy (TyConApp (TyCon "State#" 31C) [TyConApp (TyCon "RealWorld" 31a) []]) (TyConApp (TyCon "(# ,
+					#)" 54) [TyConApp (TyCon "TupleRep" 63u) [TyConApp (TyCon "[]" 6x) [TyConApp (TyCon "RuntimeRep" 334) []]] ,
+					TyConApp (TyCon "LiftedRep" 63A) [] ,
+					TyConApp (TyCon "State#" 31C) [TyConApp (TyCon "RealWorld" 31a) []] ,
+					TyConApp (TyCon "()" 40) []])
+					}
+				}) (CoreStats 
+			{csTerms = 2 ,
+				 csTypes = 1 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.TopHandler"
+					} ,
+				 externalName = "runMainIO1" ,
+				 externalUnique = rWj
+				})) (EType (TyConApp (TyCon "()" 40) []))) (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "Main"
+					} ,
+				 externalName = "main" ,
+				 externalUnique = rjZ
+				}))) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "main" ,
+					 binderId = BinderId 01D ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 1 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "main" ,
+									 binderId = BinderId s1ID ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 1 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = EApp (EApp (EVarGlobal (ExternalName 
+											{externalModuleName = ModuleName 
+												{getModuleName = "GHC.TopHandler"
+													} ,
+												 externalName = "runMainIO1" ,
+												 externalUnique = rWj
+												})) (EType (TyConApp (TyCon "()" 40) []))) (EVarGlobal (ExternalName 
+											{externalModuleName = ModuleName 
+												{getModuleName = "Main"
+													} ,
+												 externalName = "main" ,
+												 externalUnique = rjZ
+												})) ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "ALWAYS_IF(arity=0 ,
+											unsat_ok=True ,
+											boring_ok=False)"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "<L ,
+										U>" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = FunTy (TyConApp (TyCon "State#" 31C) [TyConApp (TyCon "RealWorld" 31a) []]) (TyConApp (TyCon "(# ,
+									#)" 54) [TyConApp (TyCon "TupleRep" 63u) [TyConApp (TyCon "[]" 6x) [TyConApp (TyCon "RuntimeRep" 334) []]] ,
+									TyConApp (TyCon "LiftedRep" 63A) [] ,
+									TyConApp (TyCon "State#" 31C) [TyConApp (TyCon "RealWorld" 31a) []] ,
+									TyConApp (TyCon "()" 40) []])
+									}
+								}) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "ALWAYS_IF(arity=0 ,
+							unsat_ok=True ,
+							boring_ok=True)"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "<L ,
+						U>" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "IO" 31Q) [TyConApp (TyCon "()" 40) []]
+					}
+				}) (CoreStats 
+			{csTerms = 1 ,
+				 csTypes = 0 ,
+				 csCoercions = 3 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EVar (Bndr 
+			{unBndr = Binder 
+				{binderName = "main" ,
+					 binderId = BinderId s1ID ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 1 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.TopHandler"
+									} ,
+								 externalName = "runMainIO1" ,
+								 externalUnique = rWj
+								})) (EType (TyConApp (TyCon "()" 40) []))) (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "Main"
+									} ,
+								 externalName = "main" ,
+								 externalUnique = rjZ
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "ALWAYS_IF(arity=0 ,
+							unsat_ok=True ,
+							boring_ok=False)"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "<L ,
+						U>" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = FunTy (TyConApp (TyCon "State#" 31C) [TyConApp (TyCon "RealWorld" 31a) []]) (TyConApp (TyCon "(# ,
+					#)" 54) [TyConApp (TyCon "TupleRep" 63u) [TyConApp (TyCon "[]" 6x) [TyConApp (TyCon "RuntimeRep" 334) []]] ,
+					TyConApp (TyCon "LiftedRep" 63A) [] ,
+					TyConApp (TyCon "State#" 31C) [TyConApp (TyCon "RealWorld" 31a) []] ,
+					TyConApp (TyCon "()" 40) []])
+					}
+				})) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId s1IE ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = ELit (MachStr "main") ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 20 0"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "Addr#" 32) []
+					}
+				}) (CoreStats 
+			{csTerms = 1 ,
+				 csTypes = 0 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (ELit (MachStr "main")) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId s1IF ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "TrNameS" ,
+								 externalUnique = r9
+								})) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "$trModule" ,
+									 binderId = BinderId s1IE ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = ELit (MachStr "main") ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "IF_ARGS [] 20 0"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "Addr#" 32) []
+									}
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 10 20"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "m1" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "TrName" 628) []
+					}
+				}) (CoreStats 
+			{csTerms = 2 ,
+				 csTypes = 0 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Types"
+					} ,
+				 externalName = "TrNameS" ,
+				 externalUnique = r9
+				})) (EVar (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId s1IE ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = ELit (MachStr "main") ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 20 0"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "Addr#" 32) []
+					}
+				}))) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId s1IG ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = ELit (MachStr "Main") ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 20 0"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "Addr#" 32) []
+					}
+				}) (CoreStats 
+			{csTerms = 1 ,
+				 csTypes = 0 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (ELit (MachStr "Main")) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId s1IH ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "TrNameS" ,
+								 externalUnique = r9
+								})) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "$trModule" ,
+									 binderId = BinderId s1IG ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = ELit (MachStr "Main") ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "IF_ARGS [] 20 0"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "Addr#" 32) []
+									}
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 10 20"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "m1" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "TrName" 628) []
+					}
+				}) (CoreStats 
+			{csTerms = 2 ,
+				 csTypes = 0 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Types"
+					} ,
+				 externalName = "TrNameS" ,
+				 externalUnique = r9
+				})) (EVar (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId s1IG ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = ELit (MachStr "Main") ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 20 0"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "Addr#" 32) []
+					}
+				}))) ,
+			NonRecTopBinding (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId rWD ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "Module" ,
+								 externalUnique = r6
+								})) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "$trModule" ,
+									 binderId = BinderId s1IF ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = EApp (EVarGlobal (ExternalName 
+											{externalModuleName = ModuleName 
+												{getModuleName = "GHC.Types"
+													} ,
+												 externalName = "TrNameS" ,
+												 externalUnique = r9
+												})) (EVar (Bndr 
+											{unBndr = Binder 
+												{binderName = "$trModule" ,
+													 binderId = BinderId s1IE ,
+													 binderIdInfo = IdInfo 
+													{idiArity = 0 ,
+														 idiIsOneShot = False ,
+														 idiUnfolding = CoreUnfolding 
+														{unfTemplate = ELit (MachStr "main") ,
+															 unfIsValue = True ,
+															 unfIsConLike = True ,
+															 unfIsWorkFree = True ,
+															 unfGuidance = "IF_ARGS [] 20 0"
+															} ,
+														 idiInlinePragma = "" ,
+														 idiOccInfo = OccManyOccs ,
+														 idiStrictnessSig = "" ,
+														 idiDemandSig = "<L ,
+														U>" ,
+														 idiCallArity = 0
+														} ,
+													 binderIdDetails = VanillaId ,
+													 binderType = TyConApp (TyCon "Addr#" 32) []
+													}
+												})) ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "IF_ARGS [] 10 20"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "m1" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "TrName" 628) []
+									}
+								}))) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "$trModule" ,
+									 binderId = BinderId s1IH ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = EApp (EVarGlobal (ExternalName 
+											{externalModuleName = ModuleName 
+												{getModuleName = "GHC.Types"
+													} ,
+												 externalName = "TrNameS" ,
+												 externalUnique = r9
+												})) (EVar (Bndr 
+											{unBndr = Binder 
+												{binderName = "$trModule" ,
+													 binderId = BinderId s1IG ,
+													 binderIdInfo = IdInfo 
+													{idiArity = 0 ,
+														 idiIsOneShot = False ,
+														 idiUnfolding = CoreUnfolding 
+														{unfTemplate = ELit (MachStr "Main") ,
+															 unfIsValue = True ,
+															 unfIsConLike = True ,
+															 unfIsWorkFree = True ,
+															 unfGuidance = "IF_ARGS [] 20 0"
+															} ,
+														 idiInlinePragma = "" ,
+														 idiOccInfo = OccManyOccs ,
+														 idiStrictnessSig = "" ,
+														 idiDemandSig = "<L ,
+														U>" ,
+														 idiCallArity = 0
+														} ,
+													 binderIdDetails = VanillaId ,
+													 binderType = TyConApp (TyCon "Addr#" 32) []
+													}
+												})) ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "IF_ARGS [] 10 20"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "m1" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "TrName" 628) []
+									}
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 10 30"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "m" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "Module" 622) []
+					}
+				}) (CoreStats 
+			{csTerms = 3 ,
+				 csTypes = 0 ,
+				 csCoercions = 0 ,
+				 csValBinds = 0 ,
+				 csJoinBinds = 0
+				}) (EApp (EApp (EVarGlobal (ExternalName 
+			{externalModuleName = ModuleName 
+				{getModuleName = "GHC.Types"
+					} ,
+				 externalName = "Module" ,
+				 externalUnique = r6
+				})) (EVar (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId s1IF ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "TrNameS" ,
+								 externalUnique = r9
+								})) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "$trModule" ,
+									 binderId = BinderId s1IE ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = ELit (MachStr "main") ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "IF_ARGS [] 20 0"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "Addr#" 32) []
+									}
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 10 20"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "m1" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "TrName" 628) []
+					}
+				}))) (EVar (Bndr 
+			{unBndr = Binder 
+				{binderName = "$trModule" ,
+					 binderId = BinderId s1IH ,
+					 binderIdInfo = IdInfo 
+					{idiArity = 0 ,
+						 idiIsOneShot = False ,
+						 idiUnfolding = CoreUnfolding 
+						{unfTemplate = EApp (EVarGlobal (ExternalName 
+							{externalModuleName = ModuleName 
+								{getModuleName = "GHC.Types"
+									} ,
+								 externalName = "TrNameS" ,
+								 externalUnique = r9
+								})) (EVar (Bndr 
+							{unBndr = Binder 
+								{binderName = "$trModule" ,
+									 binderId = BinderId s1IG ,
+									 binderIdInfo = IdInfo 
+									{idiArity = 0 ,
+										 idiIsOneShot = False ,
+										 idiUnfolding = CoreUnfolding 
+										{unfTemplate = ELit (MachStr "Main") ,
+											 unfIsValue = True ,
+											 unfIsConLike = True ,
+											 unfIsWorkFree = True ,
+											 unfGuidance = "IF_ARGS [] 20 0"
+											} ,
+										 idiInlinePragma = "" ,
+										 idiOccInfo = OccManyOccs ,
+										 idiStrictnessSig = "" ,
+										 idiDemandSig = "<L ,
+										U>" ,
+										 idiCallArity = 0
+										} ,
+									 binderIdDetails = VanillaId ,
+									 binderType = TyConApp (TyCon "Addr#" 32) []
+									}
+								})) ,
+							 unfIsValue = True ,
+							 unfIsConLike = True ,
+							 unfIsWorkFree = True ,
+							 unfGuidance = "IF_ARGS [] 10 20"
+							} ,
+						 idiInlinePragma = "" ,
+						 idiOccInfo = OccManyOccs ,
+						 idiStrictnessSig = "m1" ,
+						 idiDemandSig = "<L ,
+						U>" ,
+						 idiCallArity = 0
+						} ,
+					 binderIdDetails = VanillaId ,
+					 binderType = TyConApp (TyCon "TrName" 628) []
+					}
+				})))]
+			}
