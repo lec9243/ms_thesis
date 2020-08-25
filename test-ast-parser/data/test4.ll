@@ -26,6 +26,7 @@ declare ccc i64 @newSpark$def(i8*, i8*)
 %Main_zdtrModule_closure_struct = type <{i64, i64, i64, i64}>
 @Main_zdtrModule_closure$def = internal global %Main_zdtrModule_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_Module_con_info to i64), i64 add (i64 ptrtoint (%rEC_closure_struct* @rEC_closure$def to i64),i64 1), i64 add (i64 ptrtoint (%rEE_closure_struct* @rEE_closure$def to i64),i64 1), i64 3}>
 @Main_zdtrModule_closure = alias i8, bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*)
+-------- not in test5 / test1
 %_uLP_srt_struct = type <{i64, i64, i64, i64}>
 %_uLQ_srt_struct = type <{i64, i64, i64, i64}>
 %_uLR_srt_struct = type <{i64, i64, i64, i64, i64}>
@@ -45,6 +46,7 @@ declare ccc i64 @newSpark$def(i8*, i8*)
 @sKV_closure$def = internal global %sKV_closure_struct<{i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @sKV_info$def to i64), i64 0, i64 0, i64 0}>
 @sKV_closure = internal alias i8, bitcast (%sKV_closure_struct* @sKV_closure$def to i8*)
 @sKR_info = internal alias i8, bitcast (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @sKR_info$def to i8*)
+--------- until here
 define internal ghccc void @sKR_info$def(i64* noalias nocapture %Base_Arg, i64* noalias nocapture %Sp_Arg, i64* noalias nocapture %Hp_Arg, i64 %R1_Arg, i64 %R2_Arg, i64 %R3_Arg, i64 %R4_Arg, i64 %R5_Arg, i64 %R6_Arg, i64 %SpLim_Arg) align 8 nounwind prefix <{i64, i32, i32}><{i64 0, i32 15, i32 add (i32 trunc (i64 sub (i64 ptrtoint (i8* @ghczmprim_GHCziCString_unpackCStringzh_closure to i64),i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @sKR_info$def to i64)) to i32),i32 0)}>
 {
 nLS:

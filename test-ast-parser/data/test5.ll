@@ -11,20 +11,20 @@ declare ccc i64 @newSpark$def(i8*, i8*)
 !4 = !{!"rx", !3}
 !5 = !{!"base", !1}
 
-%rB6_bytes_struct = type <{[5 x i8]}>
-@rB6_bytes$def = internal constant %rB6_bytes_struct<{[5 x i8] [i8 109, i8 97, i8 105, i8 110, i8 0]}>, align 1
-@rB6_bytes = internal alias i8, bitcast (%rB6_bytes_struct* @rB6_bytes$def to i8*)
-%rBc_closure_struct = type <{i64, i64}>
-@rBc_closure$def = internal global %rBc_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_con_info to i64), i64 ptrtoint (%rB6_bytes_struct* @rB6_bytes$def to i64)}>
-@rBc_closure = internal alias i8, bitcast (%rBc_closure_struct* @rBc_closure$def to i8*)
-%rBd_bytes_struct = type <{[5 x i8]}>
-@rBd_bytes$def = internal constant %rBd_bytes_struct<{[5 x i8] [i8 77, i8 97, i8 105, i8 110, i8 0]}>, align 1
-@rBd_bytes = internal alias i8, bitcast (%rBd_bytes_struct* @rBd_bytes$def to i8*)
-%rBe_closure_struct = type <{i64, i64}>
-@rBe_closure$def = internal global %rBe_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_con_info to i64), i64 ptrtoint (%rBd_bytes_struct* @rBd_bytes$def to i64)}>
-@rBe_closure = internal alias i8, bitcast (%rBe_closure_struct* @rBe_closure$def to i8*)
+%rEw_bytes_struct = type <{[5 x i8]}>
+@rEw_bytes$def = internal constant %rEw_bytes_struct<{[5 x i8] [i8 109, i8 97, i8 105, i8 110, i8 0]}>, align 1
+@rEw_bytes = internal alias i8, bitcast (%rEw_bytes_struct* @rEw_bytes$def to i8*)
+%rEC_closure_struct = type <{i64, i64}>
+@rEC_closure$def = internal global %rEC_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_con_info to i64), i64 ptrtoint (%rEw_bytes_struct* @rEw_bytes$def to i64)}>
+@rEC_closure = internal alias i8, bitcast (%rEC_closure_struct* @rEC_closure$def to i8*)
+%rED_bytes_struct = type <{[5 x i8]}>
+@rED_bytes$def = internal constant %rED_bytes_struct<{[5 x i8] [i8 77, i8 97, i8 105, i8 110, i8 0]}>, align 1
+@rED_bytes = internal alias i8, bitcast (%rED_bytes_struct* @rED_bytes$def to i8*)
+%rEE_closure_struct = type <{i64, i64}>
+@rEE_closure$def = internal global %rEE_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_con_info to i64), i64 ptrtoint (%rED_bytes_struct* @rED_bytes$def to i64)}>
+@rEE_closure = internal alias i8, bitcast (%rEE_closure_struct* @rEE_closure$def to i8*)
 %Main_zdtrModule_closure_struct = type <{i64, i64, i64, i64}>
-@Main_zdtrModule_closure$def = internal global %Main_zdtrModule_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_Module_con_info to i64), i64 add (i64 ptrtoint (%rBc_closure_struct* @rBc_closure$def to i64),i64 1), i64 add (i64 ptrtoint (%rBe_closure_struct* @rBe_closure$def to i64),i64 1), i64 3}>
+@Main_zdtrModule_closure$def = internal global %Main_zdtrModule_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_Module_con_info to i64), i64 add (i64 ptrtoint (%rEC_closure_struct* @rEC_closure$def to i64),i64 1), i64 add (i64 ptrtoint (%rEE_closure_struct* @rEE_closure$def to i64),i64 1), i64 3}>
 @Main_zdtrModule_closure = alias i8, bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*)
 %Main_main_closure_struct = type <{i64, i64, i64, i64}>
 @Main_main_closure$def = internal global %Main_main_closure_struct<{i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i64), i64 0, i64 0, i64 0}>
@@ -84,7 +84,7 @@ cHt:
   %lnHC = icmp ult i64 %lnHB, %SpLim_Arg
   %lnHE = call ccc i1 (i1, i1) @llvm.expect.i1( i1 %lnHC, i1 0 )
   br i1 %lnHE, label %cHu, label %cHv
-cHv:
+cHv:                                     ----- Need to look at this part
   %lnHF = ptrtoint i64* %Base_Arg to i64
   %lnHG = inttoptr i64 %lnHF to i8*
   %lnHH = load i64, i64* %lrgc
@@ -125,7 +125,7 @@ cHr:
   store i64 %lnHU, i64* %R2_Var
   %lnHW = ptrtoint i8* @stg_ap_p_info to i64
   %lnHV = load i64*, i64** %Sp_Var
-  %lnHX = getelementptr inbounds i64, i64* %lnHV, i32 -4
+  %lnHX = getelementptr inbounds i64, i64* %lnHV, i32 -4 --- not in test1
   store i64 %lnHW, i64* %lnHX, !tbaa !2
   %lnHZ = ptrtoint i8* @ghczmprim_GHCziTuple_Z0T_closure to i64
   %lnI0 = add i64 %lnHZ, 1
@@ -310,4 +310,4 @@ cIu:
 @stg_SRT_2_info = external global i8
 @base_GHCziTopHandler_runMainIO_closure = external global i8
 @stg_ap_p_fast = external global i8
-@llvm.used = appending constant [8 x i8*] [i8* bitcast (%ZCMain_main_closure_struct* @ZCMain_main_closure$def to i8*), i8* bitcast (%_uIw_srt_struct* @_uIw_srt$def to i8*), i8* bitcast (%Main_main_closure_struct* @Main_main_closure$def to i8*), i8* bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*), i8* bitcast (%rBe_closure_struct* @rBe_closure$def to i8*), i8* bitcast (%rBd_bytes_struct* @rBd_bytes$def to i8*), i8* bitcast (%rBc_closure_struct* @rBc_closure$def to i8*), i8* bitcast (%rB6_bytes_struct* @rB6_bytes$def to i8*)], section "llvm.metadata"
+@llvm.used = appending constant [8 x i8*] [i8* bitcast (%ZCMain_main_closure_struct* @ZCMain_main_closure$def to i8*), i8* bitcast (%_uIw_srt_struct* @_uIw_srt$def to i8*), i8* bitcast (%Main_main_closure_struct* @Main_main_closure$def to i8*), i8* bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*), i8* bitcast (%rEE_closure_struct* @rEE_closure$def to i8*), i8* bitcast (%rED_bytes_struct* @rED_bytes$def to i8*), i8* bitcast (%rEC_closure_struct* @rEC_closure$def to i8*), i8* bitcast (%rEw_bytes_struct* @rEw_bytes$def to i8*)], section "llvm.metadata"

@@ -21,8 +21,9 @@ extra-source-files:
     README.md
     ChangeLog.md
 data-files:
-    Test.ll
+    test1.ll
     test4.ll
+    test5.ll
 data-dir:
     data
 
