@@ -1,0 +1,28 @@
+{- desugar -}
+module Main where
+
+main :: IO ()
+
+{- Core Size{terms=3 types=1 cos=0 vbinds=0 jbinds=0} -}
+main =
+  System.IO.print
+    @Integer
+    GHC.Show.$fShowInteger
+    1
+
+main :: IO ()
+
+{- Core Size{terms=2 types=1 cos=0 vbinds=0 jbinds=0} -}
+main =
+  GHC.TopHandler.runMainIO
+    @() Main.main
+
+$trModule :: Module
+
+{- Core Size{terms=5 types=0 cos=0 vbinds=0 jbinds=0} -}
+$trModule =
+  GHC.Types.Module
+    (GHC.Types.TrNameS "main"#)
+    (GHC.Types.TrNameS "Main"#)
+
+

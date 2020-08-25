@@ -1,29 +1,30 @@
-target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64"
-target triple = "x86_64-linux-gnu"
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux"
 declare ccc i8* @memcpy$def(i8*, i8*, i64)
 declare ccc i8* @memmove$def(i8*, i8*, i64)
 declare ccc i8* @memset$def(i8*, i64, i64)
 declare ccc i64 @newSpark$def(i8*, i8*)
-!0 = !{!"top", null}
-!1 = !{!"stack", !0}
-!2 = !{!"heap", !0}
-!3 = !{!"rx", !2}
-!4 = !{!"base", !0}
-!5 = !{!"other", !0}
-%__stginit_Main_struct = type <{}>
-@__stginit_Main$def = internal global %__stginit_Main_struct<{}>
-@__stginit_Main = alias i8* bitcast (%__stginit_Main_struct* @__stginit_Main$def to i8*)
-%s10q_closure_struct = type <{i64, i64}>
-@s10q_closure$def = internal global %s10q_closure_struct<{i64 ptrtoint (i8* @integerzmgmp_GHCziIntegerziType_Szh_static_info to i64), i64 1}>
-@s10q_closure = internal alias i8* bitcast (%s10q_closure_struct* @s10q_closure$def to i8*)
+!0 = !{!"root"}
+!1 = !{!"top", !0}
+!2 = !{!"stack", !1}
+!3 = !{!"heap", !1}
+!4 = !{!"rx", !3}
+!5 = !{!"base", !1}
+
+%sPr_closure_struct = type <{i64, i64}>
+@sPr_closure$def = internal global %sPr_closure_struct<{i64 ptrtoint (i8* @integerzmwiredzmin_GHCziIntegerziType_Szh_con_info to i64), i64 1}>
+@sPr_closure = internal alias i8, bitcast (%sPr_closure_struct* @sPr_closure$def to i8*)
+%_uPB_srt_struct = type <{i64, i64, i64, i64, i64}>
 %Main_main_closure_struct = type <{i64, i64, i64, i64}>
+@_uPB_srt$def = internal global %_uPB_srt_struct<{i64 ptrtoint (i8* @stg_SRT_3_info to i64), i64 ptrtoint (i8* @base_SystemziIO_print_closure to i64), i64 ptrtoint (i8* @base_GHCziShow_zdfShowInteger_closure to i64), i64 ptrtoint (%sPr_closure_struct* @sPr_closure$def to i64), i64 0}>
+@_uPB_srt = internal alias i8, bitcast (%_uPB_srt_struct* @_uPB_srt$def to i8*)
 @Main_main_closure$def = internal global %Main_main_closure_struct<{i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i64), i64 0, i64 0, i64 0}>
-@Main_main_closure = alias i8* bitcast (%Main_main_closure_struct* @Main_main_closure$def to i8*)
-@Main_main_info = alias i8* bitcast (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i8*)
-define ghccc void @Main_main_info$def(i64* noalias nocapture %Base_Arg, i64* noalias nocapture %Sp_Arg, i64* noalias nocapture %Hp_Arg, i64 %R1_Arg, i64 %R2_Arg, i64 %R3_Arg, i64 %R4_Arg, i64 %R5_Arg, i64 %R6_Arg, i64 %SpLim_Arg) align 8 nounwind prefix <{i64, i64, i64}><{i64 add (i64 sub (i64 ptrtoint (i8* @S10B_srt to i64),i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i64)),i64 0), i64 0, i64 30064771094}>
+@Main_main_closure = alias i8, bitcast (%Main_main_closure_struct* @Main_main_closure$def to i8*)
+@Main_main_info = alias i8, bitcast (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i8*)
+define ghccc void @Main_main_info$def(i64* noalias nocapture %Base_Arg, i64* noalias nocapture %Sp_Arg, i64* noalias nocapture %Hp_Arg, i64 %R1_Arg, i64 %R2_Arg, i64 %R3_Arg, i64 %R4_Arg, i64 %R5_Arg, i64 %R6_Arg, i64 %SpLim_Arg) align 8 nounwind prefix <{i64, i32, i32}><{i64 0, i32 21, i32 add (i32 trunc (i64 sub (i64 ptrtoint (%_uPB_srt_struct* @_uPB_srt$def to i64),i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i64)) to i32),i32 0)}>
 {
-c10y:
-  %lrn5 = alloca i64, i32 1
+nPC:
+  %lr1 = alloca i64, i32 1
   %R3_Var = alloca i64, i32 1
   store i64 undef, i64* %R3_Var
   %R4_Var = alloca i64, i32 1
@@ -56,27 +57,30 @@ c10y:
   store float undef, float* %F6_Var
   %D6_Var = alloca double, i32 1
   store double undef, double* %D6_Var
-  %lc10v = alloca i64, i32 1
+  %lcPv = alloca i64, i32 1
   %R2_Var = alloca i64, i32 1
   store i64 undef, i64* %R2_Var
   %R1_Var = alloca i64, i32 1
   store i64 %R1_Arg, i64* %R1_Var
   %Sp_Var = alloca i64*, i32 1
   store i64* %Sp_Arg, i64** %Sp_Var
-  %ln10C = load i64, i64* %R1_Var
-  store i64 %ln10C, i64* %lrn5
-  %ln10D = load i64*, i64** %Sp_Var
-  %ln10E = getelementptr inbounds i64, i64* %ln10D, i32 1
-  %ln10F = ptrtoint i64* %ln10E to i64
-  %ln10G = sub i64 %ln10F, 24
-  %ln10H = icmp ult i64 %ln10G, %SpLim_Arg
-  br i1 %ln10H, label %c10z, label %c10A
-c10A:
-  %ln10I = ptrtoint i64* %Base_Arg to i64
-  %ln10J = inttoptr i64 %ln10I to i8*
-  %ln10K = load i64, i64* %lrn5
-  %ln10L = inttoptr i64 %ln10K to i8*
-  %ln10M = bitcast i8* @newCAF to i8* (i8*, i8*)*
+  br label %cPy
+cPy:
+  %lnPD = load i64, i64* %R1_Var
+  store i64 %lnPD, i64* %lr1
+  %lnPE = load i64*, i64** %Sp_Var
+  %lnPF = getelementptr inbounds i64, i64* %lnPE, i32 1
+  %lnPG = ptrtoint i64* %lnPF to i64
+  %lnPH = sub i64 %lnPG, 24
+  %lnPI = icmp ult i64 %lnPH, %SpLim_Arg
+  %lnPK = call ccc i1 (i1, i1) @llvm.expect.i1( i1 %lnPI, i1 0 )
+  br i1 %lnPK, label %cPz, label %cPA
+cPA:
+  %lnPL = ptrtoint i64* %Base_Arg to i64
+  %lnPM = inttoptr i64 %lnPL to i8*
+  %lnPN = load i64, i64* %lr1
+  %lnPO = inttoptr i64 %lnPN to i8*
+  %lnPP = bitcast i8* @newCAF to i8* (i8*, i8*)*
   store i64 undef, i64* %R3_Var
   store i64 undef, i64* %R4_Var
   store i64 undef, i64* %R5_Var
@@ -93,68 +97,72 @@ c10A:
   store double undef, double* %D5_Var
   store float undef, float* %F6_Var
   store double undef, double* %D6_Var
-  %ln10N = call ccc i8* (i8*, i8*) %ln10M( i8* %ln10J, i8* %ln10L ) nounwind
-  %ln10O = ptrtoint i8* %ln10N to i64
-  store i64 %ln10O, i64* %lc10v
-  %ln10P = load i64, i64* %lc10v
-  %ln10Q = icmp eq i64 %ln10P, 0
-  br i1 %ln10Q, label %c10x, label %c10w
-c10w:
-  %ln10S = ptrtoint i8* @stg_bh_upd_frame_info to i64
-  %ln10R = load i64*, i64** %Sp_Var
-  %ln10T = getelementptr inbounds i64, i64* %ln10R, i32 -2
-  store i64 %ln10S, i64* %ln10T, !tbaa !1
-  %ln10V = load i64, i64* %lc10v
-  %ln10U = load i64*, i64** %Sp_Var
-  %ln10W = getelementptr inbounds i64, i64* %ln10U, i32 -1
-  store i64 %ln10V, i64* %ln10W, !tbaa !1
-  %ln10X = ptrtoint %s10q_closure_struct* @s10q_closure$def to i64
-  %ln10Y = add i64 %ln10X, 1
-  store i64 %ln10Y, i64* %R3_Var
-  %ln10Z = ptrtoint i8* @base_GHCziShow_zdfShowInteger_closure to i64
-  store i64 %ln10Z, i64* %R2_Var
-  %ln110 = ptrtoint i8* @base_SystemziIO_print_closure to i64
-  store i64 %ln110, i64* %R1_Var
-  %ln111 = load i64*, i64** %Sp_Var
-  %ln112 = getelementptr inbounds i64, i64* %ln111, i32 -2
-  %ln113 = ptrtoint i64* %ln112 to i64
-  %ln114 = inttoptr i64 %ln113 to i64*
-  store i64* %ln114, i64** %Sp_Var
-  %ln115 = bitcast i8* @stg_ap_pp_fast to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
-  %ln116 = load i64*, i64** %Sp_Var
-  %ln117 = load i64, i64* %R1_Var
-  %ln118 = load i64, i64* %R2_Var
-  %ln119 = load i64, i64* %R3_Var
-  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %ln115( i64* %Base_Arg, i64* %ln116, i64* %Hp_Arg, i64 %ln117, i64 %ln118, i64 %ln119, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
+  %lnPQ = call ccc i8* (i8*, i8*) %lnPP( i8* %lnPM, i8* %lnPO ) nounwind
+  %lnPR = ptrtoint i8* %lnPQ to i64
+  store i64 %lnPR, i64* %lcPv
+  %lnPS = load i64, i64* %lcPv
+  %lnPT = icmp eq i64 %lnPS, 0
+  br i1 %lnPT, label %cPx, label %cPw
+cPw:
+  %lnPV = ptrtoint i8* @stg_bh_upd_frame_info to i64
+  %lnPU = load i64*, i64** %Sp_Var
+  %lnPW = getelementptr inbounds i64, i64* %lnPU, i32 -2
+  store i64 %lnPV, i64* %lnPW, !tbaa !2
+  %lnPY = load i64, i64* %lcPv
+  %lnPX = load i64*, i64** %Sp_Var
+  %lnPZ = getelementptr inbounds i64, i64* %lnPX, i32 -1
+  store i64 %lnPY, i64* %lnPZ, !tbaa !2
+  %lnQ0 = ptrtoint %sPr_closure_struct* @sPr_closure$def to i64
+  %lnQ1 = add i64 %lnQ0, 1
+  store i64 %lnQ1, i64* %R3_Var
+  %lnQ2 = ptrtoint i8* @base_GHCziShow_zdfShowInteger_closure to i64
+  store i64 %lnQ2, i64* %R2_Var
+  %lnQ3 = ptrtoint i8* @base_SystemziIO_print_closure to i64
+  store i64 %lnQ3, i64* %R1_Var
+  %lnQ4 = load i64*, i64** %Sp_Var
+  %lnQ5 = getelementptr inbounds i64, i64* %lnQ4, i32 -2
+  %lnQ6 = ptrtoint i64* %lnQ5 to i64
+  %lnQ7 = inttoptr i64 %lnQ6 to i64*
+  store i64* %lnQ7, i64** %Sp_Var
+  %lnQ8 = bitcast i8* @stg_ap_pp_fast to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
+  %lnQ9 = load i64*, i64** %Sp_Var
+  %lnQa = load i64, i64* %R1_Var
+  %lnQb = load i64, i64* %R2_Var
+  %lnQc = load i64, i64* %R3_Var
+  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnQ8( i64* %Base_Arg, i64* %lnQ9, i64* %Hp_Arg, i64 %lnQa, i64 %lnQb, i64 %lnQc, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
-c10x:
-  %ln11a = load i64, i64* %lrn5
-  %ln11b = inttoptr i64 %ln11a to i64*
-  %ln11c = load i64, i64* %ln11b, !tbaa !5
-  %ln11d = inttoptr i64 %ln11c to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
-  %ln11e = load i64*, i64** %Sp_Var
-  %ln11f = load i64, i64* %R1_Var
-  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %ln11d( i64* %Base_Arg, i64* %ln11e, i64* %Hp_Arg, i64 %ln11f, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
+cPx:
+  %lnQd = load i64, i64* %lr1
+  %lnQe = inttoptr i64 %lnQd to i64*
+  %lnQf = load i64, i64* %lnQe, !tbaa !1
+  %lnQg = inttoptr i64 %lnQf to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
+  %lnQh = load i64*, i64** %Sp_Var
+  %lnQi = load i64, i64* %R1_Var
+  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnQg( i64* %Base_Arg, i64* %lnQh, i64* %Hp_Arg, i64 %lnQi, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
-c10z:
-  %ln11g = load i64, i64* %lrn5
-  store i64 %ln11g, i64* %R1_Var
-  %ln11h = getelementptr inbounds i64, i64* %Base_Arg, i32 -2
-  %ln11i = bitcast i64* %ln11h to i64*
-  %ln11j = load i64, i64* %ln11i, !tbaa !4
-  %ln11k = inttoptr i64 %ln11j to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
-  %ln11l = load i64*, i64** %Sp_Var
-  %ln11m = load i64, i64* %R1_Var
-  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %ln11k( i64* %Base_Arg, i64* %ln11l, i64* %Hp_Arg, i64 %ln11m, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
+cPz:
+  %lnQj = load i64, i64* %lr1
+  store i64 %lnQj, i64* %R1_Var
+  %lnQk = getelementptr inbounds i64, i64* %Base_Arg, i32 -2
+  %lnQl = bitcast i64* %lnQk to i64*
+  %lnQm = load i64, i64* %lnQl, !tbaa !5
+  %lnQn = inttoptr i64 %lnQm to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
+  %lnQo = load i64*, i64** %Sp_Var
+  %lnQp = load i64, i64* %R1_Var
+  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnQn( i64* %Base_Arg, i64* %lnQo, i64* %Hp_Arg, i64 %lnQp, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
 }
+declare ccc i1 @llvm.expect.i1(i1, i1)
+%_uQz_srt_struct = type <{i64, i64, i64, i64}>
 %ZCMain_main_closure_struct = type <{i64, i64, i64, i64}>
+@_uQz_srt$def = internal global %_uQz_srt_struct<{i64 ptrtoint (i8* @stg_SRT_2_info to i64), i64 ptrtoint (i8* @base_GHCziTopHandler_runMainIO_closure to i64), i64 ptrtoint (%Main_main_closure_struct* @Main_main_closure$def to i64), i64 0}>
+@_uQz_srt = internal alias i8, bitcast (%_uQz_srt_struct* @_uQz_srt$def to i8*)
 @ZCMain_main_closure$def = internal global %ZCMain_main_closure_struct<{i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @ZCMain_main_info$def to i64), i64 0, i64 0, i64 0}>
-@ZCMain_main_closure = alias i8* bitcast (%ZCMain_main_closure_struct* @ZCMain_main_closure$def to i8*)
-@ZCMain_main_info = alias i8* bitcast (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @ZCMain_main_info$def to i8*)
-define ghccc void @ZCMain_main_info$def(i64* noalias nocapture %Base_Arg, i64* noalias nocapture %Sp_Arg, i64* noalias nocapture %Hp_Arg, i64 %R1_Arg, i64 %R2_Arg, i64 %R3_Arg, i64 %R4_Arg, i64 %R5_Arg, i64 %R6_Arg, i64 %SpLim_Arg) align 8 nounwind prefix <{i64, i64, i64}><{i64 add (i64 sub (i64 ptrtoint (i8* @S10B_srt to i64),i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @ZCMain_main_info$def to i64)),i64 24), i64 0, i64 12884901910}>
+@ZCMain_main_closure = alias i8, bitcast (%ZCMain_main_closure_struct* @ZCMain_main_closure$def to i8*)
+@ZCMain_main_info = alias i8, bitcast (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @ZCMain_main_info$def to i8*)
+define ghccc void @ZCMain_main_info$def(i64* noalias nocapture %Base_Arg, i64* noalias nocapture %Sp_Arg, i64* noalias nocapture %Hp_Arg, i64 %R1_Arg, i64 %R2_Arg, i64 %R3_Arg, i64 %R4_Arg, i64 %R5_Arg, i64 %R6_Arg, i64 %SpLim_Arg) align 8 nounwind prefix <{i64, i32, i32}><{i64 0, i32 21, i32 add (i32 trunc (i64 sub (i64 ptrtoint (%_uQz_srt_struct* @_uQz_srt$def to i64),i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @ZCMain_main_info$def to i64)) to i32),i32 0)}>
 {
-c11u:
+nQA:
   %l01D = alloca i64, i32 1
   %R3_Var = alloca i64, i32 1
   store i64 undef, i64* %R3_Var
@@ -188,27 +196,30 @@ c11u:
   store float undef, float* %F6_Var
   %D6_Var = alloca double, i32 1
   store double undef, double* %D6_Var
-  %lc11r = alloca i64, i32 1
+  %lcQt = alloca i64, i32 1
   %R2_Var = alloca i64, i32 1
   store i64 undef, i64* %R2_Var
   %R1_Var = alloca i64, i32 1
   store i64 %R1_Arg, i64* %R1_Var
   %Sp_Var = alloca i64*, i32 1
   store i64* %Sp_Arg, i64** %Sp_Var
-  %ln11x = load i64, i64* %R1_Var
-  store i64 %ln11x, i64* %l01D
-  %ln11y = load i64*, i64** %Sp_Var
-  %ln11z = getelementptr inbounds i64, i64* %ln11y, i32 1
-  %ln11A = ptrtoint i64* %ln11z to i64
-  %ln11B = sub i64 %ln11A, 24
-  %ln11C = icmp ult i64 %ln11B, %SpLim_Arg
-  br i1 %ln11C, label %c11v, label %c11w
-c11w:
-  %ln11D = ptrtoint i64* %Base_Arg to i64
-  %ln11E = inttoptr i64 %ln11D to i8*
-  %ln11F = load i64, i64* %l01D
-  %ln11G = inttoptr i64 %ln11F to i8*
-  %ln11H = bitcast i8* @newCAF to i8* (i8*, i8*)*
+  br label %cQw
+cQw:
+  %lnQB = load i64, i64* %R1_Var
+  store i64 %lnQB, i64* %l01D
+  %lnQC = load i64*, i64** %Sp_Var
+  %lnQD = getelementptr inbounds i64, i64* %lnQC, i32 1
+  %lnQE = ptrtoint i64* %lnQD to i64
+  %lnQF = sub i64 %lnQE, 24
+  %lnQG = icmp ult i64 %lnQF, %SpLim_Arg
+  %lnQH = call ccc i1 (i1, i1) @llvm.expect.i1( i1 %lnQG, i1 0 )
+  br i1 %lnQH, label %cQx, label %cQy
+cQy:
+  %lnQI = ptrtoint i64* %Base_Arg to i64
+  %lnQJ = inttoptr i64 %lnQI to i8*
+  %lnQK = load i64, i64* %l01D
+  %lnQL = inttoptr i64 %lnQK to i8*
+  %lnQM = bitcast i8* @newCAF to i8* (i8*, i8*)*
   store i64 undef, i64* %R3_Var
   store i64 undef, i64* %R4_Var
   store i64 undef, i64* %R5_Var
@@ -225,83 +236,82 @@ c11w:
   store double undef, double* %D5_Var
   store float undef, float* %F6_Var
   store double undef, double* %D6_Var
-  %ln11I = call ccc i8* (i8*, i8*) %ln11H( i8* %ln11E, i8* %ln11G ) nounwind
-  %ln11J = ptrtoint i8* %ln11I to i64
-  store i64 %ln11J, i64* %lc11r
-  %ln11K = load i64, i64* %lc11r
-  %ln11L = icmp eq i64 %ln11K, 0
-  br i1 %ln11L, label %c11t, label %c11s
-c11s:
-  %ln11N = ptrtoint i8* @stg_bh_upd_frame_info to i64
-  %ln11M = load i64*, i64** %Sp_Var
-  %ln11O = getelementptr inbounds i64, i64* %ln11M, i32 -2
-  store i64 %ln11N, i64* %ln11O, !tbaa !1
-  %ln11Q = load i64, i64* %lc11r
-  %ln11P = load i64*, i64** %Sp_Var
-  %ln11R = getelementptr inbounds i64, i64* %ln11P, i32 -1
-  store i64 %ln11Q, i64* %ln11R, !tbaa !1
-  %ln11S = ptrtoint %Main_main_closure_struct* @Main_main_closure$def to i64
-  store i64 %ln11S, i64* %R2_Var
-  %ln11T = ptrtoint i8* @base_GHCziTopHandler_runMainIO_closure to i64
-  store i64 %ln11T, i64* %R1_Var
-  %ln11U = load i64*, i64** %Sp_Var
-  %ln11V = getelementptr inbounds i64, i64* %ln11U, i32 -2
-  %ln11W = ptrtoint i64* %ln11V to i64
-  %ln11X = inttoptr i64 %ln11W to i64*
-  store i64* %ln11X, i64** %Sp_Var
-  %ln11Y = bitcast i8* @stg_ap_p_fast to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
-  %ln11Z = load i64*, i64** %Sp_Var
-  %ln120 = load i64, i64* %R1_Var
-  %ln121 = load i64, i64* %R2_Var
-  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %ln11Y( i64* %Base_Arg, i64* %ln11Z, i64* %Hp_Arg, i64 %ln120, i64 %ln121, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
+  %lnQN = call ccc i8* (i8*, i8*) %lnQM( i8* %lnQJ, i8* %lnQL ) nounwind
+  %lnQO = ptrtoint i8* %lnQN to i64
+  store i64 %lnQO, i64* %lcQt
+  %lnQP = load i64, i64* %lcQt
+  %lnQQ = icmp eq i64 %lnQP, 0
+  br i1 %lnQQ, label %cQv, label %cQu
+cQu:
+  %lnQS = ptrtoint i8* @stg_bh_upd_frame_info to i64
+  %lnQR = load i64*, i64** %Sp_Var
+  %lnQT = getelementptr inbounds i64, i64* %lnQR, i32 -2
+  store i64 %lnQS, i64* %lnQT, !tbaa !2
+  %lnQV = load i64, i64* %lcQt
+  %lnQU = load i64*, i64** %Sp_Var
+  %lnQW = getelementptr inbounds i64, i64* %lnQU, i32 -1
+  store i64 %lnQV, i64* %lnQW, !tbaa !2
+  %lnQX = ptrtoint %Main_main_closure_struct* @Main_main_closure$def to i64
+  store i64 %lnQX, i64* %R2_Var
+  %lnQY = ptrtoint i8* @base_GHCziTopHandler_runMainIO_closure to i64
+  store i64 %lnQY, i64* %R1_Var
+  %lnQZ = load i64*, i64** %Sp_Var
+  %lnR0 = getelementptr inbounds i64, i64* %lnQZ, i32 -2
+  %lnR1 = ptrtoint i64* %lnR0 to i64
+  %lnR2 = inttoptr i64 %lnR1 to i64*
+  store i64* %lnR2, i64** %Sp_Var
+  %lnR3 = bitcast i8* @stg_ap_p_fast to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
+  %lnR4 = load i64*, i64** %Sp_Var
+  %lnR5 = load i64, i64* %R1_Var
+  %lnR6 = load i64, i64* %R2_Var
+  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnR3( i64* %Base_Arg, i64* %lnR4, i64* %Hp_Arg, i64 %lnR5, i64 %lnR6, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
-c11t:
-  %ln122 = load i64, i64* %l01D
-  %ln123 = inttoptr i64 %ln122 to i64*
-  %ln124 = load i64, i64* %ln123, !tbaa !5
-  %ln125 = inttoptr i64 %ln124 to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
-  %ln126 = load i64*, i64** %Sp_Var
-  %ln127 = load i64, i64* %R1_Var
-  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %ln125( i64* %Base_Arg, i64* %ln126, i64* %Hp_Arg, i64 %ln127, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
+cQv:
+  %lnR7 = load i64, i64* %l01D
+  %lnR8 = inttoptr i64 %lnR7 to i64*
+  %lnR9 = load i64, i64* %lnR8, !tbaa !1
+  %lnRa = inttoptr i64 %lnR9 to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
+  %lnRb = load i64*, i64** %Sp_Var
+  %lnRc = load i64, i64* %R1_Var
+  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnRa( i64* %Base_Arg, i64* %lnRb, i64* %Hp_Arg, i64 %lnRc, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
-c11v:
-  %ln128 = load i64, i64* %l01D
-  store i64 %ln128, i64* %R1_Var
-  %ln129 = getelementptr inbounds i64, i64* %Base_Arg, i32 -2
-  %ln12a = bitcast i64* %ln129 to i64*
-  %ln12b = load i64, i64* %ln12a, !tbaa !4
-  %ln12c = inttoptr i64 %ln12b to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
-  %ln12d = load i64*, i64** %Sp_Var
-  %ln12e = load i64, i64* %R1_Var
-  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %ln12c( i64* %Base_Arg, i64* %ln12d, i64* %Hp_Arg, i64 %ln12e, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
+cQx:
+  %lnRd = load i64, i64* %l01D
+  store i64 %lnRd, i64* %R1_Var
+  %lnRe = getelementptr inbounds i64, i64* %Base_Arg, i32 -2
+  %lnRf = bitcast i64* %lnRe to i64*
+  %lnRg = load i64, i64* %lnRf, !tbaa !5
+  %lnRh = inttoptr i64 %lnRg to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
+  %lnRi = load i64*, i64** %Sp_Var
+  %lnRj = load i64, i64* %R1_Var
+  tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnRh( i64* %Base_Arg, i64* %lnRi, i64* %Hp_Arg, i64 %lnRj, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
 }
-%c12g_str_struct = type <{[5 x i8]}>
-%r103_closure_struct = type <{i64, i64}>
-@c12g_str$def = internal constant %c12g_str_struct<{[5 x i8] [i8 109, i8 97, i8 105, i8 110, i8 0]}>
-@c12g_str = internal alias i8* bitcast (%c12g_str_struct* @c12g_str$def to i8*)
-@r103_closure$def = internal global %r103_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_static_info to i64), i64 ptrtoint (i8* @c12g_str to i64)}>
-@r103_closure = internal alias i8* bitcast (%r103_closure_struct* @r103_closure$def to i8*)
-%c12i_str_struct = type <{[5 x i8]}>
-%r10e_closure_struct = type <{i64, i64}>
-@c12i_str$def = internal constant %c12i_str_struct<{[5 x i8] [i8 77, i8 97, i8 105, i8 110, i8 0]}>
-@c12i_str = internal alias i8* bitcast (%c12i_str_struct* @c12i_str$def to i8*)
-@r10e_closure$def = internal global %r10e_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_static_info to i64), i64 ptrtoint (i8* @c12i_str to i64)}>
-@r10e_closure = internal alias i8* bitcast (%r10e_closure_struct* @r10e_closure$def to i8*)
+%rP3_bytes_struct = type <{[5 x i8]}>
+@rP3_bytes$def = internal constant %rP3_bytes_struct<{[5 x i8] [i8 109, i8 97, i8 105, i8 110, i8 0]}>, align 1
+@rP3_bytes = internal alias i8, bitcast (%rP3_bytes_struct* @rP3_bytes$def to i8*)
+%rPi_closure_struct = type <{i64, i64}>
+@rPi_closure$def = internal global %rPi_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_con_info to i64), i64 ptrtoint (%rP3_bytes_struct* @rP3_bytes$def to i64)}>
+@rPi_closure = internal alias i8, bitcast (%rPi_closure_struct* @rPi_closure$def to i8*)
+%rPj_bytes_struct = type <{[5 x i8]}>
+@rPj_bytes$def = internal constant %rPj_bytes_struct<{[5 x i8] [i8 77, i8 97, i8 105, i8 110, i8 0]}>, align 1
+@rPj_bytes = internal alias i8, bitcast (%rPj_bytes_struct* @rPj_bytes$def to i8*)
+%rPk_closure_struct = type <{i64, i64}>
+@rPk_closure$def = internal global %rPk_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_con_info to i64), i64 ptrtoint (%rPj_bytes_struct* @rPj_bytes$def to i64)}>
+@rPk_closure = internal alias i8, bitcast (%rPk_closure_struct* @rPk_closure$def to i8*)
 %Main_zdtrModule_closure_struct = type <{i64, i64, i64, i64}>
-@Main_zdtrModule_closure$def = internal global %Main_zdtrModule_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_Module_static_info to i64), i64 add (i64 ptrtoint (%r103_closure_struct* @r103_closure$def to i64),i64 1), i64 add (i64 ptrtoint (%r10e_closure_struct* @r10e_closure$def to i64),i64 1), i64 3}>
-@Main_zdtrModule_closure = alias i8* bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*)
-%S10B_srt_struct = type <{i64, i64, i64, i64, i64}>
-@S10B_srt$def = internal constant %S10B_srt_struct<{i64 ptrtoint (i8* @base_SystemziIO_print_closure to i64), i64 ptrtoint (i8* @base_GHCziShow_zdfShowInteger_closure to i64), i64 ptrtoint (%s10q_closure_struct* @s10q_closure$def to i64), i64 ptrtoint (i8* @base_GHCziTopHandler_runMainIO_closure to i64), i64 ptrtoint (%Main_main_closure_struct* @Main_main_closure$def to i64)}>
-@S10B_srt = internal alias i8* bitcast (%S10B_srt_struct* @S10B_srt$def to i8*)
-@integerzmgmp_GHCziIntegerziType_Szh_static_info = external global i8
+@Main_zdtrModule_closure$def = internal global %Main_zdtrModule_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_Module_con_info to i64), i64 add (i64 ptrtoint (%rPi_closure_struct* @rPi_closure$def to i64),i64 1), i64 add (i64 ptrtoint (%rPk_closure_struct* @rPk_closure$def to i64),i64 1), i64 3}>
+@Main_zdtrModule_closure = alias i8, bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*)
+@integerzmwiredzmin_GHCziIntegerziType_Szh_con_info = external global i8
+@stg_SRT_3_info = external global i8
+@base_SystemziIO_print_closure = external global i8
+@base_GHCziShow_zdfShowInteger_closure = external global i8
 @newCAF = external global i8
 @stg_bh_upd_frame_info = external global i8
-@base_GHCziShow_zdfShowInteger_closure = external global i8
-@base_SystemziIO_print_closure = external global i8
 @stg_ap_pp_fast = external global i8
+@stg_SRT_2_info = external global i8
 @base_GHCziTopHandler_runMainIO_closure = external global i8
 @stg_ap_p_fast = external global i8
-@ghczmprim_GHCziTypes_TrNameS_static_info = external global i8
-@ghczmprim_GHCziTypes_Module_static_info = external global i8
-@llvm.used = appending constant [10 x i8*] [i8* bitcast (%S10B_srt_struct* @S10B_srt$def to i8*), i8* bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*), i8* bitcast (%r10e_closure_struct* @r10e_closure$def to i8*), i8* bitcast (%c12i_str_struct* @c12i_str$def to i8*), i8* bitcast (%r103_closure_struct* @r103_closure$def to i8*), i8* bitcast (%c12g_str_struct* @c12g_str$def to i8*), i8* bitcast (%ZCMain_main_closure_struct* @ZCMain_main_closure$def to i8*), i8* bitcast (%Main_main_closure_struct* @Main_main_closure$def to i8*), i8* bitcast (%s10q_closure_struct* @s10q_closure$def to i8*), i8* bitcast (%__stginit_Main_struct* @__stginit_Main$def to i8*)], section "llvm.metadata"
+@ghczmprim_GHCziTypes_TrNameS_con_info = external global i8
+@ghczmprim_GHCziTypes_Module_con_info = external global i8
+@llvm.used = appending constant [10 x i8*] [i8* bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*), i8* bitcast (%rPk_closure_struct* @rPk_closure$def to i8*), i8* bitcast (%rPj_bytes_struct* @rPj_bytes$def to i8*), i8* bitcast (%rPi_closure_struct* @rPi_closure$def to i8*), i8* bitcast (%rP3_bytes_struct* @rP3_bytes$def to i8*), i8* bitcast (%ZCMain_main_closure_struct* @ZCMain_main_closure$def to i8*), i8* bitcast (%_uQz_srt_struct* @_uQz_srt$def to i8*), i8* bitcast (%Main_main_closure_struct* @Main_main_closure$def to i8*), i8* bitcast (%_uPB_srt_struct* @_uPB_srt$def to i8*), i8* bitcast (%sPr_closure_struct* @sPr_closure$def to i8*)], section "llvm.metadata"
