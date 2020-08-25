@@ -1,0 +1,28 @@
+{- desugar -}
+module Main where
+
+$trModule :: Module
+
+{- Core Size{terms=5 types=0 cos=0 vbinds=0 jbinds=0} -}
+$trModule =
+  GHC.Types.Module
+    (GHC.Types.TrNameS "main"#)
+    (GHC.Types.TrNameS "Main"#)
+
+main :: IO ()
+
+{- Core Size{terms=3 types=2 cos=0 vbinds=0 jbinds=0} -}
+main =
+  GHC.Base.return
+    @IO
+    GHC.Base.$fMonadIO
+    @()
+    GHC.Tuple.()
+
+main :: IO ()
+
+{- Core Size{terms=2 types=1 cos=0 vbinds=0 jbinds=0} -}
+main =
+  GHC.TopHandler.runMainIO
+    @() Main.main
+
