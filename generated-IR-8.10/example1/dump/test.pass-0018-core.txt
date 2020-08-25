@@ -1,0 +1,71 @@
+{- Demand analysis: -}
+module Main where
+
+lvl :: Integer
+
+{- Core Size{terms=1 types=0 cos=0 vbinds=0 jbinds=0} -}
+lvl = 1
+
+main :: String
+
+{- Core Size{terms=9 types=11 cos=0 vbinds=0 jbinds=0} -}
+main =
+  case GHC.Show.$w$cshowsPrec4
+         0# lvl (GHC.Types.[] @Char)
+  of ww2 {
+    (#,#) ww3 ww4 →
+      GHC.Types.: @Char ww3 ww4
+  }
+
+main :: IO ()
+
+{- Core Size{terms=4 types=0 cos=0 vbinds=0 jbinds=0} -}
+main =
+  GHC.IO.Handle.Text.hPutStr'
+    GHC.IO.Handle.FD.stdout
+    main
+    GHC.Types.True
+
+main :: State# RealWorld ->
+        (#,#) (TupleRep ([] RuntimeRep)) LiftedRep (State# RealWorld) ()
+
+{- Core Size{terms=2 types=1 cos=0 vbinds=0 jbinds=0} -}
+main =
+  GHC.TopHandler.runMainIO1
+    @() Main.main
+
+main :: IO ()
+
+{- Core Size{terms=1 types=0 cos=3 vbinds=0 jbinds=0} -}
+main = main
+
+$trModule :: Addr#
+
+{- Core Size{terms=1 types=0 cos=0 vbinds=0 jbinds=0} -}
+$trModule = "main"#
+
+$trModule :: TrName
+
+{- Core Size{terms=2 types=0 cos=0 vbinds=0 jbinds=0} -}
+$trModule =
+  GHC.Types.TrNameS $trModule
+
+$trModule :: Addr#
+
+{- Core Size{terms=1 types=0 cos=0 vbinds=0 jbinds=0} -}
+$trModule = "Main"#
+
+$trModule :: TrName
+
+{- Core Size{terms=2 types=0 cos=0 vbinds=0 jbinds=0} -}
+$trModule =
+  GHC.Types.TrNameS $trModule
+
+$trModule :: Module
+
+{- Core Size{terms=3 types=0 cos=0 vbinds=0 jbinds=0} -}
+$trModule =
+  GHC.Types.Module
+    $trModule $trModule
+
+
