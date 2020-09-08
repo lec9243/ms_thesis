@@ -38,3 +38,9 @@ However, with llvm-3.7, it can't use haskell llvm library.
 ## Modified ghc-dump source code, can pretty print the core AST now.
 
 ## Using cabal to install packages from sources. Method is in the link: https://stackoverflow.com/questions/58272366/haskell-cabal-v2-and-sandbox
+
+## rename vars in one file so that it would be easy to compile, also show the reordering in the diff output, make it easy to read and can mdify the program from the output to the other one. 
+
+## look at var initial value, uniquely identify the var. 
+
+## llvm comments 

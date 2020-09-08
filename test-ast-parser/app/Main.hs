@@ -9,6 +9,7 @@ import LLVM.AST.Global
 import LLVM.Pretty (ppllvm)
 import LLVM.Module
 import LLVM.Internal.Context
+-- import Data.Tuple.Extra (thd3)
 import Control.Monad.Error
 import Data.ByteString as BS
 import Data.ByteString.UTF8 as BSU
@@ -42,14 +43,14 @@ parseLLVM src1 src2 = do
   return pairs
 
 
-data PairDefs = Single LLVM.AST.Name (Maybe CON.Constant)
+data PairDefs = Single LLVM.AST.Name (Maybe CON.Constant) Int
               | Paired LLVM.AST.Name LLVM.AST.Name (Maybe CON.Constant) Int deriving (Eq, Show)
--- Src Defnition Init Times: a def's name, value (from file1/file2)
+-- Single Defnition Init Times: a def's name, value and how many times it has been paired
 -- Paired Def1 Def2 Init score: two defs have different Names but same value, score is put here in case one def can be paired with more than one time
 
 isGlobalDefinition def =
   case def of
-    GlobalDefinition (GlobalVariable nm _ _ _ _ _ _ _ _ initi _ _ _ _) -> [Single nm initi]
+    GlobalDefinition (GlobalVariable nm _ _ _ _ _ _ _ _ initi _ _ _ _) -> [Single nm initi 0]
     _ -> []
 
 
@@ -60,13 +61,14 @@ compareASTs ast1@(Module _ _ _ _ modDefLst1) ast2@(Module _ _ _ _ modDefLst2) =
   filteredLst2 = Prelude.foldr (++) [] (Prelude.map isGlobalDefinition modDefLst2)
   result = Prelude.map (\x -> pairDefs x filteredLst2) $ filteredLst1
   in
-  TIO.writeFile "data/compare/sampleReport.txt" (T.pack (Prelude.foldr (++) "" (Prelude.foldr (++) [] (Prelude.map (Prelude.map pprintResult) (result)))))
+  TIO.writeFile "data/compare/sampleReport.txt" (T.pack (Prelude.foldr (++) "" (Prelude.foldr (++) [] (Prelude.map (Prelude.map pprintResult . (Prelude.map thd)) (result)))))
   where
+    thd (_, _, a) = a
     pprintResult (Paired (LLVM.AST.Name nm1) (LLVM.AST.Name nm2) _ _) = (BSU.toString (BSS.fromShort nm1)) ++ " < -- > " ++ BSU.toString (BSS.fromShort nm2) ++ "\n"
 
 pairDefs _ [] = []
-pairDefs def1@(Single nm1 val1) ((Single nm2 val2):t) =
-  if val1 == val2 then (Paired nm1 nm2 val1 0):(pairDefs def1 t) else (pairDefs def1 t)
+pairDefs def1@(Single nm1 val1 t1) ((Single nm2 val2 t2):t) =
+  if val1 == val2 then ((Single nm1 val1 (t1+1)),(Single nm2 val2 (t2+1)),(Paired nm1 nm2 val1 0)):(pairDefs def1 t) else (pairDefs def1 t)
 {- GlobalVariable {
         name :: Name,
         linkage :: L.Linkage,
