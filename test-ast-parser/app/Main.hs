@@ -4,85 +4,46 @@ import System.IO as SIO
 import Data.Text as T
 import Data.Text.IO as TIO
 import LLVM.AST
-import LLVM.AST.Constant as CON
-import LLVM.AST.Global
 import LLVM.Pretty (ppllvm)
 import LLVM.Module
 import LLVM.Internal.Context
--- import Data.Tuple.Extra (thd3)
 import Control.Monad.Error
-import Data.ByteString as BS
-import Data.ByteString.UTF8 as BSU
-import qualified Data.ByteString.Short as BSS
-         (ShortByteString, toShort, fromShort)
 import Paths_test_ast_parser
 
-
-
--- main :: IO ()
+main :: IO ()
 main = do
-  filepath <- getDataFileName "compare/helloworld.ll"
-  filepath1 <- getDataFileName "compare/helloworld1.ll"
+  filepath <- getDataFileName "varDef.ll"
   src <- SIO.readFile filepath
-  src1 <- SIO.readFile filepath1
-  parseLLVM src src1
+  parseLLVM src
 
-
-  -- parseLLVM :: String -> LLVM.AST.Module
-parseLLVM src1 src2 = do
-  astModule1 <- withContext $
+parseLLVM :: String -> IO ()
+parseLLVM src = do
+  astModule <- withContext $
     \context ->
-        withModuleFromLLVMAssembly context src1 $
-          \mod -> moduleAST mod
-  astModule2 <- withContext $
-    \context ->
-        withModuleFromLLVMAssembly context src2 $
-          \mod -> moduleAST mod
-  pairs <- compareASTs astModule1 astModule2
---  TIO.writeFile "data/compare/sampleReport.txt" (T.pack pairs)
-  return pairs
+        withModuleFromLLVMAssembly context src $
+          \mod -> do
+            ast <- moduleAST mod
+            print (show ast)
+            TIO.writeFile "data/varDefAST1.txt" {-(prettyPrintAST -}(T.pack (show ast))
+            --TIO.putStrLn (ppllvm ast)
+  return ()
 
 
-data PairDefs = Single LLVM.AST.Name (Maybe CON.Constant) Int
-              | Paired LLVM.AST.Name LLVM.AST.Name (Maybe CON.Constant) Int deriving (Eq, Show)
--- Single Defnition Init Times: a def's name, value and how many times it has been paired
--- Paired Def1 Def2 Init score: two defs have different Names but same value, score is put here in case one def can be paired with more than one time
-
-isGlobalDefinition def =
-  case def of
-    GlobalDefinition (GlobalVariable nm _ _ _ _ _ _ _ _ initi _ _ _ _) -> [Single nm initi 0]
-    _ -> []
-
-
--- compareASTs :: LLVM.AST.Module -> LLVM.AST.Module -> IO ()
-compareASTs ast1@(Module _ _ _ _ modDefLst1) ast2@(Module _ _ _ _ modDefLst2) =
-  let
-  filteredLst1 = Prelude.foldr (++) [] (Prelude.map isGlobalDefinition modDefLst1)
-  filteredLst2 = Prelude.foldr (++) [] (Prelude.map isGlobalDefinition modDefLst2)
-  result = Prelude.map (\x -> pairDefs x filteredLst2) $ filteredLst1
-  in
-  TIO.writeFile "data/compare/sampleReport.txt" (T.pack (Prelude.foldr (++) "" (Prelude.foldr (++) [] (Prelude.map (Prelude.map pprintResult . (Prelude.map thd)) (result)))))
+prettyPrintAST :: Text -> Text
+prettyPrintAST str =
+  prettyPrintASThelper str 0 (T.empty)
   where
-    thd (_, _, a) = a
-    pprintResult (Paired (LLVM.AST.Name nm1) (LLVM.AST.Name nm2) _ _) = (BSU.toString (BSS.fromShort nm1)) ++ " < -- > " ++ BSU.toString (BSS.fromShort nm2) ++ "\n"
-
-pairDefs _ [] = []
-pairDefs def1@(Single nm1 val1 t1) ((Single nm2 val2 t2):t) =
-  if val1 == val2 then ((Single nm1 val1 (t1+1)),(Single nm2 val2 (t2+1)),(Paired nm1 nm2 val1 0)):(pairDefs def1 t) else (pairDefs def1 t)
-{- GlobalVariable {
-        name :: Name,
-        linkage :: L.Linkage,
-        visibility :: V.Visibility,
-        dllStorageClass :: Maybe DLL.StorageClass,
-        threadLocalMode :: Maybe TLS.Model,
-        unnamedAddr :: Maybe UnnamedAddr,
-        isConstant :: Bool,
-        type' :: Type,
-        addrSpace :: AddrSpace,
-        initializer :: Maybe Constant,
-        section :: Maybe ShortByteString,
-        comdat :: Maybe ShortByteString,
-        alignment :: Word32,
-        metadata :: [(ShortByteString, MDRef MDNode)]
-      }
--}
+    appendSpaces num =
+      if num < 0 then (T.pack "\t")
+      else (T.pack "\t") `T.append` (appendSpaces (num-1))
+    prettyPrintASThelper st dep final_str =
+      if st == T.empty then final_str
+      else
+        let
+          h = (T.head st)
+          t = T.tail st
+        in
+        if h == '{' then prettyPrintASThelper t (dep+1) (final_str `T.append` (T.pack "\n") `T.append` (appendSpaces dep) `T.append` (singleton h))
+        else if h == '}' then prettyPrintASThelper t (dep-1) (final_str `T.append` (T.pack "\n") `T.append` (appendSpaces dep) `T.append` (singleton h))
+        else if h == ',' then prettyPrintASThelper t dep (final_str `T.append` (T.pack " ") `T.append` (singleton h) `T.append` (T.pack "\n") `T.append` (appendSpaces (dep)))
+        else prettyPrintASThelper t dep (final_str `T.append` (singleton h))

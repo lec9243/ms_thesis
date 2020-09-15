@@ -43,4 +43,6 @@ However, with llvm-3.7, it can't use haskell llvm library.
 
 ## look at var initial value, uniquely identify the var. 
 
-## llvm comments 
+## llvm comments can be ignored.
+
+## write eq function for constant: 1. multiple vars are signed with same value; 2. definition of var is a var

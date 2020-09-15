@@ -27,6 +27,8 @@ cabal v2-install ghc-dump --overwrite-policy=always
 cabal v2-install --lib ghc-dump containers --overwrite-policy=always
 ###Install lib from source
 
+clang -S -emit-llvm *.c
+###Generate llvm code from c file
 
 
 
