@@ -21,6 +21,7 @@ extra-source-files:
     README.md
     ChangeLog.md
 data-files:
+    gcd.ll
     varDef.ll
     test1.ll
     test4.ll

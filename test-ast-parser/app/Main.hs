@@ -24,7 +24,7 @@ parseLLVM src = do
           \mod -> do
             ast <- moduleAST mod
             print (show ast)
-            TIO.writeFile "data/varDefAST1.txt" {-(prettyPrintAST -}(T.pack (show ast))
+            TIO.writeFile "data/example1AST.txt" (prettyPrintAST (T.pack (show ast)))
             --TIO.putStrLn (ppllvm ast)
   return ()
 

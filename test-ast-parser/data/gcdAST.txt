@@ -1,0 +1,1169 @@
+Module 
+		{moduleName = "<string>" ,
+			 moduleSourceFileName = "gcd.c" ,
+			 moduleDataLayout = Just (DataLayout 
+			{endianness = LittleEndian ,
+				 mangling = Just ELFMangling ,
+				 stackAlignment = Just 128 ,
+				 pointerLayouts = fromList [(AddrSpace 0 ,
+				(64 ,
+				AlignmentInfo 
+				{abiAlignment = 64 ,
+					 preferredAlignment = 64
+					}))] ,
+				 typeLayouts = fromList [((IntegerAlign ,
+				1) ,
+				AlignmentInfo 
+				{abiAlignment = 8 ,
+					 preferredAlignment = 8
+					}) ,
+				((IntegerAlign ,
+				8) ,
+				AlignmentInfo 
+				{abiAlignment = 8 ,
+					 preferredAlignment = 8
+					}) ,
+				((IntegerAlign ,
+				16) ,
+				AlignmentInfo 
+				{abiAlignment = 16 ,
+					 preferredAlignment = 16
+					}) ,
+				((IntegerAlign ,
+				32) ,
+				AlignmentInfo 
+				{abiAlignment = 32 ,
+					 preferredAlignment = 32
+					}) ,
+				((IntegerAlign ,
+				64) ,
+				AlignmentInfo 
+				{abiAlignment = 64 ,
+					 preferredAlignment = 64
+					}) ,
+				((VectorAlign ,
+				64) ,
+				AlignmentInfo 
+				{abiAlignment = 64 ,
+					 preferredAlignment = 64
+					}) ,
+				((VectorAlign ,
+				128) ,
+				AlignmentInfo 
+				{abiAlignment = 128 ,
+					 preferredAlignment = 128
+					}) ,
+				((FloatAlign ,
+				16) ,
+				AlignmentInfo 
+				{abiAlignment = 16 ,
+					 preferredAlignment = 16
+					}) ,
+				((FloatAlign ,
+				32) ,
+				AlignmentInfo 
+				{abiAlignment = 32 ,
+					 preferredAlignment = 32
+					}) ,
+				((FloatAlign ,
+				64) ,
+				AlignmentInfo 
+				{abiAlignment = 64 ,
+					 preferredAlignment = 64
+					}) ,
+				((FloatAlign ,
+				80) ,
+				AlignmentInfo 
+				{abiAlignment = 128 ,
+					 preferredAlignment = 128
+					}) ,
+				((FloatAlign ,
+				128) ,
+				AlignmentInfo 
+				{abiAlignment = 128 ,
+					 preferredAlignment = 128
+					})] ,
+				 aggregateLayout = AlignmentInfo 
+				{abiAlignment = 0 ,
+					 preferredAlignment = 64
+					} ,
+				 nativeSizes = Just (fromList [8 ,
+				16 ,
+				32 ,
+				64])
+				}) ,
+			 moduleTargetTriple = Just "x86_64-pc-linux-gnu" ,
+			 moduleDefinitions = [GlobalDefinition (GlobalVariable 
+			{name = Name ".str" ,
+				 linkage = Private ,
+				 visibility = Default ,
+				 dllStorageClass = Nothing ,
+				 threadLocalMode = Nothing ,
+				 unnamedAddr = Just GlobalAddr ,
+				 isConstant = True ,
+				 type' = ArrayType 
+				{nArrayElements = 30 ,
+					 elementType = IntegerType 
+					{typeBits = 8
+						}
+					} ,
+				 addrSpace = AddrSpace 0 ,
+				 initializer = Just (Array 
+				{memberType = IntegerType 
+					{typeBits = 8
+						} ,
+					 memberValues = [Int 
+					{integerBits = 8 ,
+						 integerValue = 69
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 110
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 116
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 101
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 114
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 116
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 119
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 111
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 112
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 111
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 115
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 105
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 116
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 105
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 118
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 101
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 105
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 110
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 116
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 101
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 103
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 101
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 114
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 115
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 58
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 0
+						}]
+					}) ,
+				 section = Nothing ,
+				 comdat = Nothing ,
+				 alignment = 1 ,
+				 metadata = []
+				}) ,
+			GlobalDefinition (GlobalVariable 
+			{name = Name ".str.1" ,
+				 linkage = Private ,
+				 visibility = Default ,
+				 dllStorageClass = Nothing ,
+				 threadLocalMode = Nothing ,
+				 unnamedAddr = Just GlobalAddr ,
+				 isConstant = True ,
+				 type' = ArrayType 
+				{nArrayElements = 6 ,
+					 elementType = IntegerType 
+					{typeBits = 8
+						}
+					} ,
+				 addrSpace = AddrSpace 0 ,
+				 initializer = Just (Array 
+				{memberType = IntegerType 
+					{typeBits = 8
+						} ,
+					 memberValues = [Int 
+					{integerBits = 8 ,
+						 integerValue = 37
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 100
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 37
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 100
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 0
+						}]
+					}) ,
+				 section = Nothing ,
+				 comdat = Nothing ,
+				 alignment = 1 ,
+				 metadata = []
+				}) ,
+			GlobalDefinition (GlobalVariable 
+			{name = Name ".str.2" ,
+				 linkage = Private ,
+				 visibility = Default ,
+				 dllStorageClass = Nothing ,
+				 threadLocalMode = Nothing ,
+				 unnamedAddr = Just GlobalAddr ,
+				 isConstant = True ,
+				 type' = ArrayType 
+				{nArrayElements = 26 ,
+					 elementType = IntegerType 
+					{typeBits = 8
+						}
+					} ,
+				 addrSpace = AddrSpace 0 ,
+				 initializer = Just (Array 
+				{memberType = IntegerType 
+					{typeBits = 8
+						} ,
+					 memberValues = [Int 
+					{integerBits = 8 ,
+						 integerValue = 71
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 46
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 67
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 46
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 68
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 111
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 102
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 37
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 100
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 97
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 110
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 100
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 37
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 100
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 105
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 115
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 32
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 37
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 100
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 46
+						} ,
+					Int 
+					{integerBits = 8 ,
+						 integerValue = 0
+						}]
+					}) ,
+				 section = Nothing ,
+				 comdat = Nothing ,
+				 alignment = 1 ,
+				 metadata = []
+				}) ,
+			GlobalDefinition (Function 
+			{linkage = External ,
+				 visibility = Default ,
+				 dllStorageClass = Nothing ,
+				 callingConvention = C ,
+				 returnAttributes = [] ,
+				 returnType = IntegerType 
+				{typeBits = 32
+					} ,
+				 name = Name "main" ,
+				 parameters = ([] ,
+				False) ,
+				 functionAttributes = [Left (GroupID 0)] ,
+				 section = Nothing ,
+				 comdat = Nothing ,
+				 alignment = 0 ,
+				 garbageCollectorName = Nothing ,
+				 prefix = Nothing ,
+				 basicBlocks = [BasicBlock (UnName 0) [UnName 1 := Alloca 
+				{allocatedType = IntegerType 
+					{typeBits = 32
+						} ,
+					 numElements = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 2 := Alloca 
+				{allocatedType = IntegerType 
+					{typeBits = 32
+						} ,
+					 numElements = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 3 := Alloca 
+				{allocatedType = IntegerType 
+					{typeBits = 32
+						} ,
+					 numElements = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				Do (Store 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 1) ,
+					 value = ConstantOperand (Int 
+					{integerBits = 32 ,
+						 integerValue = 0
+						}) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					}) ,
+				UnName 4 := Call 
+				{tailCallKind = Nothing ,
+					 callingConvention = C ,
+					 returnAttributes = [] ,
+					 function = Right (ConstantOperand (GlobalReference (PointerType 
+					{pointerReferent = FunctionType 
+						{resultType = IntegerType 
+							{typeBits = 32
+								} ,
+							 argumentTypes = [PointerType 
+							{pointerReferent = IntegerType 
+								{typeBits = 8
+									} ,
+								 pointerAddrSpace = AddrSpace 0
+								}] ,
+							 isVarArg = True
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (Name "printf"))) ,
+					 arguments = [(ConstantOperand (GetElementPtr 
+					{inBounds = True ,
+						 address = GlobalReference (PointerType 
+						{pointerReferent = ArrayType 
+							{nArrayElements = 30 ,
+								 elementType = IntegerType 
+								{typeBits = 8
+									}
+								} ,
+							 pointerAddrSpace = AddrSpace 0
+							}) (Name ".str") ,
+						 indices = [Int 
+						{integerBits = 64 ,
+							 integerValue = 0
+							} ,
+						Int 
+						{integerBits = 64 ,
+							 integerValue = 0
+							}]
+						}) ,
+					[])] ,
+					 functionAttributes = [] ,
+					 metadata = []
+					} ,
+				UnName 5 := Call 
+				{tailCallKind = Nothing ,
+					 callingConvention = C ,
+					 returnAttributes = [] ,
+					 function = Right (ConstantOperand (GlobalReference (PointerType 
+					{pointerReferent = FunctionType 
+						{resultType = IntegerType 
+							{typeBits = 32
+								} ,
+							 argumentTypes = [PointerType 
+							{pointerReferent = IntegerType 
+								{typeBits = 8
+									} ,
+								 pointerAddrSpace = AddrSpace 0
+								}] ,
+							 isVarArg = True
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (Name "__isoc99_scanf"))) ,
+					 arguments = [(ConstantOperand (GetElementPtr 
+					{inBounds = True ,
+						 address = GlobalReference (PointerType 
+						{pointerReferent = ArrayType 
+							{nArrayElements = 6 ,
+								 elementType = IntegerType 
+								{typeBits = 8
+									}
+								} ,
+							 pointerAddrSpace = AddrSpace 0
+							}) (Name ".str.1") ,
+						 indices = [Int 
+						{integerBits = 64 ,
+							 integerValue = 0
+							} ,
+						Int 
+						{integerBits = 64 ,
+							 integerValue = 0
+							}]
+						}) ,
+					[]) ,
+					(LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 2) ,
+					[]) ,
+					(LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 3) ,
+					[])] ,
+					 functionAttributes = [] ,
+					 metadata = []
+					} ,
+				UnName 6 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 2) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 7 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 3) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 8 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 2) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 9 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 3) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 10 := Call 
+				{tailCallKind = Nothing ,
+					 callingConvention = C ,
+					 returnAttributes = [] ,
+					 function = Right (ConstantOperand (GlobalReference (PointerType 
+					{pointerReferent = FunctionType 
+						{resultType = IntegerType 
+							{typeBits = 32
+								} ,
+							 argumentTypes = [IntegerType 
+							{typeBits = 32
+								} ,
+							IntegerType 
+							{typeBits = 32
+								}] ,
+							 isVarArg = False
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (Name "hcf"))) ,
+					 arguments = [(LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 8) ,
+					[]) ,
+					(LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 9) ,
+					[])] ,
+					 functionAttributes = [] ,
+					 metadata = []
+					} ,
+				UnName 11 := Call 
+				{tailCallKind = Nothing ,
+					 callingConvention = C ,
+					 returnAttributes = [] ,
+					 function = Right (ConstantOperand (GlobalReference (PointerType 
+					{pointerReferent = FunctionType 
+						{resultType = IntegerType 
+							{typeBits = 32
+								} ,
+							 argumentTypes = [PointerType 
+							{pointerReferent = IntegerType 
+								{typeBits = 8
+									} ,
+								 pointerAddrSpace = AddrSpace 0
+								}] ,
+							 isVarArg = True
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (Name "printf"))) ,
+					 arguments = [(ConstantOperand (GetElementPtr 
+					{inBounds = True ,
+						 address = GlobalReference (PointerType 
+						{pointerReferent = ArrayType 
+							{nArrayElements = 26 ,
+								 elementType = IntegerType 
+								{typeBits = 8
+									}
+								} ,
+							 pointerAddrSpace = AddrSpace 0
+							}) (Name ".str.2") ,
+						 indices = [Int 
+						{integerBits = 64 ,
+							 integerValue = 0
+							} ,
+						Int 
+						{integerBits = 64 ,
+							 integerValue = 0
+							}]
+						}) ,
+					[]) ,
+					(LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 6) ,
+					[]) ,
+					(LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 7) ,
+					[]) ,
+					(LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 10) ,
+					[])] ,
+					 functionAttributes = [] ,
+					 metadata = []
+					}] (Do (Ret 
+				{returnOperand = Just (ConstantOperand (Int 
+					{integerBits = 32 ,
+						 integerValue = 0
+						})) ,
+					 metadata' = []
+					}))] ,
+				 personalityFunction = Nothing ,
+				 metadata = []
+				}) ,
+			GlobalDefinition (Function 
+			{linkage = External ,
+				 visibility = Default ,
+				 dllStorageClass = Nothing ,
+				 callingConvention = C ,
+				 returnAttributes = [] ,
+				 returnType = IntegerType 
+				{typeBits = 32
+					} ,
+				 name = Name "printf" ,
+				 parameters = ([Parameter (PointerType 
+				{pointerReferent = IntegerType 
+					{typeBits = 8
+						} ,
+					 pointerAddrSpace = AddrSpace 0
+					}) (UnName 0) []] ,
+				True) ,
+				 functionAttributes = [Left (GroupID 1)] ,
+				 section = Nothing ,
+				 comdat = Nothing ,
+				 alignment = 0 ,
+				 garbageCollectorName = Nothing ,
+				 prefix = Nothing ,
+				 basicBlocks = [] ,
+				 personalityFunction = Nothing ,
+				 metadata = []
+				}) ,
+			GlobalDefinition (Function 
+			{linkage = External ,
+				 visibility = Default ,
+				 dllStorageClass = Nothing ,
+				 callingConvention = C ,
+				 returnAttributes = [] ,
+				 returnType = IntegerType 
+				{typeBits = 32
+					} ,
+				 name = Name "__isoc99_scanf" ,
+				 parameters = ([Parameter (PointerType 
+				{pointerReferent = IntegerType 
+					{typeBits = 8
+						} ,
+					 pointerAddrSpace = AddrSpace 0
+					}) (UnName 0) []] ,
+				True) ,
+				 functionAttributes = [Left (GroupID 1)] ,
+				 section = Nothing ,
+				 comdat = Nothing ,
+				 alignment = 0 ,
+				 garbageCollectorName = Nothing ,
+				 prefix = Nothing ,
+				 basicBlocks = [] ,
+				 personalityFunction = Nothing ,
+				 metadata = []
+				}) ,
+			GlobalDefinition (Function 
+			{linkage = External ,
+				 visibility = Default ,
+				 dllStorageClass = Nothing ,
+				 callingConvention = C ,
+				 returnAttributes = [] ,
+				 returnType = IntegerType 
+				{typeBits = 32
+					} ,
+				 name = Name "hcf" ,
+				 parameters = ([Parameter (IntegerType 
+				{typeBits = 32
+					}) (UnName 0) [] ,
+				Parameter (IntegerType 
+				{typeBits = 32
+					}) (UnName 1) []] ,
+				False) ,
+				 functionAttributes = [Left (GroupID 0)] ,
+				 section = Nothing ,
+				 comdat = Nothing ,
+				 alignment = 0 ,
+				 garbageCollectorName = Nothing ,
+				 prefix = Nothing ,
+				 basicBlocks = [BasicBlock (UnName 2) [UnName 3 := Alloca 
+				{allocatedType = IntegerType 
+					{typeBits = 32
+						} ,
+					 numElements = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 4 := Alloca 
+				{allocatedType = IntegerType 
+					{typeBits = 32
+						} ,
+					 numElements = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 5 := Alloca 
+				{allocatedType = IntegerType 
+					{typeBits = 32
+						} ,
+					 numElements = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				Do (Store 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 4) ,
+					 value = LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 0) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					}) ,
+				Do (Store 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 5) ,
+					 value = LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 1) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					}) ,
+				UnName 6 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 5) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 7 := ICmp 
+				{iPredicate = NE ,
+					 operand0 = LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 6) ,
+					 operand1 = ConstantOperand (Int 
+					{integerBits = 32 ,
+						 integerValue = 0
+						}) ,
+					 metadata = []
+					}] (Do (CondBr 
+				{condition = LocalReference (IntegerType 
+					{typeBits = 1
+						}) (UnName 7) ,
+					 trueDest = UnName 8 ,
+					 falseDest = UnName 14 ,
+					 metadata' = []
+					})) ,
+				BasicBlock (UnName 8) [UnName 9 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 5) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 10 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 4) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 11 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 5) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				UnName 12 := SRem 
+				{operand0 = LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 10) ,
+					 operand1 = LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 11) ,
+					 metadata = []
+					} ,
+				UnName 13 := Call 
+				{tailCallKind = Nothing ,
+					 callingConvention = C ,
+					 returnAttributes = [] ,
+					 function = Right (ConstantOperand (GlobalReference (PointerType 
+					{pointerReferent = FunctionType 
+						{resultType = IntegerType 
+							{typeBits = 32
+								} ,
+							 argumentTypes = [IntegerType 
+							{typeBits = 32
+								} ,
+							IntegerType 
+							{typeBits = 32
+								}] ,
+							 isVarArg = False
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (Name "hcf"))) ,
+					 arguments = [(LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 9) ,
+					[]) ,
+					(LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 12) ,
+					[])] ,
+					 functionAttributes = [] ,
+					 metadata = []
+					} ,
+				Do (Store 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 3) ,
+					 value = LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 13) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					})] (Do (Br 
+				{dest = UnName 16 ,
+					 metadata' = []
+					})) ,
+				BasicBlock (UnName 14) [UnName 15 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 4) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					} ,
+				Do (Store 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 3) ,
+					 value = LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 15) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					})] (Do (Br 
+				{dest = UnName 16 ,
+					 metadata' = []
+					})) ,
+				BasicBlock (UnName 16) [UnName 17 := Load 
+				{volatile = False ,
+					 address = LocalReference (PointerType 
+					{pointerReferent = IntegerType 
+						{typeBits = 32
+							} ,
+						 pointerAddrSpace = AddrSpace 0
+						}) (UnName 3) ,
+					 maybeAtomicity = Nothing ,
+					 alignment = 4 ,
+					 metadata = []
+					}] (Do (Ret 
+				{returnOperand = Just (LocalReference (IntegerType 
+					{typeBits = 32
+						}) (UnName 17)) ,
+					 metadata' = []
+					}))] ,
+				 personalityFunction = Nothing ,
+				 metadata = []
+				}) ,
+			NamedMetadataDefinition "llvm.module.flags" [MetadataNodeID 0] ,
+			NamedMetadataDefinition "llvm.ident" [MetadataNodeID 1] ,
+			MetadataNodeDefinition (MetadataNodeID 0) (MDTuple [Just (MDValue (ConstantOperand (Int 
+			{integerBits = 32 ,
+				 integerValue = 1
+				}))) ,
+			Just (MDString "wchar_size") ,
+			Just (MDValue (ConstantOperand (Int 
+			{integerBits = 32 ,
+				 integerValue = 4
+				})))]) ,
+			MetadataNodeDefinition (MetadataNodeID 1) (MDTuple [Just (MDString "clang version 9.0.0-2~ubuntu18.04.2 (tags/RELEASE_900/final)")]) ,
+			FunctionAttributes (GroupID 1) [StringAttribute 
+			{stringAttributeKind = "correctly-rounded-divide-sqrt-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "disable-tail-calls" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "less-precise-fpmad" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-frame-pointer-elim" ,
+				 stringAttributeValue = "true"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-frame-pointer-elim-non-leaf" ,
+				 stringAttributeValue = ""
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-infs-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-nans-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-signed-zeros-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-trapping-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "stack-protector-buffer-size" ,
+				 stringAttributeValue = "8"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "target-cpu" ,
+				 stringAttributeValue = "x86-64"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "target-features" ,
+				 stringAttributeValue = "+cx8 ,
+				+fxsr ,
+				+mmx ,
+				+sse ,
+				+sse2 ,
+				+x87"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "unsafe-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "use-soft-float" ,
+				 stringAttributeValue = "false"
+				}] ,
+			FunctionAttributes (GroupID 0) [NoInline ,
+			NoUnwind ,
+			OptimizeNone ,
+			UWTable ,
+			StringAttribute 
+			{stringAttributeKind = "correctly-rounded-divide-sqrt-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "disable-tail-calls" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "less-precise-fpmad" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "min-legal-vector-width" ,
+				 stringAttributeValue = "0"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-frame-pointer-elim" ,
+				 stringAttributeValue = "true"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-frame-pointer-elim-non-leaf" ,
+				 stringAttributeValue = ""
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-infs-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-jump-tables" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-nans-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-signed-zeros-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "no-trapping-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "stack-protector-buffer-size" ,
+				 stringAttributeValue = "8"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "target-cpu" ,
+				 stringAttributeValue = "x86-64"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "target-features" ,
+				 stringAttributeValue = "+cx8 ,
+				+fxsr ,
+				+mmx ,
+				+sse ,
+				+sse2 ,
+				+x87"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "unsafe-fp-math" ,
+				 stringAttributeValue = "false"
+				} ,
+			StringAttribute 
+			{stringAttributeKind = "use-soft-float" ,
+				 stringAttributeValue = "false"
+				}]]
+			}
