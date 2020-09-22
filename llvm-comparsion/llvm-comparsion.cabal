@@ -23,10 +23,8 @@ extra-source-files:
 data-files:
     helloworld/helloworld.ll
     helloworld/helloworld1.ll
-    varDef/varDef.ll
-    varDef/varDef1.ll
-    varDef/varDef2.ll
-    varDef/varDef3.ll
+    printInt/example1.ll
+    printInt/example2.ll
 data-dir:
     data
 
@@ -37,6 +35,7 @@ source-repository head
 library
   exposed-modules:
       Eq
+    , Common
     , Struc
   other-modules:
       Paths_llvm_comparsion

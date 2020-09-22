@@ -1,5 +1,0 @@
-Name ".str" < -- > Name ".str"
-UnName 1 < -- > UnName 1
-UnName 2 < -- > UnName 2
-UnName 2 < -- > UnName 3
-UnName 5 < -- > UnName 4

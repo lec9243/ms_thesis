@@ -3,75 +3,66 @@ module Eq where
 
 import LLVM.AST
 import LLVM.AST.Constant as CON
+import Common
 import Struc
 
-getBasicBlocks :: [Global] -> [BasicBlock]
-getBasicBlocks [] = error "should be a main function there"
-getBasicBlocks ((Function _ _ _ _ _ _ _ _ _ _ _ _ _ _ bb _ _):_) = bb -- Compare main function only
-getBasicBlocks _ = error "not implemnt in getBasicBlocks"
-
-getNamedInstruction :: [BasicBlock] -> [Named Instruction]
-getNamedInstruction [] = []
-getNamedInstruction ((BasicBlock _ nmInstructionLst _):_) = nmInstructionLst
--- getNamedInstruction _ = error "not implement in getNamedInstruction"
-
-compareFunctions :: [Global] -> [Global] -> [Paired]
-compareFunctions funcLst1 funcLst2 =
-  compareBasicBlock ((getNamedInstruction . getBasicBlocks) funcLst1) ((getNamedInstruction . getBasicBlocks) funcLst2)
-
-compareBasicBlock :: (Foldable t1, Foldable t2) => t2 (Named Instruction) -> t1 (Named Instruction) -> [Paired]
-compareBasicBlock blocklst1 blocklst2 =
-  compareUnnames blocklst1 blocklst2
-
-compareUnnames :: (Foldable t1, Foldable t2) => t2 (Named Instruction) -> t1 (Named Instruction) -> [Paired]
-compareUnnames blocklst1 blocklst2 =
+--compareASTs :: LLVM.AST.Module -> LLVM.AST.Module -> IO ()
+compareASTs (LLVM.AST.Module _ _ _ _ modDefLst1) (LLVM.AST.Module _ _ _ _ modDefLst2) =
   let
-  valuelst1 = findUnNameValue blocklst1
-  valuelst2 = findUnNameValue blocklst2
+    varLst1 = isGlobalVariable modDefLst1
+    varLst2 = isGlobalVariable modDefLst2
+    globalVarResult = compareGlobalVars varLst1 varLst2
+    funcLst1 = isFunction modDefLst1
+    funcLst2 = isFunction modDefLst2
+    funcResult = compareFunctions (head funcLst1) (head funcLst2) -- compare Main function only
   in
-  Prelude.concatMap (\x -> findEqUnnames x valuelst2) valuelst1
+  globalVarResult ++ funcResult
 
-findEqUnnames :: Eq a => (Name, a) -> [(Name, a)] -> [Paired]
-findEqUnnames _ [] = []
-findEqUnnames unnm1@(unm1, v1) ((unm2, v2):t) =
-  if v1 == v2 then (Paired unm1 unm2):(findEqUnnames unnm1 t) else (findEqUnnames unnm1 t)
+compareGlobalVars gloVar1 gloVar2 =
+  foldr (\x acc -> (compareGlobalVarsHelper x gloVar2)++acc) [] gloVar1
+  where
+    compareGlobalVarsHelper gloVar gloVarLst =
+      foldr (\x acc -> if (getVarGlobalValue gloVar == getVarGlobalValue x)
+                    then (Paired (getVarGlobalNm gloVar) (getVarGlobalNm x)):acc
+                    else acc
+            ) [] gloVarLst
 
-findUnNameValue :: Foldable t => t (Named Instruction) -> [(Name, MyValue)]
-findUnNameValue blocklst =
+compareFunctions func1 func2 =
   let
-  (namelst, dolst) = splitBlockLst blocklst
+  varfunLst1 = generateVarFuncLst (getNamedInstruction (head (getBasicBlocks func1)))
+  varfunLst2 = generateVarFuncLst (getNamedInstruction (head (getBasicBlocks func2)))
   in
-  genUnNameValueLst namelst dolst
+  compareLocalVars varfunLst1 varfunLst2
 
-genUnNameValueLst :: [Named Instruction] -> [Named Instruction] -> [(Name, MyValue)]
-genUnNameValueLst [] _ = []
-genUnNameValueLst (h:t) dolst =
-  case h of
-    unname := Alloca{} -> (unname, lookupValue unname dolst):(genUnNameValueLst t dolst)
-    unname := Load _ add _ _ _ -> (unname, lookupOperand add):(genUnNameValueLst t dolst)
-    _ := Call{} -> genUnNameValueLst t dolst --Does not compare Call right now
-    _ -> error "not implement in genUnNameValueLst"
+compareLocalVars [] _ = []
+compareLocalVars ((VarFunction nm1 ins1):t) varfunlst =
+  (foldr (\(VarFunction nm2 ins2) acc ->
+             if ins1 == (map (substituteVarNms nm1) ins2) then ((Paired nm1 nm2):acc) else acc) [] varfunlst)
+  ++ (compareLocalVars t varfunlst)
 
-lookupValue :: Name -> [Named Instruction] -> MyValue
-lookupValue _ [] = error "value not found in do list"
-lookupValue unnm (h:t) =
-  case h of
-    Do (Store _ (LocalReference _ nm) v _ _ _) -> if unnm == nm then lookupOperand v else lookupValue unnm t
-    _ -> error "not implement in lookupValue"
+substituteVarNms nm1 instruc =
+  case instruc of
+    Alloca{} -> instruc
+    Store vo (LocalReference ty _) va ma al me -> Store vo (LocalReference ty nm1) va ma al me
+    ins -> ins
 
-lookupOperand :: Operand -> MyValue
-lookupOperand op =
-  case op of
-    ConstantOperand (Int _ val) -> Const val
-    LocalReference _ nm -> Ref nm
-    _ -> error "not implement in lookupOperand"
+generateVarFuncLst insLst =
+  foldr (\x acc -> case x of
+                   unnm := _ -> (VarFunction unnm (lookupInstructions unnm insLst)):acc
+                   Do _ -> acc) [] insLst
 
-splitBlockLst :: Foldable t => t (Named a) -> ([Named a], [Named a])
-splitBlockLst blocklst = foldr (\x (a,b) -> case x of
-                                              Do _ -> (a, (x:b))
-                                              _ -> ((x:a), b)
-                                ) ([],[]) blocklst
-
+lookupInstructions nm insLst =
+  foldr (\x acc -> case x of
+                   newnm := commd@(Alloca{}) -> if (newnm == nm) then (commd:acc) else acc
+                   newnm := commd@(Load _ addr _ _ _) -> if (newnm == nm) then (commd:acc)
+                                                          else if ((getLocalRefNm addr) == nm) then (commd:acc)
+                                                          else acc
+                   newnm := commd@(Call _ _ _ _ args _ _) -> if (newnm == nm) then (commd:acc)
+                                                              else if (lookupFuncArgus nm args) then (commd:acc)
+                                                              else acc
+                   Do commd@(Store _ (LocalReference _ newnm) _ _ _ _) -> if (newnm == nm) then (commd:acc) else acc
+                   _ -> error "case not implement in lookupInstructions"
+        ) [] insLst
 
 
 {-data Named a
