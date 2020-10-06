@@ -1,0 +1,7 @@
+App "main" [] (App "alloca" [Var x1, Const i32]
+                            (App "store" [Const 0, Var x1]
+                                         (App "ret" [Const 0]
+                                                    Nothing
+                                         )
+                            )
+              )

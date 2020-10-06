@@ -12,7 +12,7 @@ import Paths_test_ast_parser
 
 main :: IO ()
 main = do
-  filepath <- getDataFileName "varDef.ll"
+  filepath <- getDataFileName "returnZero.ll"
   src <- SIO.readFile filepath
   parseLLVM src
 
@@ -24,7 +24,7 @@ parseLLVM src = do
           \mod -> do
             ast <- moduleAST mod
             print (show ast)
-            TIO.writeFile "data/example1AST.txt" (prettyPrintAST (T.pack (show ast)))
+            TIO.writeFile "data/returnZeroAST.txt" (prettyPrintAST (T.pack (show ast)))
             --TIO.putStrLn (ppllvm ast)
   return ()
 

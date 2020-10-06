@@ -8,14 +8,15 @@ import LLVM.AST
 import LLVM.Module
 import LLVM.Internal.Module
 import LLVM.Internal.Context
-import Eq
+--import Eq
 import Struc
+import Unify
 import Paths_llvm_comparsion
 
 main :: IO ()
 main = do
-  filepath <- getDataFileName "printInt/example1.ll"
-  filepath1 <- getDataFileName "printInt/example2.ll"
+  filepath <- getDataFileName "return0/returnZero1.ll"
+  filepath1 <- getDataFileName "return0/returnZero2.ll"
   src <- SIO.readFile filepath
   src1 <- SIO.readFile filepath1
   parseLLVM src src1
@@ -32,7 +33,8 @@ parseLLVM src1 src2 = do
     \context ->
         withModuleFromLLVMAssembly context src2 $
           \md -> moduleAST md
-  TIO.writeFile "data/printInt/sampleReport1_2.txt" (T.pack (pprintVarResult (compareASTs astModule1 astModule2)))
+  print (show (transModuleToTerms astModule1))
+  TIO.writeFile "data/return0/testOutput.txt" (T.pack (show (transModuleToTerms astModule1)))
   return ()
 
 pprintVarResult :: [Paired] -> [Char]

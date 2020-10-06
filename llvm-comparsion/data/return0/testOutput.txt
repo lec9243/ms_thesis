@@ -1,0 +1,1 @@
+[App (Name "main") [] (App (UnName 0) [] (App (Name "Alloc") [Var (Name "x1")] (App (Name "Store") [Var (Name "x1"),Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))] (App (Name "Ret") [Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))] Empty)))),Empty,Empty,Empty,Empty,Empty]

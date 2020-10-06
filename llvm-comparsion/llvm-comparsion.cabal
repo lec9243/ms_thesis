@@ -25,6 +25,9 @@ data-files:
     helloworld/helloworld1.ll
     printInt/example1.ll
     printInt/example2.ll
+    printInt/example3.ll
+    return0/returnZero1.ll
+    return0/returnZero2.ll
 data-dir:
     data
 
@@ -37,6 +40,7 @@ library
       Eq
     , Common
     , Struc
+    , Unify
   other-modules:
       Paths_llvm_comparsion
   hs-source-dirs:
