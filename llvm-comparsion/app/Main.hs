@@ -33,8 +33,8 @@ parseLLVM src1 src2 = do
     \context ->
         withModuleFromLLVMAssembly context src2 $
           \md -> moduleAST md
-  print (show (transModuleToTerms astModule1))
-  TIO.writeFile "data/return0/testOutput.txt" (T.pack (show (transModuleToTerms astModule1)))
+  print (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2)))
+  TIO.writeFile "data/return0/testOutput.txt" (T.pack (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2))))
   return ()
 
 pprintVarResult :: [Paired] -> [Char]
