@@ -15,8 +15,8 @@ import Paths_llvm_comparsion
 
 main :: IO ()
 main = do
-  filepath <- getDataFileName "return0/returnZero1.ll"
-  filepath1 <- getDataFileName "return0/returnZero2.ll"
+  filepath <- getDataFileName "return0/assignedOne1.ll"
+  filepath1 <- getDataFileName "return0/assignedOne2.ll"
   src <- SIO.readFile filepath
   src1 <- SIO.readFile filepath1
   parseLLVM src src1
@@ -34,7 +34,7 @@ parseLLVM src1 src2 = do
         withModuleFromLLVMAssembly context src2 $
           \md -> moduleAST md
   print (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2)))
-  TIO.writeFile "data/return0/testOutput.txt" (T.pack (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2))))
+  TIO.writeFile "data/return0/assignedOne1_2Output.txt" (T.pack (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2))))
   return ()
 
 pprintVarResult :: [Paired] -> [Char]

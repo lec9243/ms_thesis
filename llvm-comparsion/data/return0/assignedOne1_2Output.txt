@@ -1,0 +1,6 @@
+[(Var (Name "y2"),Var (Name "x2")),
+ (Var (Name "y4"),Var (Name "x4")),
+ (Var (Name "y1"),Var (Name "x1")),
+ (Var (Name "y3"),Var (Name "x3")),
+ (Var (Name "y2"),Var (Name "x2")),
+ (Var (Name "y1"),Var (Name "x1"))]

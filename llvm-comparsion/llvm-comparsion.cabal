@@ -28,6 +28,8 @@ data-files:
     printInt/example3.ll
     return0/returnZero1.ll
     return0/returnZero2.ll
+    return0/assignedOne1.ll
+    return0/assignedOne2.ll
 data-dir:
     data
 

@@ -54,6 +54,7 @@ transNmedInstrucLstToTerm (h:t) terminator tailbbLst =
 transAssignInstrucToTerm nm instruc t terminator tailbblst =
   case instruc of
     Alloca alocty _ _ _ -> App (mkName "Alloc") [(Var nm),(ConstTy alocty)] (transNmedInstrucLstToTerm t terminator tailbblst)
+    Load _ add _ _ _ -> App (mkName "Load") [(Var nm),(ConstOp add)] (transNmedInstrucLstToTerm t terminator tailbblst)
     _ -> error "not implemented in transAssignInstrucToTerm"
 
 transDoInstrucToTerm instruc t terminator tailbbLst =
@@ -78,9 +79,37 @@ unifyArgs args1 args2 subst =
   let paired = ((head args1), (head args2)) in
   if (length args1) == 0 then subst
   else (if (length args1) == 1 then subst
-        else (if ((tail args1) == (tail args2)) then (if paired `elem` subst then subst else (paired:subst))
-              else subst)
-  )
+        else unifyConst (head(reverse args1)) (head(reverse args2)) paired subst)
+
+unifyConst con1 con2 paired subst =
+  let (a,b) = (con1, con2) in
+  case (a,b) of
+    (ConstOp (LocalReference ty1 nm1), ConstOp (LocalReference ty2 nm2)) ->
+          if a == b then (paired:subst)
+          else if (inSubstFst nm1 subst) then unifyConst (ConstOp (LocalReference ty1 (substitute nm1 subst)))  (ConstOp (LocalReference ty2 nm2)) paired subst
+               else if (inSubstSnd nm2 subst) then unifyConst (ConstOp (LocalReference ty1 nm1))  (ConstOp (LocalReference ty2 (substitute nm2 subst))) paired subst
+                    else subst
+    _ -> if a == b then (paired:subst) else subst
+
+inSubstFst nm1 [] = False
+inSubstFst nm1 (x:xs) =
+  case x of
+    (Var a, _) -> if a == nm1 then True else inSubstFst nm1 xs
+    _ -> inSubstFst nm1 xs
+
+inSubstSnd nm2 [] = False
+inSubstSnd nm2 (x:xs) =
+  case x of
+    (_, Var a) -> if a == nm2 then True else inSubstSnd nm2 xs
+    _ -> inSubstSnd nm2 xs
+
+substitute nm1 [] = nm1
+substitute nm1 (x:xs) =
+  case x of
+    (Var a, Var b) -> if a == nm1 then b else (if b == nm1 then a else substitute nm1 xs)
+    _ -> substitute nm1 xs
+
+
 {-
 unifyTerms (Const c1) (Const c2) =
    if c1 == c2  then Just [] else Nothing
