@@ -11,6 +11,7 @@ import LLVM.Internal.Context
 --import Eq
 import Struc
 import Unify
+import TransModule
 import Paths_llvm_comparsion
 
 main :: IO ()
@@ -33,8 +34,9 @@ parseLLVM src1 src2 = do
     \context ->
         withModuleFromLLVMAssembly context src2 $
           \md -> moduleAST md
-  print (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2)))
-  TIO.writeFile "data/return0/assignedOne1_2Output.txt" (T.pack (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2))))
+--  print (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2)))
+--  TIO.writeFile "data/return0/assignedOne1_2Output.txt" (T.pack (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2))))
+  TIO.writeFile "data/return0/transModuleOutput1.txt" (T.pack (show (transModuleToTerms1 astModule1)))
   return ()
 
 pprintVarResult :: [Paired] -> [Char]

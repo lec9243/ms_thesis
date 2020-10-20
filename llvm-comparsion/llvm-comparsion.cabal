@@ -42,6 +42,7 @@ library
       Eq
     , Common
     , Struc
+    , TransModule
     , Unify
   other-modules:
       Paths_llvm_comparsion
