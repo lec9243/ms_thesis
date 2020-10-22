@@ -6,7 +6,7 @@ import LLVM.AST.Constant as CON
 import Common
 import Struc
 import TransModule
-
+{-
 unifyTerms terms1 terms2 = unifyTerm (head terms1) (head terms2) []
 unifyTerm (App apfunction1 terms1) (App apfunction2 terms2) subst =
   let
@@ -51,15 +51,17 @@ substitute nm1 (x:xs) =
 
 isAssociativeTerm term =
   case term of
-     Var _ -> True
-     Const _ -> True
+     Var _ -> False
+     Const _ -> False
      App appfun lst -> isAssociativeAppFunction appfuc lst
 
 isAssociativeAppFunction appfun lst =
   case appfun of
-    Seq -> error "not defined"
-    UserDefined nm -> error "not defined"
-    Other nm -> error "not defined "
+    Seq -> True
+    UserDefined nm -> False
+    Other nm -> Seq
+
+isCommutative term = undefined -}
 {-
 unifyTerms (Const c1) (Const c2) =
    if c1 == c2  then Just [] else Nothing

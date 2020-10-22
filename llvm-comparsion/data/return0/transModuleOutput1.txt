@@ -1,18 +1,1 @@
-[App (UserDefined (Name "main")) 
-   [App (Other (UnName 0)) 
-      [App Seq 
-         [App (Other (Name "Alloc")) [Var (Name "y1")],
-          App (Other (Name "Alloc")) [Var (Name "y2")],
-          App (Other (Name "Alloc")) [Var (Name "y3")],
-          App (Other (Name "Store")) [Var (Name "y1"),Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))],
-          App (Other (Name "Load")) [Var (Name "y4"),Const (LocalReference (PointerType {pointerReferent = IntegerType {typeBits = 32}, pointerAddrSpace = AddrSpace 0}) (Name "y3"))],
-          App (Other (Name "Store")) [Var (Name "y2"),Const (LocalReference (IntegerType {typeBits = 32}) (Name "y4"))],
-          App (Other (Name "Ret")) [Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]
-         ]
-      ]
-   ],
- App (Other (Name "NamedMetadataDefinition")) [],
- App (Other (Name "NamedMetadataDefinition")) [],
- App (Other (Name "MetadataNodeDefinition")) [],
- App (Other (Name "MetadataNodeDefinition")) [],
- App (Other (Name "FunctionAttributes")) []]
+[App (UserDefined (Name "main")) [[],[App (Other (UnName 0)) [[App Seq [[App (Other (Name "Alloc")) [[Var (Name "y1")]],App Seq [[App (Other (Name "Alloc")) [[Var (Name "y2")]],App Seq [[App (Other (Name "Alloc")) [[Var (Name "y3")]],App Seq [[App (Other (Name "Store")) [[Var (Name "y1"),Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]],App Seq [[App (Other (Name "Load")) [[Var (Name "y4"),Const (LocalReference (PointerType {pointerReferent = IntegerType {typeBits = 32}, pointerAddrSpace = AddrSpace 0}) (Name "y3"))]],App Seq [[App (Other (Name "Store")) [[Var (Name "y2"),Const (LocalReference (IntegerType {typeBits = 32}) (Name "y4"))]],App (Other (Name "Ret")) [[Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]]]]]]]]]]]]]]]]]],App (Other (Name "NamedMetadataDefinition")) [],App (Other (Name "NamedMetadataDefinition")) [],App (Other (Name "MetadataNodeDefinition")) [],App (Other (Name "MetadataNodeDefinition")) [],App (Other (Name "FunctionAttributes")) []]
