@@ -41,7 +41,7 @@ transGlobalVarToTerm,transGlobalAliasToTerm,transFunctionToTerm :: Global -> Ter
 transGlobalVarToTerm global = App (Other (mkName "GlobalVariable")) [] -- not implement
 transGlobalAliasToTerm global = App (Other (mkName "GlobalAlias")) [] -- not implement
 transFunctionToTerm (Function _ _ _ _ _ _ nm (params, _) _ _ _ _ _ _ bb _ _) =
-  App (UserDefined nm) ((transParametersToTerm params):(transBasicBlockToTerm bb):[])
+  App (UserDefined nm) ((transParametersToTerm params)++(transBasicBlockToTerm bb))
 
 transParametersToTerm :: [a1] -> [a2]
 transParametersToTerm [] = []
@@ -50,33 +50,33 @@ transParametersToTerm (h:t) =  error "not implement in transParametersToTerm"
 transBasicBlockToTerm :: [BasicBlock] -> [Term]
 transBasicBlockToTerm [] = []
 transBasicBlockToTerm ((BasicBlock nm insLst terminator):t) =
-  (App (Other nm) [(transNmedInstrucLstToTerm insLst terminator)]):(transBasicBlockToTerm t)
+  (App (Other nm) (transNmedInstrucLstToTerm insLst terminator)):(transBasicBlockToTerm t)
 
 transNmedInstrucLstToTerm :: [Named Instruction] -> Named Terminator -> [Term]
 transNmedInstrucLstToTerm [] terminator = [transBBTerminatorToTerm terminator]
 transNmedInstrucLstToTerm (h:t) terminator =
   case h of
-    nm := instruc -> [App Seq [((transAssignInstrucToTerm nm instruc):(transNmedInstrucLstToTerm t terminator))]]
-    Do instruc -> [App Seq [((transDoInstrucToTerm instruc):(transNmedInstrucLstToTerm t terminator))]]
+    nm := instruc -> [App Seq ((transAssignInstrucToTerm nm instruc):(transNmedInstrucLstToTerm t terminator))]
+    Do instruc -> [App Seq ((transDoInstrucToTerm instruc):(transNmedInstrucLstToTerm t terminator))]
 
 transAssignInstrucToTerm :: Name -> Instruction -> Term
 transAssignInstrucToTerm nm instruc =
   case instruc of
-    Alloca alocty _ _ _ -> (App (Other (mkName "Alloc")) [[(Var nm)]])-- ++(transNmedInstrucLstToTerm t terminator)
-    Load _ add _ _ _ -> (App (Other (mkName "Load")) [[(Var nm),(Const add)]])-- ++(transNmedInstrucLstToTerm t terminator)
+    Alloca alocty _ _ _ -> (App (Other (mkName "Alloc")) [(Var nm)])-- ++(transNmedInstrucLstToTerm t terminator)
+    Load _ add _ _ _ -> (App (Other (mkName "Load")) [(Var nm),(Const add)])-- ++(transNmedInstrucLstToTerm t terminator)
     _ -> error "not implemented in transAssignInstrucToTerm"
 
 transDoInstrucToTerm :: Instruction -> Term
 transDoInstrucToTerm instruc =
   case instruc of
     Store _ (LocalReference _ nm) value _ _ _ ->
-              (App (Other (mkName "Store")) [[(Var nm),(Const value)]])
+              (App (Other (mkName "Store")) [(Var nm),(Const value)])
     _ -> error "not implemented in transDoInstrucToTerm"
 
 transBBTerminatorToTerm :: Named Terminator -> Term
 transBBTerminatorToTerm terminator =
   case terminator of
-    Do (Ret (Just op) _) -> App (Other (mkName "Ret")) [[Const op]]
+    Do (Ret (Just op) _) -> App (Other (mkName "Ret")) [Const op]
 
 
 {-

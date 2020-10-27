@@ -6,13 +6,16 @@ import LLVM.AST.Constant as CON
 import Common
 import Struc
 import TransModule
+
 {-
-unifyTerms terms1 terms2 = unifyTerm (head terms1) (head terms2) []
+unifyTerms terms1 terms2 subst = unifyTerm (head terms1) (head terms2) subst
 unifyTerm (App apfunction1 terms1) (App apfunction2 terms2) subst =
-  let
+{-  let
     subst_ = (if apfunction1 == apfunction2 then (unifyArgs args1 args2 subst) else subst)
   in
   unifyTerm continue1 continue2 subst_
+-}
+  let subst_ = unifyTerms (head terms1) (head terms2) in
 unifyTerm _ _ subst = subst
 
 unifyArgs args1 args2 subst =
@@ -61,7 +64,7 @@ isAssociativeAppFunction appfun lst =
     UserDefined nm -> False
     Other nm -> Seq
 
-isCommutative term = undefined -}
+isCommutativeTerm term = undefined -}
 {-
 unifyTerms (Const c1) (Const c2) =
    if c1 == c2  then Just [] else Nothing

@@ -10,7 +10,7 @@ import LLVM.Internal.Module
 import LLVM.Internal.Context
 --import Eq
 import Struc
-import Unify
+--import Unify
 import TransModule
 import Paths_llvm_comparsion
 
@@ -35,10 +35,11 @@ parseLLVM src1 src2 = do
         withModuleFromLLVMAssembly context src2 $
           \md -> moduleAST md
 --  print (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2)))
---  TIO.writeFile "data/return0/assignedOne1_2Output.txt" (T.pack (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2))))
-  TIO.writeFile "data/return0/transModuleOutput1.txt" (T.pack (show (transModuleToTerms astModule1)))
+  TIO.writeFile "data/return0/transModuleOutput.txt" (T.pack (show (transModuleToTerms astModule1)))
+  TIO.writeFile "data/return0/unifyOutput2.txt" (T.pack (show (unify (Subst []) (head (transModuleToTerms astModule1)) (head (transModuleToTerms astModule2)))))
   return ()
-
+{-
 pprintVarResult :: [Paired] -> [Char]
 pprintVarResult pairedLst =
   concatMap (\(Paired nm1 nm2) -> (show nm1) ++ " < -- > " ++ (show nm2) ++ "\n") pairedLst
+-}

@@ -4,7 +4,7 @@ module Common where
 import LLVM.AST
 import LLVM.AST.Constant as CON
 import Struc
-
+{-
 isGlobalVariable :: [Definition] -> [VarGlobal]
 isGlobalVariable def =
   foldr (\x acc -> case x of
@@ -17,7 +17,7 @@ isFunction def =
   foldr (\x acc -> case x of
                    GlobalDefinition f@(Function{}) -> f:acc
                    _ -> acc
-        ) [] def
+        ) [] def -}
 
 getBasicBlocks :: Global -> [BasicBlock]
 getBasicBlocks (Function _ _ _ _ _ _ _ _ _ _ _ _ _ _ bb _ _) = bb
