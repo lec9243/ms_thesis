@@ -9,7 +9,14 @@ data Term = Var LLVM.AST.Name
 data AppFunction = Seq
                  | UserDefined LLVM.AST.Name
                  | Other LLVM.AST.Name
+                 | Block LLVM.AST.Name
                  | Arguments Int deriving (Eq, Show)
+
+type A = Term
+type B = Term
+type Graph = [(A,[B])]
+type NewGraph = [([B],A)]
+type Matching = [(A,B)]
 
 getArity :: AppFunction -> Maybe Int
 getArity Seq = Just 2
@@ -26,7 +33,9 @@ checkTermArity (App a lst) =
     Just n -> n == length(lst)) && (all checkTermArity lst)
 
 data Subst = Subst [(LLVM.AST.Name, Term)] deriving (Eq, Show)
-data PartialUnifer a = Partial a [[Term]] -- Suppose to be equal but not
+data PartialUnifer a = Partial a [(Term,Term)]
+-- change [[Term]] to [(t,t)]
+-- Suppose to be equal but not
                      | Successful a deriving (Eq, Show)
 
 instance Monad PartialUnifer where
@@ -49,37 +58,7 @@ instance Functor PartialUnifer where
     fmap f (Successful a) = Successful (f a)
     fmap f (Partial a terms) = Partial (f a) terms
 
-insert :: Subst -> Name -> Term -> PartialUnifer Subst
-insert (Subst subst) n t =
-  case lookup n subst of
-    Nothing -> return (Subst ((n,t):subst)) --
-    Just t2 -> unify (Subst subst) t t2
 
-unify :: Subst -> Term -> Term -> PartialUnifer Subst
-unify subst (Var v) t2 =
-  insert subst v t2
-unify subst (Const c) (Var v) =
-  insert subst v (Const c)
-unify subst (Const (LocalReference _ nm1)) (Const (LocalReference _ nm2)) =
-  insert subst nm1 (Var nm2)
-unify subst t1@(Const c1) t2@(Const c2) =
-  if c1 == c2 then return subst else (Partial subst [[t1,t2]])
-unify subst t1@(Const _) t2@(App _ _) = (Partial subst [[t1,t2]])
-unify subst t1@(App f1 ts1) t2@(App f2 ts2)
-  |f1 == f2 = substUnion =<< sequenceA (zipWith (unify subst) ts1 ts2)
-  |otherwise =  (Partial subst [[t1,t2]])
-  where
-    substUnion [] = return subst
-    substUnion [x] = return x
-    substUnion (x:xs) = substUnion2 x =<< substUnion xs
-unify subst t1@(App _ _) (Var v) =
-  insert subst v t1
-unify subst t1@(App _ _) t2@(Const _) =  (Partial subst [[t1,t2]])
-
-substUnion2 :: Subst -> Subst -> PartialUnifer Subst
-substUnion2 (Subst []) subst  = return subst
-substUnion2 (Subst ((v,t):xs)) subst
-  = substUnion2 (Subst xs) =<< insert subst v t
 
 
 

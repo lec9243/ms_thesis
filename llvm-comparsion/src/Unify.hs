@@ -3,9 +3,95 @@ module Unify where
 import LLVM.AST
 import LLVM.AST.Name (mkName)
 import LLVM.AST.Constant as CON
+import Data.List
+
 import Common
 import Struc
-import TransModule
+
+insert :: Subst -> Name -> Term -> PartialUnifer Subst
+insert (Subst subst) n t =
+  case Data.List.lookup n subst of
+    Nothing -> return (Subst ((n,t):subst)) --
+    Just t2 -> unify (Subst subst) t t2
+
+unify :: Subst -> Term -> Term -> PartialUnifer Subst
+unify subst (Var v) t2 =
+  Unify.insert subst v t2
+unify subst (Const c) (Var v) =
+  Unify.insert subst v (Const c)
+unify subst (Const (LocalReference _ nm1)) (Const (LocalReference _ nm2)) =
+  Unify.insert subst nm1 (Var nm2)
+unify subst t1@(Const c1) t2@(Const c2) =
+  if c1 == c2 then return subst else (Partial subst [(t1,t2)])
+unify subst t1@(Const _) t2@(App _ _) = (Partial subst [(t1,t2)])
+unify subst t1@(App f1 ts1) t2@(App f2 ts2)
+  |f1 == f2 = substUnion =<< sequenceA (zipWith (unify subst) ts1 ts2)
+  |otherwise =  (Partial subst [(t1,t2)])
+  where
+    substUnion [] = return subst
+    substUnion [x] = return x
+    substUnion (x:xs) = substUnion2 x =<< substUnion xs
+unify subst t1@(App _ _) (Var v) =
+  Unify.insert subst v t1
+unify subst t1@(App _ _) t2@(Const _) =  (Partial subst [(t1,t2)])
+
+substUnion2 :: Subst -> Subst -> PartialUnifer Subst
+substUnion2 (Subst []) subst  = return subst
+substUnion2 (Subst ((v,t):xs)) subst
+  = substUnion2 (Subst xs) =<< Unify.insert subst v t
+
+termToVertices :: Term -> [Term]
+termToVertices (App Seq terms) = termsToVertices terms
+termToVertices (App (UserDefined nm) terms) = (App (UserDefined nm) [(head terms)]):(termsToVertices (tail terms))
+termToVertices (App (Block nm) terms) = (App (Block nm) []):(termsToVertices terms)
+termToVertices term = [term]
+
+termsToVertices :: [Term] -> [Term]
+termsToVertices [] = []
+termsToVertices (x:xs) = (termToVertices x) ++ (termsToVertices xs)
+
+buildGraph :: [Term] -> [Term] -> Graph
+buildGraph terms1 terms2 =
+  [(x, buildEdges x terms2) | x <- terms1]
+
+buildEdges :: Term -> [Term] -> [Term]
+buildEdges _ [] = []
+buildEdges t (x:xs) =
+  case unify (Subst []) t x of
+    Successful _ -> x:(buildEdges t xs)
+    Partial _ _ ->  buildEdges t xs
+
+maxMatching :: Graph -> Matching -> Matching
+maxMatching g m
+  | augmenting == [] = m
+  | otherwise = maxMatching g updatedm
+  where
+     unsat = (map fst g) Data.List.\\ (map fst m)
+     augmenting = augmentPath g m unsat []
+     updatedm = updating m augmenting
+
+augmentPath :: Graph -> Matching -> [Term] -> NewGraph -> NewGraph
+augmentPath _ _ [] newg = newg
+augmentPath g m (x:xs) newg =
+  case Data.List.lookup x g of
+    Just sth -> if (sth Data.List.\\ (map snd m)) == [] then (augmentPath g m xs newg)
+                else ((sth Data.List.\\ (map snd m)),x):(augmentPath g m xs newg)
+    Nothing -> error "should not happen"
+
+updating :: Matching -> NewGraph -> Matching
+updating m augmenting =
+  case Data.List.lookup (shortest (map fst augmenting)) (augmenting) of
+    Just key -> ((key,(head (shortest (map fst augmenting)))):m)
+    Nothing -> error "should not happen"
+
+shortest [] = []
+shortest [y] = y    --base case: if there's only one element left, return it.
+shortest (x:y:lst)  --extract the first two elements x, y from the list.
+    | length x < length y = shortest (x:lst)
+    | otherwise = shortest (y:lst)
+
+
+
 
 {-
 unifyTerms terms1 terms2 subst = unifyTerm (head terms1) (head terms2) subst

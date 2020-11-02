@@ -1,0 +1,21 @@
+[
+ (App (UserDefined (Name "main")) [App (Arguments 0) []],App (UserDefined (Name "main")) [App (Arguments 0) []],Subst []),
+ (App (Block (UnName 0)) [],App (Block (UnName 0)) [],Subst []),
+ (App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x1")]],App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x1")]],Subst [(Name "x1",Var (Name "x1"))]),
+ (App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x2")]],App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x1")]],Subst [(Name "x2",Var (Name "x1"))]),
+ (App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x3")]],App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x1")]],Subst [(Name "x3",Var (Name "x1"))]),
+ (App (Other (Name "Store")) [App (Arguments 2) [Var (Name "x1"),Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]],
+  App (Other (Name "Store")) [App (Arguments 2) [Var (Name "x1"),Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]],
+  Subst [(Name "x1",Var (Name "x1"))]),
+ (App (Other (Name "Ret")) [App (Arguments 1) [Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]],
+  App (Other (Name "Ret")) [App (Arguments 1) [Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]],Subst []),
+ (App (Other (Name "NamedMetadataDefinition")) [],App (Other (Name "NamedMetadataDefinition")) [],Subst []),
+ (App (Other (Name "NamedMetadataDefinition")) [],App (Other (Name "NamedMetadataDefinition")) [],Subst []),
+ (App (Other (Name "NamedMetadataDefinition")) [],App (Other (Name "NamedMetadataDefinition")) [],Subst []),
+ (App (Other (Name "NamedMetadataDefinition")) [],App (Other (Name "NamedMetadataDefinition")) [],Subst []),
+ (App (Other (Name "MetadataNodeDefinition")) [],App (Other (Name "MetadataNodeDefinition")) [],Subst []),
+ (App (Other (Name "MetadataNodeDefinition")) [],App (Other (Name "MetadataNodeDefinition")) [],Subst []),
+ (App (Other (Name "MetadataNodeDefinition")) [],App (Other (Name "MetadataNodeDefinition")) [],Subst []),
+ (App (Other (Name "MetadataNodeDefinition")) [],App (Other (Name "MetadataNodeDefinition")) [],Subst []),
+ (App (Other (Name "FunctionAttributes")) [],App (Other (Name "FunctionAttributes")) [],Subst [])
+]

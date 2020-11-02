@@ -10,14 +10,14 @@ import LLVM.Internal.Module
 import LLVM.Internal.Context
 --import Eq
 import Struc
---import Unify
+import Unify
 import TransModule
 import Paths_llvm_comparsion
 
 main :: IO ()
 main = do
   filepath <- getDataFileName "return0/assignedOne1.ll"
-  filepath1 <- getDataFileName "return0/assignedOne2.ll"
+  filepath1 <- getDataFileName "return0/returnZero1.ll"
   src <- SIO.readFile filepath
   src1 <- SIO.readFile filepath1
   parseLLVM src src1
@@ -34,9 +34,13 @@ parseLLVM src1 src2 = do
     \context ->
         withModuleFromLLVMAssembly context src2 $
           \md -> moduleAST md
---  print (show (unifyTerms (transModuleToTerms astModule1) (transModuleToTerms astModule2)))
-  TIO.writeFile "data/return0/transModuleOutput.txt" (T.pack (show (transModuleToTerms astModule1)))
-  TIO.writeFile "data/return0/unifyOutput2.txt" (T.pack (show (unify (Subst []) (head (transModuleToTerms astModule1)) (head (transModuleToTerms astModule2)))))
+--  print (show (termsToVertices (transModuleToTerms astModule1)))
+--  print (show (termsToVertices (transModuleToTerms astModule2)))
+--  TIO.writeFile "data/return0/transModuleOutput.txt" (T.pack (show (transModuleToTerms astModule1)))
+  TIO.writeFile "data/return0/vertices1.txt" (T.pack (show (termsToVertices (transModuleToTerms astModule1))))
+  TIO.writeFile "data/return0/vertices2.txt" (T.pack (show (termsToVertices (transModuleToTerms astModule2))))
+--  TIO.writeFile "data/return0/buildGraph.txt" (T.pack (show (buildGraph (transModuleToTerms astModule1) (transModuleToTerms astModule2))))
+  TIO.writeFile "data/return0/maxMatching1.txt" (T.pack (show (maxMatching (buildGraph (termsToVertices (transModuleToTerms astModule1)) (termsToVertices (transModuleToTerms astModule2))) [])))
   return ()
 {-
 pprintVarResult :: [Paired] -> [Char]
