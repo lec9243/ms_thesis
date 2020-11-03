@@ -17,6 +17,7 @@ type B = Term
 type Graph = [(A,[B])]
 type NewGraph = [([B],A)]
 type Matching = [(A,B)]
+type Unmatch = ([A],[B])
 
 getArity :: AppFunction -> Maybe Int
 getArity Seq = Just 2

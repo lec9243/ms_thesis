@@ -37,10 +37,10 @@ parseLLVM src1 src2 = do
 --  print (show (termsToVertices (transModuleToTerms astModule1)))
 --  print (show (termsToVertices (transModuleToTerms astModule2)))
 --  TIO.writeFile "data/return0/transModuleOutput.txt" (T.pack (show (transModuleToTerms astModule1)))
-  TIO.writeFile "data/return0/vertices1.txt" (T.pack (show (termsToVertices (transModuleToTerms astModule1))))
-  TIO.writeFile "data/return0/vertices2.txt" (T.pack (show (termsToVertices (transModuleToTerms astModule2))))
+--  TIO.writeFile "data/return0/vertices1.txt" (T.pack (show (termsToVertices (transModuleToTerms astModule1))))
+--  TIO.writeFile "data/return0/vertices2.txt" (T.pack (show (termsToVertices (transModuleToTerms astModule2))))
 --  TIO.writeFile "data/return0/buildGraph.txt" (T.pack (show (buildGraph (transModuleToTerms astModule1) (transModuleToTerms astModule2))))
-  TIO.writeFile "data/return0/maxMatching1.txt" (T.pack (show (maxMatching (buildGraph (termsToVertices (transModuleToTerms astModule1)) (termsToVertices (transModuleToTerms astModule2))) [])))
+  TIO.writeFile "data/return0/unmatchedNode1.txt" (T.pack (show (unmatchedNode (termsToVertices (transModuleToTerms astModule1)) (termsToVertices (transModuleToTerms astModule2)) (maxMatching (buildGraph (termsToVertices (transModuleToTerms astModule1)) (termsToVertices (transModuleToTerms astModule2))) []))))
   return ()
 {-
 pprintVarResult :: [Paired] -> [Char]

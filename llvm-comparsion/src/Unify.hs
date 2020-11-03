@@ -90,6 +90,12 @@ shortest (x:y:lst)  --extract the first two elements x, y from the list.
     | length x < length y = shortest (x:lst)
     | otherwise = shortest (y:lst)
 
+unmatchedNode :: [Term] -> [Term] -> Matching -> Unmatch -- A -> B -> [(A,B)] -> ([A],[B])
+unmatchedNode terms1 terms2 mtch =
+  ((helper terms1 (map fst mtch)),(helper terms2 (map snd mtch)))
+  where
+    helper terms matched = filter (\x -> x `notElem` matched) terms
+
 
 
 
