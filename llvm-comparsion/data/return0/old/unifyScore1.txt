@@ -1,0 +1,15 @@
+([(App (Other (Name "FunctionAttributes")) [],App (Other (Name "FunctionAttributes")) []),
+(App (Other (Name "MetadataNodeDefinition")) [],App (Other (Name "MetadataNodeDefinition")) []),
+(App (Other (Name "MetadataNodeDefinition")) [],App (Other (Name "MetadataNodeDefinition")) []),
+(App (Other (Name "NamedMetadataDefinition")) [],App (Other (Name "NamedMetadataDefinition")) []),
+(App (Other (Name "NamedMetadataDefinition")) [],App (Other (Name "NamedMetadataDefinition")) []),
+(App (Other (Name "Ret")) [App (Arguments 1) [Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]],
+ App (Other (Name "Ret")) [App (Arguments 1) [Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]]),
+(App (Other (Name "Store")) [App (Arguments 2) [Var (Name "y1"),Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]],
+ App (Other (Name "Store")) [App (Arguments 2) [Var (Name "x1"),Const (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]]),
+(App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "y3")]],App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x1")]]),
+(App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "y2")]],App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x1")]]),
+(App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "y1")]],App (Other (Name "Alloc")) [App (Arguments 1) [Var (Name "x1")]]),
+(App (Block (UnName 0)) [],App (Block (UnName 0)) []),
+(App (UserDefined (Name "main")) [App (Arguments 0) []],App (UserDefined (Name "main")) [App (Arguments 0) []])
+],12)

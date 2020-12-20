@@ -1,7 +1,11 @@
 {-# OPTIONS_GHC -Wall #-}
+{-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveTraversable #-}
+
 module Struc where      --Define Data Structure
 import LLVM.AST
 --import LLVM.AST.Constant as CON
+
 
 data Term = Var LLVM.AST.Name
           | Const Operand
@@ -10,34 +14,29 @@ data AppFunction = Seq
                  | UserDefined LLVM.AST.Name
                  | Other LLVM.AST.Name
                  | Block LLVM.AST.Name
-                 | Arguments Int deriving (Eq, Show)
+                 | Arguments Int deriving (Eq, Show, Read)
 
-type A = Term
-type B = Term
-type Graph = [(A,[B])]
-type NewGraph = [([B],A)]
-type Matching = [(A,B)]
-type Unmatch = ([A],[B])
+--data TermIndex = TermIndex Term Int (TermIndex) | Empty deriving (Eq, Show)
+data TermIndex i = TiVar LLVM.AST.Name
+                 | TiConst Operand
+                 | TiApp i AppFunction [TermIndex i] deriving (Eq, Show, Functor, Traversable, Foldable, Read)
 
-getArity :: AppFunction -> Maybe Int
-getArity Seq = Just 2
-getArity (UserDefined _) = Nothing
-getArity (Other _) = Nothing
-getArity (Arguments _) = Nothing
+type A = TermIndex Int
+type B = TermIndex Int
+type Graph = [(A, [B])]
+type NewGraph = [([B], A)]
+type Matching = [(TermIndex Int, TermIndex Int)]
+type Unmatch = ([A], [B])
+type ClassForm = TermIndex Int
+type ClassMember = [TermIndex Int]
+type EqClass = (ClassForm, ClassMember)
+type CombinedEqClass = (ClassForm, (ClassMember, ClassMember))
 
-checkTermArity :: Term -> Bool
-checkTermArity (Var _) = True
-checkTermArity (Const _) = True
-checkTermArity (App a lst) =
-  (case (getArity a) of
-    Nothing -> True
-    Just n -> n == length(lst)) && (all checkTermArity lst)
+data Subst = Subst [(LLVM.AST.Name, TermIndex Int)] deriving (Eq, Show, Read)
+data PartialUnifer a = Partial a [(TermIndex Int, TermIndex Int)]
+                     | Successful a deriving (Eq, Show, Read)
 
-data Subst = Subst [(LLVM.AST.Name, Term)] deriving (Eq, Show)
-data PartialUnifer a = Partial a [(Term,Term)]
--- change [[Term]] to [(t,t)]
--- Suppose to be equal but not
-                     | Successful a deriving (Eq, Show)
+
 
 instance Monad PartialUnifer where
   return a = Successful a
@@ -60,7 +59,19 @@ instance Functor PartialUnifer where
     fmap f (Partial a terms) = Partial (f a) terms
 
 
+getArity :: AppFunction -> Maybe Int
+getArity Seq = Just 2
+getArity (UserDefined _) = Nothing
+getArity (Other _) = Nothing
+getArity (Arguments _) = Nothing
 
+checkTermArity :: Term -> Bool
+checkTermArity (Var _) = True
+checkTermArity (Const _) = True
+checkTermArity (App a lst) =
+  (case (getArity a) of
+    Nothing -> True
+    Just n -> n == length(lst)) && (all checkTermArity lst)
 
 
 

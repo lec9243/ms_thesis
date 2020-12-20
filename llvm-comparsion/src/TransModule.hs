@@ -6,6 +6,7 @@ import LLVM.AST.Name (mkName)
 import LLVM.AST.Constant as CON
 import Common
 import Struc
+import Data.Traversable
 
 transModuleToTerms :: Module -> [Term]
 transModuleToTerms (LLVM.AST.Module _ _ _ _ modDefLst) =
@@ -75,9 +76,52 @@ transDoInstrucToTerm instruc =
 
 transBBTerminatorToTerm :: Named Terminator -> Term
 transBBTerminatorToTerm terminator =
-  case terminator of
+  case terminator of-- transTermstoTermIndex :: [Term] -> Int -> [TermIndex]
+-- transTermstoTermIndex [] _  = []
+-- transTermstoTermIndex (x:xs) ind =
+--   let tidx =  transTermtoTermIndex x ind Empty in
+--   case tidx of
+--     (TermIndex _ ind' _) -> (tidx:(transTermstoTermIndex xs ind'))
+--     Empty -> (tidx:(transTermstoTermIndex xs ind))
+--
+-- transTermtoTermIndex :: Term -> Int -> TermIndex -> TermIndex
+-- transTermtoTermIndex (App Seq [t1,t2]) idx Empty =
+--   TermIndex t1 idx (transTermtoTermIndex t2 (idx+1) Empty)
+-- transTermtoTermIndex (App _ _ ) i Empty = Empty
+-- transTermtoTermIndex _ _ _ = Empty
     Do (Ret (Just op) _) -> App (Other (mkName "Ret")) [App (Arguments 1) [Const op]]
 
+-- transTermstoTermIndex :: [Term] -> Int -> [TermIndex Int]
+-- transTermstoTermIndex [] _ = []
+-- transTermstoTermIndex (x:xs) idx =
+--   let (t, newidx) = transTermtoTermIndex x idx in
+--    t:(transTermstoTermIndex xs newidx)
+
+-- transTermtoTermIndex :: Term -> Int -> (TermIndex Int, Int)
+-- transTermtoTermIndex (Var v) idx = (TiVar v, idx)
+-- transTermtoTermIndex (Const c) idx = (TiConst c, idx)
+-- transTermtoTermIndex (App (Arguments i) t) idx = ((TiApp (idx-1) (Arguments i) (map fst (map (\x -> transTermtoTermIndex x (idx-1)) t))), (idx-1))
+-- transTermtoTermIndex (App appf terms) idx =
+--   let (newterms, newidx) = transTermtoTermIndexHelper terms (idx+1) in
+--   (TiApp idx appf newterms, newidx)
+--   where
+--     transTermtoTermIndexHelper [] idx = ([], idx)
+--     transTermtoTermIndexHelper (x:xs) idx =
+--       let (newterms, newidx) = transTermtoTermIndex x idx in
+--       (newterms:(fst (transTermtoTermIndexHelper xs newidx)), (snd (transTermtoTermIndexHelper xs newidx)))
+
+transTermtoTermUnit :: Term -> TermIndex ()
+transTermtoTermUnit (Var v) = TiVar v
+transTermtoTermUnit (Const c) = TiConst c
+transTermtoTermUnit (App appf terms) = TiApp () appf (map transTermtoTermUnit terms)
+
+ttttIndex ::  Int -> TermIndex () -> (Int, TermIndex Int) -- trans term unit to term index
+ttttIndex = mapAccumL f --f :: Int -> () -> (Int, Int)
+  where f i () = ((i+1), i)
+
+transTermstoTermIndex :: [Term] -> [TermIndex Int]
+transTermstoTermIndex tlst =
+  snd (mapAccumL ttttIndex 0 (map transTermtoTermUnit tlst))
 
 {-
 transModuleToTerms1 :: Module -> [Term]

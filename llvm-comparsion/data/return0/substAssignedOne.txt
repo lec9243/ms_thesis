@@ -1,0 +1,1 @@
+Partial (Subst [(Name "y1",TiVar (Name "y2")),(Name "y3",TiVar (Name "y3")),(Name "y4",TiVar (Name "y4")),(Name "y2",TiVar (Name "y1"))]) [(TiVar (Name "y4"),TiVar (Name "y4")),(TiVar (Name "y3"),TiVar (Name "y3")),(TiVar (Name "y2"),TiVar (Name "y1")),(TiVar (Name "y1"),TiVar (Name "y2"))]
