@@ -88,4 +88,32 @@ packages:
       sha256: 924e88629b493abb6b2f3c3029cef076554a2b627091e3bb6887ec03487a707d
   original:
     hackage: primitive-0.7.1.0@sha256:6a237bb338bcc43193077ff8e8c0f0ce2de14c652231496a15672e8b563a07e2,2604
+- completed:
+    hackage: Munkres-0.1@sha256:6029c7c164f9bf32322c950bd7228a8453df4aec82af526c04599d02106cde1a,1379
+    pantry-tree:
+      size: 219
+      sha256: bc0bfd169850a8959ff636dc03c6a98d78d9c066dfcf23ff259c2d758842f77c
+  original:
+    hackage: Munkres-0.1
+- completed:
+    hackage: array-0.5.4.0@sha256:2b2425e01d592c0e66594c008405ea4c6f6e4d929daeddabbd81be9bb49ebffa,1588
+    pantry-tree:
+      size: 1135
+      sha256: e17dfafde2f226674cffd56b1f445c332b6e5855860f79dedd9de0b6916e7ff0
+  original:
+    hackage: array-0.5.4.0
+- completed:
+    hackage: split-0.2.3.4@sha256:bad9bfc9e8e0aca4ac1f7b3a2767ee6b1c199d4a1b6960db5cc3d7674aee5d73,2564
+    pantry-tree:
+      size: 439
+      sha256: d931baa404f6867a23ed342c11ef27613227a7a82ba2324f95da184fffad0bd9
+  original:
+    hackage: split-0.2.3.4
+- completed:
+    hackage: strings-1.1@sha256:0285dec4c8ab262359342b3e5ef1eb567074669461b9b38404f1cb870c881c5c,1617
+    pantry-tree:
+      size: 212
+      sha256: 876e5a679244143e2a7e74357427c7522a8d61f68a4cc3ae265fe4960b75a2e2
+  original:
+    hackage: strings-1.1
 snapshots: []

@@ -1,0 +1,26 @@
+App "main" [] (App "alloca" [Var x1, Const i32]
+                            (App "store" [Const 0, Var x1]
+                                         (App "ret" [Const 0]
+                                                    Nothing
+                                         )
+                            )
+              )
+
+App (UserDefined "main") [App Seq [App (Other "alloca") [Var "y1"],
+                                   App Seq [App (Other "store") [Var "y1", Const "0"],
+                                            App (Other "ret")   []
+                                           ]
+                                  ]
+                         ]
+
+App (UserDefined "main") [App Seq [App (Other "alloca") [Var "y1"],
+                                   App Seq [App (Other "alloca") [Var "y2"],
+                                            App (Other "alloca") [Var "y3"]]
+                                   App (Other "store")  [Var "y1",
+                                                         App (Other "0") []
+                                                        ],
+                                   App (Other "load")   [Var "y4", Var "y3"],
+                                   App (Other "store")  [Var "y2", Var "y4"],
+                                   App (Other "ret")    [App (Other "0") []]
+                                  ]
+                         ]

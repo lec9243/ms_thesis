@@ -9,6 +9,7 @@ import LLVM.AST
 
 data Term = Var LLVM.AST.Name
           | Const Operand
+          | ConstTy Type
           | App AppFunction [Term] deriving (Eq, Show)
 data AppFunction = Seq
                  | UserDefined LLVM.AST.Name
@@ -19,18 +20,22 @@ data AppFunction = Seq
 --data TermIndex = TermIndex Term Int (TermIndex) | Empty deriving (Eq, Show)
 data TermIndex i = TiVar LLVM.AST.Name
                  | TiConst Operand
+                 | TiConstTy Type
                  | TiApp i AppFunction [TermIndex i] deriving (Eq, Show, Functor, Traversable, Foldable, Read)
 
-type A = TermIndex Int
-type B = TermIndex Int
-type Graph = [(A, [B])]
-type NewGraph = [([B], A)]
-type Matching = [(TermIndex Int, TermIndex Int)]
-type Unmatch = ([A], [B])
-type ClassForm = TermIndex Int
-type ClassMember = [TermIndex Int]
-type EqClass = (ClassForm, ClassMember)
-type CombinedEqClass = (ClassForm, (ClassMember, ClassMember))
+-- type A = TermIndex Int
+-- type B = TermIndex Int
+-- type Graph = [(A, [B])]
+-- type NewGraph = [([B], A)]
+-- type Matching = [(TermIndex Int, TermIndex Int)]
+-- type Unmatch = ([A], [B])
+-- type ClassForm = TermIndex Int
+-- type ClassMember = [TermIndex Int]
+-- type EqClass = (ClassForm, ClassMember)
+-- type CombinedEqClass = (ClassForm, (ClassMember, ClassMember))
+
+type Graph = [((TermIndex Int, TermIndex Int), Int)] -- two v, weight
+type WMatching = [(TermIndex Int, TermIndex Int)]
 
 data Subst = Subst [(LLVM.AST.Name, TermIndex Int)] deriving (Eq, Show, Read)
 data PartialUnifer a = Partial a [(TermIndex Int, TermIndex Int)]

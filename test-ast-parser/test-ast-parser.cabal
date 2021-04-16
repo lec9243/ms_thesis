@@ -21,6 +21,7 @@ extra-source-files:
     README.md
     ChangeLog.md
 data-files:
+    assignedOne1.ll
     gcd.ll
     returnZero.ll
     varDef.ll

@@ -1,0 +1,29 @@
+Load/Store:
+Operand
+Maybe Atomicity
+Word32
+InstructionMetadata
+
+GetElementPtr:
+Bool
+Operand
+[Operand]
+InstructionMetadata
+
+Alloca:
+Type
+Maybe Operand
+Word32
+InstructionMetadata
+
+ICmp:
+IntegerPredicate
+
+Call: 
+Maybe TailCallKind
+CallingConvention
+ParameterAttribute
+CallableOperand
+[(Operand, [ParameterAttribute])]
+[Either GroupID FunctionAttribute]
+InstructionMetadata

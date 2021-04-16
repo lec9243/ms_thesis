@@ -48,6 +48,10 @@ extra-deps:
 - scientific-0.3.6.2@sha256:dd49abc76bd8e2b57e7a057dc2bb742a00527b4bf9350f9374be03b5934e55d8,4679
 - integer-logarithms-1.0.3@sha256:63d42595ec92b71ac98a07b984b0a2eb3d4956f4ad2d856c3bf6fc3dc218d228,2820
 - primitive-0.7.1.0@sha256:6a237bb338bcc43193077ff8e8c0f0ce2de14c652231496a15672e8b563a07e2,2604
+- Munkres-0.1
+- array-0.5.4.0
+- split-0.2.3.4
+- strings-1.1
 
 
 # - acme-missiles-0.3

@@ -1,0 +1,8 @@
+getelementptr
+bitcast
+inttoptr
+call
+sub
+icmp
+ptrtoint
+

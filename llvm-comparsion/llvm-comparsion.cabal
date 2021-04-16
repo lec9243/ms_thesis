@@ -31,6 +31,11 @@ data-files:
     return0/assignedOne1.ll
     return0/assignedOne2.ll
     return0/substAssignedOne.txt
+    return0/rename_p1.txt
+    return0/rename_p2.txt
+    return0/subst.txt
+    return0/upper.txt
+    return0/lower.txt
 data-dir:
     data
 
@@ -40,17 +45,22 @@ source-repository head
 
 library
   exposed-modules:
-      Eq
-    , Common
+      Common
     , Struc
     , TransModule
+    , PPprogram
     , Unify
+    , Reorder
   other-modules:
       Paths_llvm_comparsion
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , array
+    , split
+    , strings
+    , Munkres
     , llvm-hs
     , llvm-hs-pure
     , llvm-hs-pretty
@@ -73,6 +83,8 @@ executable llvm-unify
     , llvm-hs
     , llvm-hs-pure
     , llvm-hs-pretty
+    , split
+    , strings
     , mtl
     , bytestring
     , utf8-string
@@ -92,6 +104,8 @@ executable llvm-calscore
     , llvm-hs
     , llvm-hs-pure
     , llvm-hs-pretty
+    , strings
+    , split
     , mtl
     , bytestring
     , utf8-string

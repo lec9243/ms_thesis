@@ -1,0 +1,30 @@
+y1L   y1R
+y2L   y2R
+y3L   y3R
+y4L   y4R
+0L    0R
+
+y1L - y1R
+y1L - y2R 1
+y1L - y3R 1
+y2L - y1R 2
+y2L - y2R 2
+y2L - y3R
+y3L - y1R
+y3L - y2R
+y3L - y3R
+y1L - 0R
+t1L - y4R
+y2L - y1R
+y4L - y4R
+y3L - y3R
+y4L - y4R
+y2L - y1R
+y4L - 0R
+y2L - y2R
+0L -0R
+
+
+
+https://hackage.haskell.org/package/xlsx 
+https://support.microsoft.com/en-us/office/overview-of-xml-in-excel-f11faa7e-63ae-4166-b3ac-c9e9752a7d80 

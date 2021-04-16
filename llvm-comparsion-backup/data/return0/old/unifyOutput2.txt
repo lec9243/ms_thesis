@@ -1,0 +1,1 @@
+Successful (Subst [(Name "x1",Var (Name "x1")),(Name "x2",Var (Name "x2")),(Name "x3",Var (Name "x3")),(Name "y1",Var (Name "x1")),(Name "y3",Var (Name "x3")),(Name "x4",Var (Name "x4")),(Name "y4",Var (Name "x4")),(Name "y2",Var (Name "x2"))])

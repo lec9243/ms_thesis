@@ -1,0 +1,20 @@
+[TiApp 0 (UserDefined (Name "main")) [TiApp 1 (Arguments 0) []],
+ TiApp 2 (Block (UnName 0)) [],
+ TiApp 7 (Other (Name "Alloc")) [TiApp 8 (Arguments 2) [TiVar (Name "y2_right"),TiConstTy (IntegerType {typeBits = 32})]],
+ TiApp 13 (Other (Name "Store")) [TiApp 14 (Arguments 2) [TiVar (Name "y2_right"),TiConst (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]],
+ TiApp 10 (Other (Name "Alloc")) [TiApp 11 (Arguments 2) [TiVar (Name "y3_right"),TiConstTy (IntegerType {typeBits = 32})]],
+ TiApp 16 (Other (Name "Load")) [TiApp 17 (Arguments 2) [TiVar (Name "y4_right"),TiConst (LocalReference (PointerType {pointerReferent = IntegerType {typeBits = 32}, pointerAddrSpace = AddrSpace 0}) (Name "y3_right"))]],
+ TiApp 4 (Other (Name "Alloc")) [TiApp 5 (Arguments 2) [TiVar (Name "y1_right"),TiConstTy (IntegerType {typeBits = 32})]],
+ TiApp 19 (Other (Name "Store")) [TiApp 20 (Arguments 2) [TiVar (Name "y1_right"),TiConst (LocalReference (IntegerType {typeBits = 32}) (Name "y4_right"))]],
+ TiApp 21 (Other (Name "Ret")) [TiApp 22 (Arguments 1) [TiConst (ConstantOperand (Int {integerBits = 32, integerValue = 0}))]]
+]
+
+define dso_local i32 @main() #0 {
+  %y2 = alloca i32, align 4
+  store i32 0, i32* %y2, align 4
+  %y3 = alloca i32, align 4
+  %y4 = load i32, i32* %y3, align 4
+  %y1 = alloca i32, align 4
+  store i32 %y4, i32* %y1, align 4
+  ret i32 0
+}

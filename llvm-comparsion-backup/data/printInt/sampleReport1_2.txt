@@ -1,0 +1,2 @@
+Name ".xstr" < -- > Name ".ystr"
+Name "x1" < -- > Name "y1"

@@ -1,0 +1,11 @@
+
+
+--- %y1_right = alloca i32, align 4  ---
+%y2_right = alloca i32, align 4 
+--- %y3_right = alloca i32, align 4  ---
+store  i32 0, i32* %y2_right, align 4 
++++ %y3_right = alloca i32, align 4  +++
+%y4_right = load  i32, i32* %y3_right, align 4 
++++ %y1_right = alloca i32, align 4  +++
+store  i32 %y4_right, i32* %y1_right, align 4 
+ret i32 0 
