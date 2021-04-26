@@ -44,9 +44,9 @@ buildConstraints (h:t) =
 findConstraints :: TermIndex Int -> [TermIndex Int] -> Constraints
 findConstraints x xs =
   case x of
-    TiApp _ (Other nm) lst ->
+    TiApp _ (Other nm) lst _ ->
       if (nm == lo || nm == st || nm == al) then
-                      (let [TiApp _ _ (var:_)] = lst
+                      (let [TiApp _ _ (var:_) _] = lst
                            du_ = defUsed var xs
                            dd_ = defDef  var xs
                            es_ = escapeTerm xs
@@ -59,48 +59,52 @@ defUsed :: TermIndex Int -> [TermIndex Int] -> [TermIndex Int]
 defUsed tvar [] = []
 defUsed tvar (h:t) =
   case h of
-    TiApp _ (Other nm) lst ->
+    TiApp _ (Other nm) lst _ ->
      (if (nm == al || nm == ret || nm == br || nm == condbr) then defUsed tvar t
       else if nm == lo then
-        (let [TiApp _ _ [_, (TiConst (LocalReference _ nm1))]] = lst in
+        (let [TiApp _ _ [_, (TiConst (LocalReference _ nm1))] _] = lst in
         if tvar == (TiVar nm1) then h:(defUsed tvar t) else defUsed tvar t)
       else if nm ==  st then
         (case lst of
-          [TiApp _ _ [_, (TiConst (ConstantOperand _))]] -> (defUsed tvar t)
-          [TiApp _ _ [_, (TiConst (LocalReference _ nm1))]] ->
+          [TiApp _ _ [_, (TiConst (ConstantOperand _))] _] -> (defUsed tvar t)
+          [TiApp _ _ [_, (TiConst (LocalReference _ nm1))] _] ->
                   (if ((TiVar nm1) == tvar) then h:(defUsed tvar t) else defUsed tvar t)
          )
       else if (nm == su || nm == ad || nm == gep || nm == ic) then
-        let [TiApp _ _ [_, nm2, _]] = lst in
+        let [TiApp _ _ [_, nm2, _] _] = lst in
         if tvar == nm2 then h:(defUsed tvar t) else defUsed tvar t
       else if (nm == pti || nm == itp || nm == bc) then
-        let [TiApp _ _ [_, nm2]] = lst in
+        let [TiApp _ _ [_, nm2] _] = lst in
         if tvar == nm2 then h:(defUsed tvar t) else defUsed tvar t
-      else error "not know what happen in defused"
+      else defUsed tvar t
      )
+    _ -> defUsed tvar t
 
 defDef :: TermIndex Int -> [TermIndex Int] -> [TermIndex Int]
 defDef tvar [] = []
 defDef tvar (h:t) =
   case h of
-    TiApp _ (Other nm) lst ->
+    TiApp _ (Other nm) lst _ ->
       (if (nm == al || nm == ret || nm == br || nm == condbr || nm == lo) then defDef tvar t
        else if nm == st then
-         let [TiApp _ _ [tv1, _]] = lst in
+         let [TiApp _ _ [tv1, _] _] = lst in
          if (tv1 == tvar) then h:(defDef tvar t) else defDef tvar t
        else if (nm == su || nm == ad || nm == gep || nm == ic) then
-         let [TiApp _ _ [nm1, _, _]] = lst in
+         let [TiApp _ _ [nm1, _, _] _] = lst in
          if tvar == nm1 then h:(defDef tvar t) else defDef tvar t
        else if (nm == pti || nm == itp || nm == bc) then
-         let [TiApp _ _ [nm1 ,_ ]] = lst in
+         let [TiApp _ _ [nm1 ,_ ] _] = lst in
          if tvar == nm1 then h:(defDef tvar t) else defDef tvar t
-       else error "not know what happen in defdef")
+       else defDef tvar t)
+    TiApp _ _ _ _ -> defDef tvar t
+    a -> error (show a)
 
 escapeTerm :: [TermIndex Int] -> [TermIndex Int]
 escapeTerm [] = []
 escapeTerm (h:t) =
   case h of
-    TiApp _ (Other nm) _ -> if nm == ret then h:(escapeTerm t) else escapeTerm t
+    TiApp _ (Other nm) _ _ -> if nm == ret then h:(escapeTerm t) else escapeTerm t
+    _ -> escapeTerm t
 
 
 reorderProgram :: [TermIndex Int] -> [Constraints] -> [TermIndex Int]

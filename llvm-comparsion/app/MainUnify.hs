@@ -64,16 +64,20 @@ parseLLVM src1 src2 str1 str2 = do
   -- printLLVMList (filter_Function mds)
   -- TIO.writeFile "gcdAST-llvm.txt" (T.pack (unpack (ppllvm astModule1)))
 --  print (show (termsToVertices (transModuleToTerms astModule2)))
-      term1 = map (renaming_text "_left") ((transTermstoTermIndex (map transDefinitionToTerms mds1)))
-      term2 = map (renaming_text "_right") ((transTermstoTermIndex (map transDefinitionToTerms mds2)))
+      term1 = map (renaming_text "_left") ((transTermstoTermIndex (map transDefinitionToTerms (filter_Function mds1))))
+      term2 = map (renaming_text "_right") ((transTermstoTermIndex (map transDefinitionToTerms (filter_Function mds2))))
       -- g = buildGraph (termToVertices term1) (termToVertices term2)
       -- m = maxMatching g []
       terms1 = map termToTermList term1
       terms2 = map termToTermList term2
-      -- constrs1 = buildConstraints terms1
-      -- constrs2 = buildConstraints terms2
-      -- reorderT2 = reorderProgram terms2 constrs2
-      -- reorderT1 = reorderProgram terms1 constrs1
+      constrs1 = buildConstraints (concat terms1)
+      constrs2 = buildConstraints (concat terms2)
+      reorderT2 = reorderProgram (concat terms1) constrs2
+      reorderT1 = reorderProgram (concat terms2) constrs1
+
+      seq1 = (TiApp 0 Seq (concat (map termToTermList term1)) Nothing)
+      seq2 = (TiApp 0 Seq (concat (map termToTermList term2)) Nothing)
+      matchsub = matchingToSubst (maxWeight seq1 seq2)
 
   TIO.writeFile "rename_p1.txt" (T.pack (show term1))
   TIO.writeFile "rename_p2.txt" (T.pack (show term2))
@@ -85,23 +89,25 @@ parseLLVM src1 src2 str1 str2 = do
   -- print (lineNumofTerm str2 reorderT2)
   -- print (printOriProg (foldr (++) [] (termByBlocks terms2 constrs2)))
 
-  putStrLn "Loading subst..........."
-  case (unify (Subst []) term1 term2) of
-    Successful s ->   TIO.writeFile "subst.txt" (T.pack (show s))
-    Partial s _ -> TIO.writeFile "subst.txt" (T.pack (show s))
-  -- putStrLn "Loading bound..........."
-  -- TIO.writeFile "upper.txt" (T.pack (show (upperbound term1 term2)))
-  -- TIO.writeFile "lower.txt" (T.pack (show (lowerbound term1 term2)))
-  -- putStrLn "Loading graph..........."
-  -- TIO.writeFile "new_graph.txt" (T.pack (show (buildGraph terms1 terms2 [])))
-  -- -- putStrLn "Loading subst..........."
-  -- -- TIO.writeFile "new_subst.txt" (T.pack (show (matchingToSubst (maxWeight term1 term2))))
-  -- putStrLn "Loading matching..........."
-  -- -- TIO.writeFile "new_matching.txt" (T.pack (show (subsToMatching (matchingToSubst (maxWeight term1 term2)) term1 term2)))
-  -- TIO.writeFile "new_matching_list.txt" (T.pack (show ( ((maxWeight term1 term2)) )))
-  -- putStrLn ".....Print matching Validation....."
-  -- print (checkMatchingwithConst (maxWeight term1 term2) (constrToConstrId constrs1) (constrToConstrId constrs2))
-  -- putStrLn "...Complete..."
+  -- putStrLn "Loading subst..........."
+
+
+  -- case (unify (Subst []) (TiApp 0 Seq (concat (map termToTermList term1)) Nothing) (TiApp 0 Seq (concat (map termToTermList term1)) Nothing)) of
+  --   Successful s ->   TIO.writeFile "subst.txt" (T.pack (show s))
+  --   Partial s _ -> TIO.writeFile "subst.txt" (T.pack (show s))
+  putStrLn "Loading bound..........."
+  TIO.writeFile "upper.txt" (T.pack (show (upperbound (TiApp 0 Seq (concat (map termToTermList term1)) Nothing) (TiApp 0 Seq (concat (map termToTermList term2)) Nothing))))
+  TIO.writeFile "lower.txt" (T.pack (show (lowerbound (TiApp 0 Seq (concat (map termToTermList term2)) Nothing) (TiApp 0 Seq (concat (map termToTermList term2)) Nothing))))
+  putStrLn "Loading graph..........."
+  TIO.writeFile "new_graph.txt" (T.pack (show (buildGraph (concat terms1) (concat terms2) [])))
+  putStrLn "Loading new subst..........."
+  TIO.writeFile "new_subst.txt" (T.pack (show matchsub))
+  putStrLn "Loading matching..........."
+  TIO.writeFile "new_matching.txt" (T.pack (show (subsToMatching matchsub seq1 seq2)))
+  -- TIO.writeFile "new_matching_list.txt" (T.pack (show ( ((maxWeight (TiApp 0 Seq (concat (map termToTermList term1)) Nothing) (TiApp 0 Seq (concat (map termToTermList term2)) Nothing))) )))
+  putStrLn ".....Print matching Validation....."
+  print (checkMatchingwithConst (maxWeight (TiApp 0 Seq (concat (map termToTermList term1)) Nothing) (TiApp 0 Seq (concat (map termToTermList term2)) Nothing)) (constrToConstrId constrs1) (constrToConstrId constrs2))
+  putStrLn "...Complete..."
   -- TIO.writeFile "data/return0/termIndex1.txt" (T.pack (show term1))
   -- TIO.writeFile "data/return0/maxMatching1.txt" (T.pack (show m))
   -- case (unify (Subst []) (head term1) (head term2)) of

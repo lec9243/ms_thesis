@@ -40,14 +40,14 @@ lineNumofTerm _ [] = []
 lineNumofTerm str1 (t1:rst) =
   let
       lines1 = map show (map remove_space (endBy "\n" str1))
-      ins1 = transTermIndextoInstruction (replaceNameLR t1)
+      ins1 = transOriginaltoInstruc (transTermIndextoOriginal t1)
   in
   case ins1 of
     Just p1 -> let ppt1 = remove_space (show (unpack (ppll p1))) in
                 case (elemIndex ppt1 lines1) of
                   Just i1 -> i1:(lineNumofTerm str1 rst)
                   a -> error ("lineNumofTerm     " ++ (show ppt1))
-    Nothing -> case (transTermIndextoTerminator t1) of
+    Nothing -> case (transOriginaltoTermi (transTermIndextoOriginal t1)) of
                   Just p2 -> let ppt2 = remove_space (show (unpack (ppll p2))) in
                               case ((elemIndex ppt2 lines1)) of
                                 Just i2 -> i2:(lineNumofTerm str1 rst)
@@ -59,21 +59,21 @@ ppPPterm [] = ""
 ppPPterm (x:xs) =
   case x of
     Ori t ->
-      case transTermIndextoInstruction t of
+      case transOriginaltoInstruc (transTermIndextoOriginal t) of
         Just t_ -> (unpack (ppll t_)) ++ "\n" ++ (ppPPterm xs)
-        Nothing -> case transTermIndextoTerminator t of
+        Nothing -> case transOriginaltoTermi (transTermIndextoOriginal t)  of
                       Just t_ -> (unpack (ppll t_)) ++ "\n" ++ (ppPPterm xs)
                       Nothing -> "\n" ++ (ppPPterm xs)
     Plus t ->
-      case transTermIndextoInstruction t of
+      case transOriginaltoInstruc (transTermIndextoOriginal t) of
         Just t_ -> "+++ " ++ (unpack (ppll t_)) ++ " +++\n" ++ (ppPPterm xs)
-        Nothing -> case transTermIndextoTerminator t of
+        Nothing -> case transOriginaltoTermi (transTermIndextoOriginal t)  of
                       Just t_ -> "+++ " ++ (unpack (ppll t_)) ++ " +++\n" ++ (ppPPterm xs)
                       Nothing -> "\n" ++ (ppPPterm xs)
     Minus t ->
-      case transTermIndextoInstruction t of
+      case transOriginaltoInstruc (transTermIndextoOriginal t)  of
         Just t_ -> "--- " ++ (unpack (ppll t_)) ++ " ---\n" ++ (ppPPterm xs)
-        Nothing -> case transTermIndextoTerminator t of
+        Nothing -> case transOriginaltoTermi (transTermIndextoOriginal t) of
                       Just t_ -> "--- " ++ (unpack (ppll t_)) ++ " ---\n" ++ (ppPPterm xs)
                       Nothing -> "\n" ++ (ppPPterm xs)
 
@@ -84,9 +84,9 @@ incrList lim i = if lim == i then [] else i:(incrList lim (i+1))
 printOriProg :: [TermIndex Int] -> String
 printOriProg [] = ""
 printOriProg (h:t) =
-  case transTermIndextoInstruction h of
+  case transOriginaltoInstruc (transTermIndextoOriginal h) of
     Just p1 -> (unpack (ppll p1))++"\n"++(printOriProg t)
-    Nothing -> case transTermIndextoTerminator h of
+    Nothing -> case transOriginaltoInstruc (transTermIndextoOriginal h) of
                   Just p2 -> (unpack (ppll p2))++"\n"++(printOriProg t)
                   Nothing -> "------\n"++(printOriProg t)
 

@@ -24,7 +24,7 @@ declare ccc i64 @newSpark$def(i8*, i8*)
 define ghccc void @Main_main_info$def(i64* noalias nocapture %Base_Arg, i64* noalias nocapture %Sp_Arg, i64* noalias nocapture %Hp_Arg, i64 %R1_Arg, i64 %R2_Arg, i64 %R3_Arg, i64 %R4_Arg, i64 %R5_Arg, i64 %R6_Arg, i64 %SpLim_Arg) align 8 nounwind prefix <{i64, i32, i32}><{i64 0, i32 21, i32 add (i32 trunc (i64 sub (i64 ptrtoint (%_uPu_srt_struct* @_uPu_srt$def to i64),i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i64)) to i32),i32 0)}>
 {
 nPv:
-  %lrgc = alloca i64, i32 1
+  %lr1 = alloca i64, i32 1
   %R3_Var = alloca i64, i32 1
   store i64 undef, i64* %R3_Var
   %R4_Var = alloca i64, i32 1
@@ -67,7 +67,7 @@ nPv:
   br label %cPr
 cPr:
   %lnPw = load i64, i64* %R1_Var
-  store i64 %lnPw, i64* %lrgc
+  store i64 %lnPw, i64* %lr1
   %lnPx = load i64*, i64** %Sp_Var
   %lnPy = getelementptr inbounds i64, i64* %lnPx, i32 1
   %lnPz = ptrtoint i64* %lnPy to i64
@@ -78,7 +78,7 @@ cPr:
 cPt:
   %lnPE = ptrtoint i64* %Base_Arg to i64
   %lnPF = inttoptr i64 %lnPE to i8*
-  %lnPG = load i64, i64* %lrgc
+  %lnPG = load i64, i64* %lr1
   %lnPH = inttoptr i64 %lnPG to i8*
   %lnPI = bitcast i8* @newCAF to i8* (i8*, i8*)*
   store i64 undef, i64* %R3_Var
@@ -132,7 +132,7 @@ cPp:
   tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnQ1( i64* %Base_Arg, i64* %lnQ2, i64* %Hp_Arg, i64 %lnQ3, i64 %lnQ4, i64 %lnQ5, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
 cPq:
-  %lnQ6 = load i64, i64* %lrgc
+  %lnQ6 = load i64, i64* %lr1
   %lnQ7 = inttoptr i64 %lnQ6 to i64*
   %lnQ8 = load i64, i64* %lnQ7, !tbaa !1
   %lnQ9 = inttoptr i64 %lnQ8 to void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)*
@@ -141,7 +141,7 @@ cPq:
   tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnQ9( i64* %Base_Arg, i64* %lnQa, i64* %Hp_Arg, i64 %lnQb, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
 cPs:
-  %lnQc = load i64, i64* %lrgc
+  %lnQc = load i64, i64* %lr1
   store i64 %lnQc, i64* %R1_Var
   %lnQd = getelementptr inbounds i64, i64* %Base_Arg, i32 -2
   %lnQe = bitcast i64* %lnQd to i64*
@@ -287,11 +287,11 @@ cQq:
   tail call ghccc void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64) %lnRa( i64* %Base_Arg, i64* %lnRb, i64* %Hp_Arg, i64 %lnRc, i64 undef, i64 undef, i64 undef, i64 undef, i64 undef, i64 %SpLim_Arg ) nounwind
   ret void
 }
-%rP2_bytes_struct = type <{[5 x i8]}>
-@rP2_bytes$def = internal constant %rP2_bytes_struct<{[5 x i8] [i8 109, i8 97, i8 105, i8 110, i8 0]}>, align 1
-@rP2_bytes = internal alias i8, bitcast (%rP2_bytes_struct* @rP2_bytes$def to i8*)
+%rOW_bytes_struct = type <{[5 x i8]}>
+@rOW_bytes$def = internal constant %rOW_bytes_struct<{[5 x i8] [i8 109, i8 97, i8 105, i8 110, i8 0]}>, align 1
+@rOW_bytes = internal alias i8, bitcast (%rOW_bytes_struct* @rOW_bytes$def to i8*)
 %rPb_closure_struct = type <{i64, i64}>
-@rPb_closure$def = internal global %rPb_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_con_info to i64), i64 ptrtoint (%rP2_bytes_struct* @rP2_bytes$def to i64)}>
+@rPb_closure$def = internal global %rPb_closure_struct<{i64 ptrtoint (i8* @ghczmprim_GHCziTypes_TrNameS_con_info to i64), i64 ptrtoint (%rOW_bytes_struct* @rOW_bytes$def to i64)}>
 @rPb_closure = internal alias i8, bitcast (%rPb_closure_struct* @rPb_closure$def to i8*)
 %rPc_bytes_struct = type <{[5 x i8]}>
 @rPc_bytes$def = internal constant %rPc_bytes_struct<{[5 x i8] [i8 77, i8 97, i8 105, i8 110, i8 0]}>, align 1
@@ -314,4 +314,4 @@ cQq:
 @stg_ap_p_fast = external global i8
 @ghczmprim_GHCziTypes_TrNameS_con_info = external global i8
 @ghczmprim_GHCziTypes_Module_con_info = external global i8
-@llvm.used = appending constant [10 x i8*] [i8* bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*), i8* bitcast (%rPd_closure_struct* @rPd_closure$def to i8*), i8* bitcast (%rPc_bytes_struct* @rPc_bytes$def to i8*), i8* bitcast (%rPb_closure_struct* @rPb_closure$def to i8*), i8* bitcast (%rP2_bytes_struct* @rP2_bytes$def to i8*), i8* bitcast (%ZCMain_main_closure_struct* @ZCMain_main_closure$def to i8*), i8* bitcast (%_uQs_srt_struct* @_uQs_srt$def to i8*), i8* bitcast (%Main_main_closure_struct* @Main_main_closure$def to i8*), i8* bitcast (%_uPu_srt_struct* @_uPu_srt$def to i8*), i8* bitcast (%sPk_closure_struct* @sPk_closure$def to i8*)], section "llvm.metadata"
+@llvm.used = appending constant [10 x i8*] [i8* bitcast (%Main_zdtrModule_closure_struct* @Main_zdtrModule_closure$def to i8*), i8* bitcast (%rPd_closure_struct* @rPd_closure$def to i8*), i8* bitcast (%rPc_bytes_struct* @rPc_bytes$def to i8*), i8* bitcast (%rPb_closure_struct* @rPb_closure$def to i8*), i8* bitcast (%rOW_bytes_struct* @rOW_bytes$def to i8*), i8* bitcast (%ZCMain_main_closure_struct* @ZCMain_main_closure$def to i8*), i8* bitcast (%_uQs_srt_struct* @_uQs_srt$def to i8*), i8* bitcast (%Main_main_closure_struct* @Main_main_closure$def to i8*), i8* bitcast (%_uPu_srt_struct* @_uPu_srt$def to i8*), i8* bitcast (%sPk_closure_struct* @sPk_closure$def to i8*)], section "llvm.metadata"

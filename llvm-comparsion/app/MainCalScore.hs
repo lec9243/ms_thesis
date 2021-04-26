@@ -50,8 +50,8 @@ main = do
   src5 <- SIO.readFile file4
   src6 <- SIO.readFile file5
   src7 <- SIO.readFile file6
-  let p1 = read src1::TermIndex Int
-      p2 = read src2::TermIndex Int
+  let p1 = read src1::[TermIndex Int]
+      p2 = read src2::[TermIndex Int]
       subs = read src3::Subst
       upp = read src4::[(Int, Int)]
       lower = read src5::[(Int, Int)]
@@ -61,14 +61,17 @@ main = do
       lineN1 = [9,7,11,8,10,12,13]
       lineN2 = [8,10,9,11,7,12,13]
   putStrLn ".....Upperbound......"
-  print (calUpperBound p1 p2 upp subs)
+  print (calUpperBound (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) upp subs)
   putStrLn ".....Lowerbound......"
-  print (snd (calculateScore p1 p2 lower subs))
-  TIO.writeFile "matchedTerms.txt" (T.pack (show (fst (calculateScore p1 p2 lower subs))))
-  let matched = fst (calculateScore p1 p2 lower subs)
+  print (snd (calculateScore (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) lower subs))
+  TIO.writeFile "matchedTerms.txt" (T.pack (show (fst (calculateScore (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) upp subs))))
+  let matched = fst (calculateScore (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) lower subs)
+  -- print (matched)
   putStrLn ".....Print Line Numer....."
-  print (ppLineNumber ptxt1 ptxt2 matched)
-  -- TIO.writeFile "ppMatchedprogram_hide.csv" (T.pack (ppCSV flag ptxt1 ptxt2 (ppLineNumber ptxt1 ptxt2 matched) lineN1 lineN2))
+  print (ppLineNumber ptxt1 ptxt2 matched [])
+  TIO.writeFile "ppMatchedprogram_hide.csv" (T.pack (ppCSV flag ptxt1 ptxt2 (ppLineNumber ptxt1 ptxt2 matched []) lineN1 lineN2))
+  putStrLn ".....substitution....."
+  TIO.writeFile "substitution_AAA.txt" (T.pack (show (map (\x -> substitution x subs) p1)))
   return ()
 
 -- parseLLVM :: (LLVM.Internal.Module.LLVMAssemblyInput s1,

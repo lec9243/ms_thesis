@@ -14,6 +14,7 @@ import Data.List
 import Data.Text.Lazy (unpack)
 import Data.Strings
 
+
 import TransModule
 import Struc
 
@@ -39,19 +40,19 @@ unify subst t1@(TiConst c1) t2@(TiConst c2) =
   if c1 == c2 then return subst else (Partial subst [(t1,t2)])
 unify subst t1@(TiConstTy c1) t2@(TiConstTy c2) =
   if c1 == c2 then return subst else (Partial subst [(t1,t2)])
-unify subst t1@(TiConst _) t2@(TiApp _ _ _) = (Partial subst [(t1,t2)])
-unify subst t1@(TiConstTy _) t2@(TiApp _ _ _) = (Partial subst [(t1,t2)])
-unify subst t1@(TiApp _ f1 ts1) t2@(TiApp _ f2 ts2)
+unify subst t1@(TiConst _) t2@(TiApp _ _ _ _) = (Partial subst [(t1,t2)])
+unify subst t1@(TiConstTy _) t2@(TiApp _ _ _ _) = (Partial subst [(t1,t2)])
+unify subst t1@(TiApp _ f1 ts1 _) t2@(TiApp _ f2 ts2 _)
   |f1 == f2 = substUnion =<< sequenceA (zipWith (unify subst) ts1 ts2)
   |otherwise =  (Partial subst [(t1,t2)])
   where
     substUnion [] = return subst
     substUnion [x] = return x
     substUnion (x:xs) = substUnion2 x =<< substUnion xs
-unify subst t1@(TiApp _ _ _) (TiVar v) =
+unify subst t1@(TiApp _ _ _ _) (TiVar v) =
   Unify.insert subst v t1
-unify subst t1@(TiApp _ _ _) t2@(TiConst _) =  (Partial subst [(t1,t2)])
-unify subst t1@(TiApp _ _ _) t2@(TiConstTy _) =  (Partial subst [(t1,t2)])
+unify subst t1@(TiApp _ _ _ _) t2@(TiConst _) =  (Partial subst [(t1,t2)])
+unify subst t1@(TiApp _ _ _ _) t2@(TiConstTy _) =  (Partial subst [(t1,t2)])
 
 substUnion2 :: Subst -> Subst -> PartialUnifer Subst
 substUnion2 (Subst []) subst  = return subst
@@ -65,15 +66,15 @@ occursCheck (Subst s) t1@(TiVar v1) (TiVar v2) =
     case Data.List.lookup v2 s of
       Nothing -> False
       Just t2 -> occursCheck (Subst s) t1 t2
-occursCheck subst t1@(TiVar _) (TiApp _ _ args) =
+occursCheck subst t1@(TiVar _) (TiApp _ _ args _) =
   any (\x -> occursCheck subst t1 x) args
 occursCheck _ _ _ = False
 
 
 termToTermList :: TermIndex Int -> [TermIndex Int]
-termToTermList (TiApp _ Seq terms) = termsToTermList terms
-termToTermList (TiApp i (UserDefined nm) terms) = (TiApp i (UserDefined nm) [(head terms)]):(termsToTermList (tail terms))
-termToTermList (TiApp i (Block nm) terms) = (TiApp i (Block nm) []):(termsToTermList terms)
+termToTermList (TiApp _ Seq terms _) = termsToTermList terms
+termToTermList (TiApp i (UserDefined nm) terms ins) = (TiApp i (UserDefined nm) [(head terms)] ins):(termsToTermList (tail terms))
+termToTermList (TiApp i (Block nm) terms ins) = (TiApp i (Block nm) [] ins):(termsToTermList terms)
 termToTermList term = [term]
 
 termsToTermList :: [TermIndex Int] -> [TermIndex Int]
@@ -81,7 +82,7 @@ termsToTermList [] = []
 termsToTermList (x:xs) = (termToTermList x) ++ (termsToTermList xs)
 
 lookupTermIndex :: Int -> TermIndex Int -> Maybe (TermIndex Int)
-lookupTermIndex idx t@(TiApp i _ terms) =
+lookupTermIndex idx t@(TiApp i _ terms _) =
   if idx == i then Just t else lookupTermIndexs idx terms
 lookupTermIndex idx _ = Nothing
 
@@ -96,19 +97,22 @@ getTermIndex :: TermIndex Int -> Int
 getTermIndex (TiVar _) = -1
 getTermIndex (TiConst _) = -1
 getTermIndex (TiConstTy _) = -1
-getTermIndex (TiApp i _ _) = i
+getTermIndex (TiApp i _ _ _) = i
 
-noRepeat :: Eq a => [a] -> Bool
-noRepeat [] = True
-noRepeat (h:t) =
-  h `notElem` t && noRepeat t
+-- noRepeat :: Eq a => [a] -> Bool
+uniq :: Eq a => [a] -> [a]
+uniq [] = []
+uniq (x:xs) = (if x `elem` xs then id else (x:)) $ uniq xs
+
+
+noRepeat lst = if length lst == length (uniq lst) then True else error ((show (lst)) ++ (show ( (uniq lst))))
 
 renaming :: TermIndex Int -> TermIndex Int
 renaming (TiVar nm) = TiVar (mkName "x")
 renaming (TiConst (LocalReference add _)) = TiConst (LocalReference add (mkName "x"))
 renaming t@(TiConst _) = t
 renaming t@(TiConstTy _) = t
-renaming (TiApp i appfun terms) = TiApp i appfun (map renaming terms)
+renaming (TiApp i appfun terms ins) = TiApp i appfun (map renaming terms) ins
 
 renaming_text ::  String -> TermIndex Int -> TermIndex Int
 renaming_text s (TiVar nm) =
@@ -121,7 +125,7 @@ renaming_text s (TiConst (LocalReference add nm1)) =
     _ -> error "renaming_text @155"
 renaming_text _ t@(TiConst _)= t
 renaming_text _ t@(TiConstTy _)= t
-renaming_text s (TiApp i appfun terms) = TiApp i appfun (map (renaming_text s) terms)
+renaming_text s (TiApp i appfun terms ins) = TiApp i appfun (map (renaming_text s) terms) ins
 
 -- substitution :: TermIndex Int -> Subst -> TermIndex Int
 substitution (TiVar nm) (Subst s) =
@@ -135,14 +139,14 @@ substitution (TiVar nm) (Subst s) =
 substitution t@(TiConst (LocalReference add nm1)) subs =
   case (substitution (TiVar nm1) subs) of
     (TiVar nm') ->  (TiConst (LocalReference add nm'))
-    otherwise -> error "error @ substitution LocalReference"
+    a -> a
 substitution t@(TiConst _) _ = t
 substitution t@(TiConstTy _) _ = t
-substitution (TiApp i appfun terms) subs = TiApp i appfun (map (\x-> substitution x subs) terms)
+substitution (TiApp i appfun terms ins) subs = TiApp i appfun (map (\x-> substitution x subs) terms) ins
 
 findmatch :: TermIndex Int -> [TermIndex Int] -> [TermIndex Int]
 findmatch x [] = []
-findmatch x (h:t) = if (termIndexToTerm x) == (termIndexToTerm h) then h:(findmatch x t) else findmatch x t
+findmatch x (h:t) = if eqTermIndex x h then h:(findmatch x t) else findmatch x t
 
 updateAccumulater :: Int -> [Int] -> [(Int, Int)] -> [(Int, Int)]
 updateAccumulater i [] acc = acc
@@ -174,7 +178,7 @@ termIndexToTerm :: TermIndex Int -> Term
 termIndexToTerm (TiVar nm) = Var nm
 termIndexToTerm (TiConst c) = Const c
 termIndexToTerm (TiConstTy c) = ConstTy c
-termIndexToTerm (TiApp _ appf lst) = App appf (map termIndexToTerm lst)
+termIndexToTerm (TiApp _ appf lst ins) = App appf (map termIndexToTerm lst) ins
 
 
 score :: TermIndex Int -> TermIndex Int -> [(Int, Int)] -> Subst -> [Integer]
@@ -186,7 +190,7 @@ score termid1 termid2 ((id1, id2):xs) subs =
   in
   case (maybe_t1, maybe_t2) of
     (Just t1, Just t2) -> (case (substitution t1 subs) of
-                              a -> if (termIndexToTerm a) == (termIndexToTerm t2) then (1:(score termid1 termid2 xs subs)) else (0:(score termid1 termid2 xs subs)))
+                              a -> if eqTermIndex a t2 then (1:(score termid1 termid2 xs subs)) else (0:(score termid1 termid2 xs subs)))
     otherwise -> error "something wrong @ 169"
 
 createMatching :: TermIndex Int -> TermIndex Int -> [(Int, Int)] -> Subst -> [(TermIndex Int, TermIndex Int)]
@@ -195,12 +199,12 @@ createMatching termid1 termid2 ((id1, id2):xs) subs =
   let
     maybe_t1 = lookupTermIndexs id1 (termToTermList termid1)
     maybe_t2 = lookupTermIndexs id2 (termToTermList termid2)
-    (Just maybe_t3) = if id1 == 0 then maybe_t1 else lookupTermIndexs (id1) (termToTermList termid1)
-    (Just maybe_t4) = if id2 == 0 then maybe_t2 else lookupTermIndexs (id2) (termToTermList termid2)
+    (Just maybe_t3) = lookupTermIndexs (id1) (termToTermList termid1)
+    (Just maybe_t4) = lookupTermIndexs (id2) (termToTermList termid2)
   in
   case (maybe_t1, maybe_t2) of
     (Just t1, Just t2) -> (case (substitution t1 subs) of
-                              a -> if (termIndexToTerm a) == (termIndexToTerm t2) then (maybe_t3,maybe_t4):(createMatching termid1 termid2 xs subs) else (createMatching termid1 termid2 xs subs))
+                              a -> if eqTermIndex a t2 then (maybe_t3,maybe_t4):(createMatching termid1 termid2 xs subs) else (createMatching termid1 termid2 xs subs))
     otherwise -> error "something wrong @ createMatching"
 
 calUpperBound :: TermIndex Int -> TermIndex Int -> [(Int, Int)] -> Subst -> Integer
@@ -219,9 +223,9 @@ calculateScore termid1 termid2 matching subs =
     matching_fst = map fst matching
     matching_snd = map snd matching
   in
-  if (noRepeat matching_fst) && (noRepeat matching_snd)
-  then ((createMatching termid1 termid2 matching subs), (product (score termid1 termid2 matching subs)) * (sum (score termid1 termid2 matching subs)))-- subs [])
-  else ([],0)
+  if (noRepeat matching_fst) && (noRepeat matching_snd) then
+   ((createMatching termid1 termid2 matching subs), (product (score termid1 termid2 matching subs)) * (sum (score termid1 termid2 matching subs)))-- subs [])
+  else error "repeat"
 
 buildGraph :: [TermIndex Int] -> [TermIndex Int] -> Graph -> Graph
 buildGraph [] _ acc = updateWeight acc []
@@ -251,7 +255,7 @@ maxWeight term1 term2 =
   let
     terms1 = termToTermList term1
     terms2 = termToTermList term2
-    g = buildGraph terms1 terms2 []
+    g = filterGraph (buildGraph terms1 terms2 [])
     v_left = nub (map fst (map fst g))
     v_right = nub (map snd (map fst g))
     coor = ((1,1), (length(v_left), length(v_right)))
@@ -261,6 +265,11 @@ maxWeight term1 term2 =
   in
     convertBack (fst weight_matching) v_left v_right
   where
+    filterGraph [] = []
+    filterGraph (((a, b), i):xs) =
+      case b of
+        TiConst (ConstantOperand (Undef _)) -> filterGraph xs
+        _ -> if (replaceHelper (show a) == replaceHelper (show b)) then ((a,b), (i+1)):(filterGraph xs) else ((a,b),i):(filterGraph xs)
     -- [[Int]]
     createMatrix [] _ _ = []
     createMatrix (x:xs) v_right gr =
@@ -279,57 +288,79 @@ maxWeight term1 term2 =
     convertBack ((il, ir):xs) vlst_l vlst_r =
       ((vlst_l!!(il-1)), (vlst_r)!!(ir-1)):(convertBack xs vlst_l vlst_r)
 
+eqTermIndex :: TermIndex Int -> TermIndex Int -> Bool
+eqTermIndex (TiVar nm) (TiVar nm1) = nm == nm1
+eqTermIndex (TiConst c) (TiConst c1) = c == c1
+eqTermIndex (TiConstTy c) (TiConstTy c1) = c == c1
+eqTermIndex (TiApp _ a t _) (TiApp _ a1 t1 _ ) =
+  a==a1 && (foldr (&&) True (zipWith eqTermIndex t t1))
 
 subsToMatching :: Subst -> TermIndex Int -> TermIndex Int -> [(Int, Int)]
 subsToMatching subs t1 t2  =
-  let
+  findSameTerms terms1 terms2 []
+  where
     terms1 = map (\x -> substitution x subs) (termToTermList t1)
     terms2 = termToTermList t2
-  in
-  findSameTerms terms1 terms2
-  where
-    findSameTerms :: [TermIndex Int] -> [TermIndex Int] -> [(Int, Int)]
-    findSameTerms [] _ = []
-    findSameTerms (h:rs) ts2 = (findSameTerm h ts2) ++ (findSameTerms rs ts2)
-    findSameTerm :: TermIndex Int -> [TermIndex Int] -> [(Int, Int)]
-    findSameTerm h [] = []
-    findSameTerm h (x:xs) =
-      if (termIndexToTerm h) == (termIndexToTerm x) then [(getTermIndex h, getTermIndex x)] else (findSameTerm h xs)
+    findSameTerms :: [TermIndex Int] -> [TermIndex Int] -> [(Int, Int)] ->[(Int, Int)]
+    findSameTerms [] _ acc = acc
+    findSameTerms (h:rs) ts2 acc =  findSameTerms rs ts2 (findSameTerm h ts2 acc)
+    findSameTerm :: TermIndex Int -> [TermIndex Int] -> [(Int, Int)] -> [(Int, Int)]
+    findSameTerm h [] acc = acc --error ("could not find getTermIndex || " ++ (show h) ++ (show (terms2!!43)))
+    findSameTerm h (x:xs) acc =
+      if eqTermIndex h x then
+        if (getTermIndex x) `elem` (map snd acc) then findSameTerm h xs acc else ((getTermIndex h, getTermIndex x):acc)
+      else (findSameTerm h xs acc)
 
 matchingToSubst :: WMatching -> Subst
 matchingToSubst matching =
   Subst (map (\(TiVar nm, term) -> (nm, term)) matching)
 
 test :: TermIndex Int
-test = TiApp 16 (Other (mkName "Load")) [TiApp 17 (Arguments 2) [TiVar (mkName "y4_left"),TiConst (LocalReference (PointerType {pointerReferent = IntegerType {typeBits = 32}, pointerAddrSpace = AddrSpace 0}) (mkName "y1_left"))]]
+test = TiApp 16 (Other (mkName "Load")) [TiApp 17 (Arguments 2) [TiVar (mkName "y4_left"),TiConst (LocalReference (PointerType {pointerReferent = IntegerType {typeBits = 32}, pointerAddrSpace = AddrSpace 0}) (mkName "y1_left"))] Nothing] Nothing
 
 test3 :: TermIndex Int
-test3 = TiApp 16 (Other (mkName "Load")) [TiApp 17 (Arguments 2) [TiVar (mkName "y4_right"),TiConst (LocalReference (PointerType {pointerReferent = IntegerType {typeBits = 32}, pointerAddrSpace = AddrSpace 0}) (mkName "y3_right"))]]
+test3 = TiApp 16 (Other (mkName "Load")) [TiApp 17 (Arguments 2) [TiVar (mkName "y4_right"),TiConst (LocalReference (PointerType {pointerReferent = IntegerType {typeBits = 32}, pointerAddrSpace = AddrSpace 0}) (mkName "y3_right"))] Nothing] Nothing
 
 test2 = Subst [((mkName "y4_left"),TiVar (mkName "y4_right")),((mkName "y3_left"),TiVar (mkName "y1_right")),((mkName "y2_left"),TiVar (mkName "y2_right")),((mkName "y1_left"),TiVar (mkName "y3_right"))]
 
 
-ppLineNumber :: String -> String -> [(TermIndex Int, TermIndex Int)] -> [(Int, Int)]
-ppLineNumber str1 str2 [] = []
-ppLineNumber str1 str2 ((t1, t2):rest) =
+
+ppLineNumber :: String -> String -> [(TermIndex Int, TermIndex Int)] -> [(Int, Int)] -> [(Int, Int)]
+ppLineNumber str1 str2 [] acc = acc
+ppLineNumber str1 str2 ((t1, t2):rest) acc=
   let
   lines1 = map show (map remove_space (endBy "\n" str1))
   lines2 = map show (map remove_space (endBy "\n" str2))
-  ins1 = transTermIndextoInstruction (replaceNameLR t1)
-  ins2 = transTermIndextoInstruction (replaceNameLR t2)
+  ins1 = transOriginaltoInstruc (transTermIndextoOriginal t1)
+  ins2 = transOriginaltoInstruc (transTermIndextoOriginal t2)
   in
   case (ins1, ins2) of
     (Just p1, Just p2) ->
+        if (is_Call t1 || is_Call t2) then (ppLineNumber str1 str2 rest acc) else
         let
           ppt1 = remove_space (show (unpack (ppll p1)))--(reverse (remove_redundent (reverse pt1) 0 7 0))
           ppt2 = remove_space (show (unpack (ppll p2)))--(reverse (remove_redundent (reverse pt2) 0 7 0))
         in
         case (elemIndex ppt1 lines1, elemIndex ppt2 lines2) of
-          (Just i1, Just i2) -> (i1,i2):(ppLineNumber str1 str2 rest)
+          (Just i1, Just i2) ->
+                let
+                  ilst1 = findElemIndex ppt1 lines1 0
+                  ilst2 = findElemIndex ppt2 lines2 0
+                in
+                (ppLineNumber str1 str2 rest (updateLineAcc acc ilst1 ilst2 0))
+          (Nothing, Nothing) -> case (elemIndex (remove_space (show ((unpack (ppll p1))++",i321"))) lines1, elemIndex (remove_space (show ((unpack (ppll p2))++",i321"))) lines2) of
+                                  (Just i1, Just i2) ->
+                                        let
+                                          ilst1 = findElemIndex (remove_space (show ((unpack (ppll p1))++",i321"))) lines1 0
+                                          ilst2 = findElemIndex (remove_space (show ((unpack (ppll p2))++",i321"))) lines2 0
+                                        in
+                                        (ppLineNumber str1 str2 rest (updateLineAcc acc ilst1 ilst2 0))
+                                  _ -> (ppLineNumber str1 str2 rest acc)
+                                  -- a -> error ("-------"++ (remove_space (show ((unpack (ppll p1))++",i321")))++(lines1!!26))
           a -> error ((show (lines1))++"|"++ppt1++"|"++ppt2++(show a))
     (Nothing, Nothing) -> (
-        let ins11 = transTermIndextoTerminator t1
-            ins22 = transTermIndextoTerminator t2
+        let ins11 = transOriginaltoTermi (transTermIndextoOriginal t1)
+            ins22 = transOriginaltoTermi (transTermIndextoOriginal t2)
         in case (ins11, ins22) of
             (Just p11, Just p22) ->
               let
@@ -337,11 +368,30 @@ ppLineNumber str1 str2 ((t1, t2):rest) =
                 ppt2 = remove_space (show (unpack (ppll p22)))--(reverse (remove_redundent (reverse pt2) 0 7 0))
               in
               case (elemIndex ppt1 lines1, elemIndex ppt2 lines2) of
-                (Just i1, Just i2) -> (i1,i2):(ppLineNumber str1 str2 rest)
+                (Just i1, Just i2) ->
+                  let
+                    ilst1 = findElemIndex ppt1 lines1 0
+                    ilst2 = findElemIndex ppt2 lines2 0
+                  in
+                  (ppLineNumber str1 str2 rest (updateLineAcc acc ilst1 ilst2 0))
+                (Nothing, Nothing) -> ppLineNumber str1 str2 rest acc
                 a -> error ((show (lines1))++"--"++ppt1++"--"++ppt2++(show a))
-            xy -> (ppLineNumber str1 str2 rest)
+            xy -> (ppLineNumber str1 str2 rest acc)
                 )
-    otherwise -> (ppLineNumber str1 str2 rest)
+    otherwise -> (ppLineNumber str1 str2 rest acc)
+    where
+      is_Call t1@(TiApp _ (Other nm) _ _) = nm == (mkName "Call") || nm == (mkName "GetElementPtr")
+      is_Call _ = False
+      updateLineAcc acc [] lst2 _ = acc--error ("extra matching???"++(show lst2))
+      updateLineAcc acc (x:xs) lst2 i =
+        let fstacc = map fst acc in
+        if x `elem` fstacc then updateLineAcc acc xs lst2 (i+1)
+        else (x,lst2!!i):acc
+
+
+findElemIndex x [] _= []
+findElemIndex x (h:t) i =
+  if x == h then i:(findElemIndex x t (i+1)) else findElemIndex x t (i+1)
 
 -- "Chunk \"%y4_left = load  i32, i32* %y1_left, align 4 \" Empty"
 
@@ -355,18 +405,23 @@ remove_space :: String -> String
 remove_space "" = ""
 remove_space (h:t) = if h == ' ' then remove_space t else h:(remove_space t)
 
+remove_star :: String -> String
+remove_star "" = ""
+remove_star (h:t) = if h == '*' then remove_star t else h:(remove_star t)
+
 
 replaceNameLR (TiVar nm) = TiVar (replaceHelper (show  nm))
 replaceNameLR (TiConst (LocalReference add tvar)) = TiConst (LocalReference add (replaceHelper (show tvar)))
 replaceNameLR t@(TiConst _) = t
 replaceNameLR t@(TiConstTy _) = t
-replaceNameLR (TiApp i appfun terms) = TiApp i appfun (map replaceNameLR terms)
+replaceNameLR (TiApp i appfun terms ins) = TiApp i appfun (map replaceNameLR terms) ins
 
 replaceHelper st =
   let st1 = sReplace "Name \"" "" st
       st2 = sReplace "_left\"" "" st1
       st3 = sReplace "_right\"" "" st2
-  in mkName st3
+      st4 = sReplace "\"" "" st3
+  in mkName st4
 
 
 {-

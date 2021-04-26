@@ -12,7 +12,7 @@ declare ccc i64 @newSpark$def(i8*, i8*)
 !5 = !{!"base", !1}
 
 %sPk_closure_struct = type <{i64, i64}>
-@sPk_closure$def = internal global %sPk_closure_struct<{i64 ptrtoint (i8* @integerzmwiredzmin_GHCziIntegerziType_Szh_con_info to i64), i64 1}>
+@sPk_closure$def = internal global %sPk_closure_struct<{i64 ptrtoint (i8* @integerzmwiredzmin_GHCziIntegerziType_Szh_con_info to i64), i64 2}>
 @sPk_closure = internal alias i8, bitcast (%sPk_closure_struct* @sPk_closure$def to i8*)
 %_uPu_srt_struct = type <{i64, i64, i64, i64, i64}>
 %Main_main_closure_struct = type <{i64, i64, i64, i64}>
@@ -23,22 +23,7 @@ declare ccc i64 @newSpark$def(i8*, i8*)
 @Main_main_info = alias i8, bitcast (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i8*)
 define ghccc void @Main_main_info$def(i64* noalias nocapture %Base_Arg, i64* noalias nocapture %Sp_Arg, i64* noalias nocapture %Hp_Arg, i64 %R1_Arg, i64 %R2_Arg, i64 %R3_Arg, i64 %R4_Arg, i64 %R5_Arg, i64 %R6_Arg, i64 %SpLim_Arg) align 8 nounwind prefix <{i64, i32, i32}><{i64 0, i32 21, i32 add (i32 trunc (i64 sub (i64 ptrtoint (%_uPu_srt_struct* @_uPu_srt$def to i64),i64 ptrtoint (void (i64*, i64*, i64*, i64, i64, i64, i64, i64, i64, i64)* @Main_main_info$def to i64)) to i32),i32 0)}>
 {
-nPv:
-  %lrgc = alloca i64, i32 1
-  %R3_Var = alloca i64, i32 1
-  store i64 undef, i64* %R3_Var
-  %R4_Var = alloca i64, i32 1
-  store i64 undef, i64* %R4_Var
-  %R5_Var = alloca i64, i32 1
-  store i64 undef, i64* %R5_Var
-  %R6_Var = alloca i64, i32 1
-  store i64 undef, i64* %R6_Var
-  %F1_Var = alloca float, i32 1
-  store float undef, float* %F1_Var
-  %D1_Var = alloca double, i32 1
-  store double undef, double* %D1_Var
-  %F2_Var = alloca float, i32 1
-  store float undef, float* %F2_Var
+nPv: 
   %D2_Var = alloca double, i32 1
   store double undef, double* %D2_Var
   %F3_Var = alloca float, i32 1
@@ -64,6 +49,21 @@ nPv:
   store i64 %R1_Arg, i64* %R1_Var
   %Sp_Var = alloca i64*, i32 1
   store i64* %Sp_Arg, i64** %Sp_Var
+  %lrgc = alloca i64, i32 1
+  %R3_Var = alloca i64, i32 1
+  store i64 undef, i64* %R3_Var
+  %R4_Var = alloca i64, i32 1
+  store i64 undef, i64* %R4_Var
+  %R5_Var = alloca i64, i32 1
+  store i64 undef, i64* %R5_Var
+  %R6_Var = alloca i64, i32 1
+  store i64 undef, i64* %R6_Var
+  %F1_Var = alloca float, i32 1
+  store float undef, float* %F1_Var
+  %D1_Var = alloca double, i32 1
+  store double undef, double* %D1_Var
+  %F2_Var = alloca float, i32 1
+  store float undef, float* %F2_Var
   br label %cPr
 cPr:
   %lnPw = load i64, i64* %R1_Var

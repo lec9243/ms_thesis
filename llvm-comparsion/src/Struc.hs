@@ -4,13 +4,20 @@
 
 module Struc where      --Define Data Structure
 import LLVM.AST
+import LLVM.AST.Instruction
 --import LLVM.AST.Constant as CON
 
 
 data Term = Var LLVM.AST.Name
           | Const Operand
           | ConstTy Type
-          | App AppFunction [Term] deriving (Eq, Show)
+          | App AppFunction [Term] (Maybe OriginalAST) deriving (Eq, Show, Read)
+data OriginalAST = Ins (Named Instruction)
+                 | Tem (Named Terminator)
+                 | NoOriginal
+                 -- | Fun LLVM.AST.Global
+                 -- | BB LLVM.AST.BasicBlock
+                 deriving (Eq, Show, Read)
 data AppFunction = Seq
                  | UserDefined LLVM.AST.Name
                  | Other LLVM.AST.Name
@@ -21,7 +28,7 @@ data AppFunction = Seq
 data TermIndex i = TiVar LLVM.AST.Name
                  | TiConst Operand
                  | TiConstTy Type
-                 | TiApp i AppFunction [TermIndex i] deriving (Eq, Show, Functor, Traversable, Foldable, Read)
+                 | TiApp i AppFunction [TermIndex i] (Maybe OriginalAST) deriving (Eq, Show, Functor, Traversable, Foldable, Read)
 
 -- type A = TermIndex Int
 -- type B = TermIndex Int
@@ -73,7 +80,7 @@ getArity (Arguments _) = Nothing
 checkTermArity :: Term -> Bool
 checkTermArity (Var _) = True
 checkTermArity (Const _) = True
-checkTermArity (App a lst) =
+checkTermArity (App a lst _) =
   (case (getArity a) of
     Nothing -> True
     Just n -> n == length(lst)) && (all checkTermArity lst)
