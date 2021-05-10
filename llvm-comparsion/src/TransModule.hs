@@ -75,13 +75,15 @@ transAssignInstrucToTerm nm instruc =
     IN.PtrToInt (LocalReference _ vnm) _ _-> (App (Other (mkName "PtrToInt")) [App (Arguments 2) [(Var nm), (Var vnm)] Nothing] (Just (Ins (nm := instruc))))
     IN.Sub _ _ (LocalReference _ vnm) cons _ -> (App (Other (mkName "Sub")) [App (Arguments 3) [(Var nm), (Var vnm),(Const cons)] Nothing] (Just (Ins (nm := instruc))))
     IN.Add _ _ (LocalReference _ vnm) cons _ -> (App (Other (mkName "Add")) [App (Arguments 3) [(Var nm), (Var vnm),(Const cons)] Nothing] (Just (Ins (nm := instruc))))
+    IN.Or (LocalReference _ vnm) cons _ -> (App (Other (mkName "Or")) [App (Arguments 3) [(Var nm), (Var vnm),(Const cons)] Nothing] (Just (Ins (nm := instruc))))
+    IN.And (LocalReference _ vnm) cons _ -> (App (Other (mkName "And")) [App (Arguments 3) [(Var nm), (Var vnm),(Const cons)] Nothing] (Just (Ins (nm := instruc))))
     IN.ICmp _ (LocalReference _ vnm) cons _ -> (App (Other (mkName "ICmp")) [App (Arguments 3) [(Var nm), (Var vnm),(Const cons)] Nothing] (Just (Ins (nm := instruc))))
     Call _ _ _ _ _ _ _ -> (App (Other (mkName "Call")) [] (Just (Ins (nm := instruc))))
     IN.IntToPtr (LocalReference _ vnm) _ _ -> (App (Other (mkName "IntToPtr")) [App (Arguments 2) [(Var nm), (Var vnm)] Nothing] (Just (Ins (nm := instruc))))
     IN.BitCast (LocalReference _ vnm) _ _ -> (App (Other (mkName "BitCast")) [App (Arguments 2) [(Var nm), (Var vnm)] Nothing] (Just (Ins (nm := instruc))))
     IN.BitCast (ConstantOperand (GlobalReference _ vnm)) _ _ ->
           (App (Other (mkName "BitCast")) [App (Arguments 2) [(Var nm), (Var vnm)] Nothing] (Just (Ins (nm := instruc))))
-    a -> error (show a)
+    a -> (App (Other (mkName "Nothing")) [] Nothing)
 
 transDoInstrucToTerm :: Instruction -> Term
 transDoInstrucToTerm instruc =
@@ -109,6 +111,7 @@ transBBTerminatorToTerm terminator =
     Do (Ret _ _) -> App (Other (mkName "Ret")) [] (Just (Tem terminator))
     Do (Br nm _) -> App (Other (mkName "Br")) [App (Arguments 1) [Var nm] Nothing] (Just (Tem terminator))
     Do (CondBr (LocalReference _ vnm) vnm1 vnm2 _) -> App (Other (mkName "CondBr")) [App (Arguments 3) [(Var vnm), (Var vnm1), (Var vnm2)] Nothing] (Just (Tem terminator))
+    Do (Switch _ _ _ _) -> App (Other (mkName "Switch")) [] (Just (Tem terminator))
     a -> error ("!!!!!!!!!!!!!!!!!!!!!!!"++(show a))
 -- transTermstoTermIndex :: [Term] -> Int -> [TermIndex Int]
 -- transTermstoTermIndex [] _ = []

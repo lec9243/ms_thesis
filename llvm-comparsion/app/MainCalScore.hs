@@ -64,7 +64,9 @@ main = do
   print (calUpperBound (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) upp subs)
   putStrLn ".....Lowerbound......"
   print (snd (calculateScore (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) lower subs))
-  TIO.writeFile "matchedTerms.txt" (T.pack (show (fst (calculateScore (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) upp subs))))
+  -- putStrLn ".....WriteFile......"
+  -- TIO.writeFile "matchedTerms.txt" (T.pack (show (fst (calculateScore (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) lower subs))))
+  -- putStrLn ".....CreatedMatching......"
   let matched = fst (calculateScore (TiApp 0 Seq (concat (map termToTermList p1)) Nothing) (TiApp 0 Seq (concat (map termToTermList p2)) Nothing) lower subs)
   -- print (matched)
   putStrLn ".....Print Line Numer....."

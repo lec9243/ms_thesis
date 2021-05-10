@@ -115,14 +115,14 @@ renaming t@(TiConstTy _) = t
 renaming (TiApp i appfun terms ins) = TiApp i appfun (map renaming terms) ins
 
 renaming_text ::  String -> TermIndex Int -> TermIndex Int
-renaming_text s (TiVar nm) =
+renaming_text s t@(TiVar nm) =
   case (nm, (mkName s)) of
     (Name a, Name b) -> TiVar (Name (a<>b))
-    _ -> error "renaming_text @151"
-renaming_text s (TiConst (LocalReference add nm1)) =
+    _ -> t
+renaming_text s t@(TiConst (LocalReference add nm1)) =
   case (nm1, (mkName s)) of
     (Name a, Name b) -> TiConst (LocalReference add (Name (a<>b)))
-    _ -> error "renaming_text @155"
+    _ -> t
 renaming_text _ t@(TiConst _)= t
 renaming_text _ t@(TiConstTy _)= t
 renaming_text s (TiApp i appfun terms ins) = TiApp i appfun (map (renaming_text s) terms) ins
@@ -158,13 +158,19 @@ findMatching (x:xs) t acc =
   let lst = map getTermIndex (findmatch x t) in
   findMatching xs t (updateAccumulater (getTermIndex x) lst acc)
 
+findMatchingupp :: [TermIndex Int] -> [TermIndex Int] -> [(Int, Int)] -> [(Int, Int)]
+findMatchingupp [] t acc = acc
+findMatchingupp (x:xs) t acc =
+  let lst = map getTermIndex (findmatch x t) in
+  if lst == [] then findMatchingupp xs t acc else findMatchingupp xs t ((getTermIndex x, (head lst)):acc)
+
 upperbound :: TermIndex Int -> TermIndex Int -> [(Int, Int)]
 upperbound t1 t2 =
   let
     t1' = termToTermList (renaming t1)
     t2' = termToTermList (renaming t2)
   in
-  findMatching t1' t2' []
+  findMatchingupp t1' t2' []
 
 lowerbound :: TermIndex Int -> TermIndex Int -> [(Int, Int)]
 lowerbound t1 t2 =
@@ -209,13 +215,14 @@ createMatching termid1 termid2 ((id1, id2):xs) subs =
 
 calUpperBound :: TermIndex Int -> TermIndex Int -> [(Int, Int)] -> Subst -> Integer
 calUpperBound termid1 termid2 matching subs =
-  let
-    matching_fst = map fst matching
-    matching_snd = map snd matching
-  in
-  if (noRepeat matching_fst) && (noRepeat matching_snd)
-  then (sum (score termid1 termid2 matching subs))
-  else 0
+  -- let
+  --   matching_fst = map fst matching
+  --   matching_snd = map snd matching
+  -- in
+  -- if (noRepeat matching_fst) && (noRepeat matching_snd)
+  -- (sum (score termid1 termid2 matching subs))
+  -- else 0
+  toInteger (length matching)
 
 calculateScore :: TermIndex Int -> TermIndex Int -> [(Int, Int)] -> Subst -> ([(TermIndex Int, TermIndex Int)],Integer)
 calculateScore termid1 termid2 matching subs =
@@ -261,6 +268,7 @@ maxWeight term1 term2 =
     coor = ((1,1), (length(v_left), length(v_right)))
     weight_matrix = minusMatrix (createMatrix v_left v_right g)
     uarray = listArray coor $ concat $ weight_matrix
+    -- weight_matching = error (show uarray)
     weight_matching = hungarianMethodInt uarray
   in
     convertBack (fst weight_matching) v_left v_right
@@ -294,6 +302,7 @@ eqTermIndex (TiConst c) (TiConst c1) = c == c1
 eqTermIndex (TiConstTy c) (TiConstTy c1) = c == c1
 eqTermIndex (TiApp _ a t _) (TiApp _ a1 t1 _ ) =
   a==a1 && (foldr (&&) True (zipWith eqTermIndex t t1))
+eqTermIndex _ _ = False
 
 subsToMatching :: Subst -> TermIndex Int -> TermIndex Int -> [(Int, Int)]
 subsToMatching subs t1 t2  =
@@ -357,7 +366,7 @@ ppLineNumber str1 str2 ((t1, t2):rest) acc=
                                         (ppLineNumber str1 str2 rest (updateLineAcc acc ilst1 ilst2 0))
                                   _ -> (ppLineNumber str1 str2 rest acc)
                                   -- a -> error ("-------"++ (remove_space (show ((unpack (ppll p1))++",i321")))++(lines1!!26))
-          a -> error ((show (lines1))++"|"++ppt1++"|"++ppt2++(show a))
+          a -> (ppLineNumber str1 str2 rest acc)--error ((show (lines1))++"|"++ppt1++"|"++ppt2++(show a))
     (Nothing, Nothing) -> (
         let ins11 = transOriginaltoTermi (transTermIndextoOriginal t1)
             ins22 = transOriginaltoTermi (transTermIndextoOriginal t2)

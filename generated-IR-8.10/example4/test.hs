@@ -1,4 +1,4 @@
 main = do
     putStrLn "Hello, what's your name?"
-    name <- getLine
-    putStrLn ("Hey " ++ name ++ ", you rock!")  
+    let x = 1
+    putStrLn ("Hey " ++ (show x) ++", you rock!")  

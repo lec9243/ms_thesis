@@ -16,6 +16,7 @@ import TransModule
 import Reorder
 import PPprogram
 import Paths_llvm_comparsion
+import Data.Time
 
 main :: IO ()
 main = do
@@ -96,18 +97,30 @@ parseLLVM src1 src2 str1 str2 = do
   --   Successful s ->   TIO.writeFile "subst.txt" (T.pack (show s))
   --   Partial s _ -> TIO.writeFile "subst.txt" (T.pack (show s))
   putStrLn "Loading bound..........."
+  ct <- getCurrentTime
+  print (ct)
   TIO.writeFile "upper.txt" (T.pack (show (upperbound (TiApp 0 Seq (concat (map termToTermList term1)) Nothing) (TiApp 0 Seq (concat (map termToTermList term2)) Nothing))))
   TIO.writeFile "lower.txt" (T.pack (show (lowerbound (TiApp 0 Seq (concat (map termToTermList term2)) Nothing) (TiApp 0 Seq (concat (map termToTermList term2)) Nothing))))
   putStrLn "Loading graph..........."
+  ct <- getCurrentTime
+  print (ct)
   TIO.writeFile "new_graph.txt" (T.pack (show (buildGraph (concat terms1) (concat terms2) [])))
   putStrLn "Loading new subst..........."
+  ct <- getCurrentTime
+  print (ct)
   TIO.writeFile "new_subst.txt" (T.pack (show matchsub))
   putStrLn "Loading matching..........."
+  ct <- getCurrentTime
+  print (ct)
   TIO.writeFile "new_matching.txt" (T.pack (show (subsToMatching matchsub seq1 seq2)))
   -- TIO.writeFile "new_matching_list.txt" (T.pack (show ( ((maxWeight (TiApp 0 Seq (concat (map termToTermList term1)) Nothing) (TiApp 0 Seq (concat (map termToTermList term2)) Nothing))) )))
   putStrLn ".....Print matching Validation....."
+  ct <- getCurrentTime
+  print (ct)
   print (checkMatchingwithConst (maxWeight (TiApp 0 Seq (concat (map termToTermList term1)) Nothing) (TiApp 0 Seq (concat (map termToTermList term2)) Nothing)) (constrToConstrId constrs1) (constrToConstrId constrs2))
   putStrLn "...Complete..."
+  ct <- getCurrentTime
+  print (ct)
   -- TIO.writeFile "data/return0/termIndex1.txt" (T.pack (show term1))
   -- TIO.writeFile "data/return0/maxMatching1.txt" (T.pack (show m))
   -- case (unify (Subst []) (head term1) (head term2)) of

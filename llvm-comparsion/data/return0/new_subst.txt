@@ -1,1 +1,1 @@
-Subst [(Name "y4_left",TiVar (Name "y4_right")),(Name "y3_left",TiVar (Name "y1_right")),(Name "y2_left",TiVar (Name "y2_right")),(Name "y1_left",TiVar (Name "y3_right"))]
+Subst [(Name "y4_left",TiVar (Name "y4_right")),(Name "y3_left",TiVar (Name "y3_right")),(Name "y2_left",TiVar (Name "y2_right")),(Name "y1_left",TiVar (Name "y1_right"))]

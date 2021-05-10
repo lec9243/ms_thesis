@@ -29,12 +29,15 @@ pti = mkName "PtrToInt"
 itp = mkName "IntToPtr"
 su = mkName "Sub"
 ad = mkName "Add"
+o = mkName "Or"
+an = mkName "And"
 ic = mkName "ICmp"
 bc = mkName "BitCast"
 
 ret = mkName "Ret"
 br = mkName "Br"
 condbr = mkName "CondBr"
+sw = mkName "Switch"
 
 buildConstraints :: [TermIndex Int] -> [Constraints]
 buildConstraints [] = []
@@ -45,13 +48,13 @@ findConstraints :: TermIndex Int -> [TermIndex Int] -> Constraints
 findConstraints x xs =
   case x of
     TiApp _ (Other nm) lst _ ->
-      if (nm == lo || nm == st || nm == al) then
+      if (nm == lo || nm == st || nm == al || nm == an || nm == su || nm == o || nm == ad || nm == ic || nm == gep || nm == bc || nm == pti || nm == itp) then
                       (let [TiApp _ _ (var:_) _] = lst
                            du_ = defUsed var xs
                            dd_ = defDef  var xs
                            es_ = escapeTerm xs
                        in Constraints x du_ dd_ es_)
-      else if (nm == ret) || (nm == br)  || (nm == condbr) then Constraints x [] [] xs
+      else if (nm == ret) || (nm == br)  || (nm == condbr) || (nm == sw) then Constraints x [] [] xs
       else Constraints x [] [] []
     otherwise -> Constraints x [] [] []
 
@@ -70,10 +73,10 @@ defUsed tvar (h:t) =
           [TiApp _ _ [_, (TiConst (LocalReference _ nm1))] _] ->
                   (if ((TiVar nm1) == tvar) then h:(defUsed tvar t) else defUsed tvar t)
          )
-      else if (nm == su || nm == ad || nm == gep || nm == ic) then
+      else if (nm == su || nm == ad || nm == gep || nm == ic || nm == an || nm == o) then
         let [TiApp _ _ [_, nm2, _] _] = lst in
         if tvar == nm2 then h:(defUsed tvar t) else defUsed tvar t
-      else if (nm == pti || nm == itp || nm == bc) then
+      else if (nm == pti || nm == itp || nm == bc || nm == sw) then
         let [TiApp _ _ [_, nm2] _] = lst in
         if tvar == nm2 then h:(defUsed tvar t) else defUsed tvar t
       else defUsed tvar t
@@ -89,10 +92,10 @@ defDef tvar (h:t) =
        else if nm == st then
          let [TiApp _ _ [tv1, _] _] = lst in
          if (tv1 == tvar) then h:(defDef tvar t) else defDef tvar t
-       else if (nm == su || nm == ad || nm == gep || nm == ic) then
+       else if (nm == su || nm == ad || nm == gep || nm == ic || nm == o || nm == an) then
          let [TiApp _ _ [nm1, _, _] _] = lst in
          if tvar == nm1 then h:(defDef tvar t) else defDef tvar t
-       else if (nm == pti || nm == itp || nm == bc) then
+       else if (nm == pti || nm == itp || nm == bc || nm == sw) then
          let [TiApp _ _ [nm1 ,_ ] _] = lst in
          if tvar == nm1 then h:(defDef tvar t) else defDef tvar t
        else defDef tvar t)

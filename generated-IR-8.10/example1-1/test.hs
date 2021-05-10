@@ -1,1 +1,1 @@
-main = print 1
+main = return ()

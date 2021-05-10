@@ -69,6 +69,7 @@ library
     , containers
     , bytestring
     , utf8-string
+    , time
   default-language: Haskell2010
 
 executable llvm-unify
@@ -90,6 +91,7 @@ executable llvm-unify
     , utf8-string
     , text
     , llvm-comparsion
+    , time
   default-language: Haskell2010
 
 executable llvm-calscore
@@ -111,6 +113,7 @@ executable llvm-calscore
     , utf8-string
     , text
     , llvm-comparsion
+    , time
   default-language: Haskell2010
 
 test-suite llvm-comparsion-test
